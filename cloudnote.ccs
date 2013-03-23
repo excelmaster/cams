@@ -1,0 +1,25 @@
+<Site id="0" language="PHPTemplates" name="cloudnote" siteLanguage="es" publishingType="Project" FTPpublishingType="Project" securityType="None" urlType="Absolute" useCCSCultureFormats="True" defaultDateFormat="ShortDate" LSEnableQueryString="True" LSQueryStringName="locale" LSEnableHTTPHeader="False" LSEnableSession="True" LSSessionName="locale" LSLanguageSessionName="lang" LSEnableCookie="False" LSCookieName="locale" LSCookieExpired="365" cachingMethod="None" useI18nFeatures="False" showDepreciatedStyles="Styles" useDynamicStyles="False" SSEnableQueryString="True" SSQueryStringName="style" SSEnableSession="True" SSSessionName="style" SSEnableCookie="False" SSCookieName="style" SSCookieExpired="365" htmlTemplateType="HTML" isSection508="True" createIdsForControls="True" createIdsForNonEditableControls="True" createLablesForControls="False" generateJS="True" useDynamicDesigns="True" DDEnableQueryString="True" DDQueryStringName="design" DDEnableSession="True" DDSessionName="design" DDEnableCookie="False" DDCookieName="design" DDCookieExpired="365" fileExtension=".php" improvedHTTPCaching="True" outputFileFormat="Windows" PHPVersion="5" userIDStoreMethod="Session" userIDVariable="UserID" userLoginVariable="UserLogin" groupIDVariable="GroupID" cookieVariable="UserInfo" automatedLogin="False" defaultHTMLEncoding="windows-1252" omitIfEmpty="True" separateEvents="False" designFolder="Designs" PHPEncodeExtension="iconv" FCKBasePath="ckeditor" ccsVersion="5.0.0.16254" useAmp="True" codeFileEncoding="windows-1252" ALLoginCookieName="cloudnoteLogin" ALCookieExpired="30" ALEncryptionKey="d66gjZXw82e1T53k" ALAutoProlong="False" ProtectPasswordsCodeExpression="md5({password})" ProtectPasswordsDBFunction="MD5({password})">
+	<Components>
+	</Components>
+	<Connections>
+	</Connections>
+	<CodeFiles>
+	</CodeFiles>
+	<Groups/>
+<Styles/>
+<CustomButtons/>
+<Profiles>
+<Profile name="Server1" FTPPassiveMode="True" FTPSecureConnection="False" FTPpublishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" FTPpublishingExceptMask="ccs;ccp" FTPpublishingType="Project" fileExtension=".php" location="Local" publishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" publishingExceptMask="ccs;ccp" publishingType="Project">
+<Connections/>
+</Profile>
+<Profile name="Server2" FTPPassiveMode="True" FTPSecureConnection="False" FTPpublishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" FTPpublishingExceptMask="ccs;ccp" FTPpublishingType="Project" fileExtension=".php" location="FTP" publishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" publishingExceptMask="ccs;ccp" publishingType="Project">
+<Connections/>
+</Profile>
+</Profiles>
+<Languages>
+<Language name="es" defaultCountry="ES" encoding="windows-1252">
+<LocaleInfo language="es" country="ES" encoding="windows-1252" msValue="3082" booleanFormat="1;0" decimalDigits="2" decimalSeparator="," groupSeparator="." monthNames="enero;febrero;marzo;abril;mayo;junio;julio;agosto;septiembre;octubre;noviembre;diciembre" monthShortNames="ene;feb;mar;abr;may;jun;jul;ago;sep;oct;nov;dic" weekdayNames="domingo;lunes;martes;miércoles;jueves;viernes;sábado" weekdayShortNames="dom;lun;mar;mié;jue;vie;sáb" shortDate="dd/mm/yyyy" longDate="dddd, dd \de mmmm \de yyyy" shortTime="H:nn" longTime="H:nn:ss" firstWeekDay="1" AMDesignator="" PMDesignator="" weekdayNarrowNames="D;L;M;M;J;V;S"/>
+</Language>
+</Languages>
+<Events/>
+</Site>
