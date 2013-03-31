@@ -1,14 +1,11 @@
 <?php
-
-include ("common.php");
-include ("functions.php");
-
-//BindEvents Method @1-DFB97425
+//BindEvents Method @1-DA3936AB
 function BindEvents()
 {
     global $Login1;
     global $CCSEvents;
     $Login1->Button_DoLogin->CCSEvents["OnClick"] = "Login1_Button_DoLogin_OnClick";
+    $CCSEvents["BeforeShow"] = "Page_BeforeShow";
 }
 //End BindEvents Method
 
@@ -40,37 +37,46 @@ function Login1_Button_DoLogin_OnClick(& $sender)
             CCSetALCookie($ALLogin, $ALPassword);
         }
         $Redirect = CCGetParam("ret_link", $Redirect);
-        print $redirect;
-        //$redirect = CCGetSession("GroupID" );
         $Login1_Button_DoLogin_OnClick = 1;
     }
 //End Login
+
+//Custom Code @14-2A29BDB7
+// -------------------------
+    $db = new clsDBlocal_cams();
+			$grupo = CCGetGroupID();
+			$SQL = "select group_init.pageRedirect from group_init where group_init.grupo = " . $grupo; 
+			$db->query($SQL);
+			$Result = $db->next_record();
+			$redirect = $Result;
+			echo $result;
+// -------------------------
+//End Custom Code
 
 //Close Login1_Button_DoLogin_OnClick @3-53D741FA
     return $Login1_Button_DoLogin_OnClick;
 }
 //End Close Login1_Button_DoLogin_OnClick
 
-//Page_OnCache @1-0CD0E5FC
-function Page_OnCache(& $sender)
+//Page_BeforeShow @1-AB59B658
+function Page_BeforeShow(& $sender)
 {
-    $Page_OnCache = true;
+    $Page_BeforeShow = true;
     $Component = & $sender;
     $Container = & CCGetParentContainer($sender);
     global $login; //Compatibility
-//End Page_OnCache
+//End Page_BeforeShow
 
 //Custom Code @13-2A29BDB7
 // -------------------------
-    // page custom redirection.
-
+    // Write your own code here.
 // -------------------------
 //End Custom Code
 
-//Close Page_OnCache @1-5166E716
-    return $Page_OnCache;
+//Close Page_BeforeShow @1-4BC230CD
+    return $Page_BeforeShow;
 }
-//End Close Page_OnCache
+//End Close Page_BeforeShow
 
 
 ?>

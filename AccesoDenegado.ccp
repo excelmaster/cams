@@ -9,12 +9,6 @@
 		</Panel>
 		<Panel id="3" visible="True" name="Content" contentPlaceholder="Content">
 			<Components>
-				<Image id="7" visible="Yes" fieldSourceType="DBColumn" dataType="Text" name="Image1" wizardTheme="None" wizardThemeType="File" wizardThemeVersion="3.0" PathID="ContentImage1">
-					<Components/>
-					<Events/>
-					<Attributes/>
-					<Features/>
-				</Image>
 			</Components>
 			<Events/>
 			<Attributes/>

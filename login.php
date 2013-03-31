@@ -118,7 +118,7 @@ class clsRecordLogin1 { //Login1 Class @2-621CEC6C
     }
 //End CheckErrors Method
 
-//Operation Method @2-5321B7A2
+//Operation Method @2-5AC4CFBE
     function Operation()
     {
         if(!$this->Visible)
@@ -140,7 +140,6 @@ class clsRecordLogin1 { //Login1 Class @2-621CEC6C
         $Redirect = $FileName;
         if($this->Validate()) {
             if($this->PressedButton == "Button_DoLogin") {
-                $Redirect = "NewPage1.php";
                 if(!CCGetEvent($this->Button_DoLogin->CCSEvents, "OnClick", $this->Button_DoLogin)) {
                     $Redirect = "";
                 }

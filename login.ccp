@@ -10,13 +10,14 @@
 			<Components>
 				<Record id="2" sourceType="Table" urlType="Relative" secured="False" allowInsert="False" allowUpdate="False" allowDelete="False" validateData="True" preserveParameters="None" returnValueType="Number" returnValueTypeForDelete="Number" returnValueTypeForInsert="Number" returnValueTypeForUpdate="Number" name="Login1" wizardCaption="Login" wizardTheme="Black" wizardOrientation="Vertical" wizardFormMethod="post" wizardRememberMe="True" wizardFocusOnLogin="True" buttonsType="image" wizardTypeComponent="Authentication" recordDirection="Vertical" templatePageRecord="C:/Archivos de programa/CodeChargeStudio5/Templates/Authentication/Horizontal.ccp|ccsTemplate" wizardThemeApplyTo="Component" recordAddTemplatePanel="False" changedCaptionLogin="False" PathID="ContentLogin1" wizardThemeVersion="3.0">
 					<Components>
-						<Button id="3" urlType="Relative" enableValidation="True" isDefault="False" name="Button_DoLogin" wizardTheme="Black" wizardCaption="Login" parentName="Login1" wizardThemeItem="FooterIMG" wizardButtonImage="ButtonLoginOn" PathID="ContentLogin1Button_DoLogin" wizardThemeVersion="3.0" returnPage="NewPage1.ccp">
+						<Button id="3" urlType="Relative" enableValidation="True" isDefault="False" name="Button_DoLogin" wizardTheme="Black" wizardCaption="Login" parentName="Login1" wizardThemeItem="FooterIMG" wizardButtonImage="ButtonLoginOn" PathID="ContentLogin1Button_DoLogin" wizardThemeVersion="3.0">
 							<Components/>
 							<Events>
 								<Event name="OnClick" type="Server">
 									<Actions>
 										<Action actionName="Login" actionCategory="Security" id="6" redirectToPreviousPage="True" loginParameter="login" passwordParameter="password" autoLoginParameter="autoLogin"/>
-									</Actions>
+										<Action actionName="Custom Code" actionCategory="General" id="14"/>
+</Actions>
 								</Event>
 							</Events>
 							<Attributes/>
@@ -95,7 +96,7 @@
 				<Action actionName="Set Focus" actionCategory="General" id="8" form="Login1" name="login"/>
 			</Actions>
 		</Event>
-		<Event name="OnCache" type="Server">
+		<Event name="BeforeShow" type="Server">
 <Actions>
 <Action actionName="Custom Code" actionCategory="General" id="13"/>
 </Actions>

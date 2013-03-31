@@ -24,7 +24,7 @@ class clsVerticalMenu { //VerticalMenu class @1-4B8F1AB5
     public $TemplateSource;
 //End Variables
 
-//Class_Initialize Event @1-C23A7043
+//Class_Initialize Event @1-66915513
     function clsVerticalMenu($RelativePath, $ComponentName, & $Parent)
     {
         global $CCSLocales;
@@ -37,7 +37,7 @@ class clsVerticalMenu { //VerticalMenu class @1-4B8F1AB5
         $this->Redirect = "";
         $this->TemplateFileName = "VerticalMenu.html";
         $this->BlockToParse = "main";
-        $this->TemplateEncoding = "UTF-8";
+        $this->TemplateEncoding = "CP1252";
         $this->ContentType = "text/html";
     }
 //End Class_Initialize Event

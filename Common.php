@@ -1848,13 +1848,24 @@ function CCSecurityRedirect($GroupsAccess, $URL)
         if($QueryString !== "")
             $ReturnPage .= "?" . $QueryString;
     }
+
     $ErrorType = CCSecurityAccessCheck($GroupsAccess);
+	
+	$db = new clsDBlocal_cams();
+			$grupo = CCGetGroupID();
+			$SQL = "select group_init.pageRedirect from group_init where group_init.grupo = " . $grupo; 
+			$db->query($SQL);
+			$Result = $db->next_record();
+			$ReturnPage = $Result;
+			echo $result;
+			
     if($ErrorType != "success")
     {
         if(!strlen($URL))
             $Link = ServerURL . "Login.php";
         else
-            $Link = $URL;
+            $Link = $URL;			
+			
         header("Location: " . $Link . "?ret_link=" . urlencode($ReturnPage) . "&type=" . $ErrorType);
         exit;
     }
@@ -2114,6 +2125,7 @@ function CCLogoutUser()
 // page custom redirection
 function redirect_page($grupo)
 {
+	$db = new clsDBlocal_cams();
     $SQL = "select group_init.pageRedirect from group_init where group_init.grupo = " . $grupo; 
     $db->query($SQL);
     $Result = $db->next_record();
