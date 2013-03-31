@@ -1,8 +1,13 @@
 <?php
-//BindEvents Method @1-C0634196
+
+include ("common.php");
+include ("functions.php");
+
+//BindEvents Method @1-DFB97425
 function BindEvents()
 {
     global $Login1;
+    global $CCSEvents;
     $Login1->Button_DoLogin->CCSEvents["OnClick"] = "Login1_Button_DoLogin_OnClick";
 }
 //End BindEvents Method
@@ -35,6 +40,8 @@ function Login1_Button_DoLogin_OnClick(& $sender)
             CCSetALCookie($ALLogin, $ALPassword);
         }
         $Redirect = CCGetParam("ret_link", $Redirect);
+        print $redirect;
+        //$redirect = CCGetSession("GroupID" );
         $Login1_Button_DoLogin_OnClick = 1;
     }
 //End Login
@@ -43,6 +50,27 @@ function Login1_Button_DoLogin_OnClick(& $sender)
     return $Login1_Button_DoLogin_OnClick;
 }
 //End Close Login1_Button_DoLogin_OnClick
+
+//Page_OnCache @1-0CD0E5FC
+function Page_OnCache(& $sender)
+{
+    $Page_OnCache = true;
+    $Component = & $sender;
+    $Container = & CCGetParentContainer($sender);
+    global $login; //Compatibility
+//End Page_OnCache
+
+//Custom Code @13-2A29BDB7
+// -------------------------
+    // page custom redirection.
+
+// -------------------------
+//End Custom Code
+
+//Close Page_OnCache @1-5166E716
+    return $Page_OnCache;
+}
+//End Close Page_OnCache
 
 
 ?>

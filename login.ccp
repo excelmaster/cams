@@ -95,5 +95,10 @@
 				<Action actionName="Set Focus" actionCategory="General" id="8" form="Login1" name="login"/>
 			</Actions>
 		</Event>
-	</Events>
+		<Event name="OnCache" type="Server">
+<Actions>
+<Action actionName="Custom Code" actionCategory="General" id="13"/>
+</Actions>
+</Event>
+</Events>
 </Page>
