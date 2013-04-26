@@ -105,13 +105,13 @@ if ($Charset) {
 }
 //End Initialize Objects
 
-//Initialize HTML Template @1-7D7DF5BA
+//Initialize HTML Template @1-28BF1EE2
 $CCSEventResult = CCGetEvent($CCSEvents, "OnInitializeView", $MainPage);
 $Tpl = new clsTemplate($FileEncoding, $TemplateEncoding);
 if (strlen($TemplateSource)) {
-    $Tpl->LoadTemplateFromStr($TemplateSource, $BlockToParse, "CP1252");
+    $Tpl->LoadTemplateFromStr($TemplateSource, $BlockToParse, "CP1252", "replace");
 } else {
-    $Tpl->LoadTemplate(PathToCurrentPage . $TemplateFileName, $BlockToParse, "CP1252");
+    $Tpl->LoadTemplate(PathToCurrentPage . $TemplateFileName, $BlockToParse, "CP1252", "replace");
 }
 $Tpl->SetVar("CCS_PathToRoot", $PathToRoot);
 $Tpl->block_path = "/$BlockToParse";
@@ -130,7 +130,7 @@ if($Redirect)
 }
 //End Go to destination page
 
-//Show Page @1-B3738C97
+//Show Page @1-B67D901D
 $Link5->Show();
 $Link2->Show();
 $Link9->Show();
@@ -151,7 +151,7 @@ $Link15->Show();
 $Tpl->block_path = "";
 $Tpl->Parse($BlockToParse, false);
 if (!isset($main_block)) $main_block = $Tpl->GetVar($BlockToParse);
-$main_block = CCConvertEncoding($main_block, $FileEncoding, $TemplateEncoding);
+$main_block = CCConvertEncoding($main_block, $FileEncoding, $CCSLocales->GetFormatInfo("Encoding"));
 $CCSEventResult = CCGetEvent($CCSEvents, "BeforeOutput", $MainPage);
 if ($CCSEventResult) echo $main_block;
 //End Show Page

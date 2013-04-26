@@ -1,6 +1,6 @@
 <?php
 
-//Template class @0-2E5E619E
+//Template class @0-7118192D
 
 define("ccsParseAccumulate", true);
 define("ccsParseOverwrite", false);
@@ -89,7 +89,11 @@ class clsTemplate
     // preparing file content for parsing
     $file_content = preg_replace("/<!\-\-\s+BEGIN\s+([\w\s]*\w+)\s+\-\->/s",  $delimiter . $begin_block . $delimiter . "\\1" . $delimiter, $file_content);
     $file_content = preg_replace("/<!\-\-\s+END\s+([\w\s]*\w+)\s+\-\->/s",  $delimiter . $end_block . $delimiter . "\\1" . $delimiter, $file_content);
-    $file_content = preg_replace("/\\{res:\s*(\w+)\\}/ise", "CCConvertEncoding(\$CCSLocales->GetText('\\1'), \$FileEncoding, \$this->internal_encoding)", $file_content);
+    $file_content = preg_replace("/\\{res:\s*CCS_FormatInfo\\}/ise", "CCConvertEncoding(\$CCSLocales->GetText('CCS_FormatInfo'), \$FileEncoding, \$this->internal_encoding)", $file_content);
+    $OldFileEncoding = $FileEncoding;
+    $FileEncoding = $this->internal_encoding;
+    $file_content = preg_replace("/\\{res:\s*(\w+)\\}/ise", "\$CCSLocales->GetText('\\1')", $file_content);
+    $FileEncoding = $OldFileEncoding;
     $file_content = preg_replace("/\\{([a-z_]\w*(:\w+)?)\\}/is", $delimiter . $tag_sign . $delimiter . "\\1" . $delimiter, $file_content);
     $this->parse_array = explode($delimiter, $file_content);
     $this->position = 0;

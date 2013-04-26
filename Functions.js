@@ -1,4 +1,4 @@
-//JS Functions @0-953F6F28
+//JS Functions @0-89A37D48
 var isNN = (navigator.appName.indexOf("Netscape") != -1);
 //var isIE = (navigator.appName.indexOf("Microsoft") != -1);
 var isIE = !!(window.attachEvent && !window.opera);  // Internet Explorer
@@ -13,7 +13,7 @@ var disableValidation = false;
 // Date formatting functions begin ---------------------------------------------------
 
 
-var arrayLocaleInfo = "en|en|US|Yes;No;|2|.|,|January;February;March;April;May;June;July;August;September;October;November;December|Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec|Sunday;Monday;Tuesday;Wednesday;Thursday;Friday;Saturday|Sun;Mon;Tue;Wed;Thu;Fri;Sat|m/d/yyyy|dddd, mmmm dd, yyyy|h:nn tt|h:nn:ss tt|0|AM|PM".split("|");
+var arrayLocaleInfo = "{res:CCS_FormatInfo}".split("|");
 
 function getLocaleInfo(id)
 {
@@ -333,17 +333,17 @@ ccsInputMask - string
   if (typeof(control.ccsRequired) == "boolean" && control.ccsRequired)
     if (control.value == "")
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The value in field {0} is required.", control.ccsCaption));
+        parseParams("{res:CCS_RequiredField}", control.ccsCaption));
 
   if (typeof(control.ccsMinLength) == "number")
     if (control.value != "" && control.value.length < parseInt(control.ccsMinLength))
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The number of symbols in field {0} can't be less than {1}.", Array(control.ccsCaption,parseInt(control.ccsMinLength))));
+        parseParams("{res:CCS_MinimumLength}", Array(control.ccsCaption,parseInt(control.ccsMinLength))));
 
   if (typeof(control.ccsMaxLength) == "number")
     if (control.value != "" && control.value.length > parseInt(control.ccsMaxLength))
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The number of symbols in field {0} can't be greater than {1}.", Array(control.ccsCaption,parseInt(control.ccsMaxLength))));
+        parseParams("{res:CCS_MaximumLength}", Array(control.ccsCaption,parseInt(control.ccsMaxLength))));
 
   if (typeof(control.ccsInputMask) == "string")
   {
@@ -351,25 +351,25 @@ ccsInputMask - string
     var maskRE = new RegExp(stringToRegExp(mask).replace(/0/g,"\\d").replace(/L/g,"[A-Za-z]"), "i");
     if (control.value != "" && (control.value.search(maskRE) == -1))
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The value in field {0} is not valid.", control.ccsCaption));
+        parseParams("{res:CCS_IncorrectValue}", control.ccsCaption));
   }
 
   if (typeof(control.ccsRegExp) == "string")
     if (control.value != "" && (control.value.search(new RegExp(control.ccsRegExp, "i")) == -1))
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The value in field {0} is not valid.", control.ccsCaption));
+        parseParams("{res:CCS_IncorrectValue}", control.ccsCaption));
 
   if (typeof(control.ccsDateFormat) == "string")
   {
     if (control.value != "" && !checkDate(control.value, parseDateFormat(control.ccsDateFormat).join("")))
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The value in field {0} is not valid. Use the following format: {1}.", Array(control.ccsCaption, parseDateFormat(control.ccsDateFormat).join(""))));
+        parseParams("{res:CCS_IncorrectFormat}", Array(control.ccsCaption, parseDateFormat(control.ccsDateFormat).join(""))));
   }
 
   if (typeof(control.ccsValidator) == "function")
     if (!control.ccsValidator())
       return ccsShowError(control, customErrorMessage ? errorMessage :
-        parseParams("The value in field {0} is not valid.", control.ccsCaption));
+        parseParams("{res:CCS_IncorrectValue}", control.ccsCaption));
 
   return true;
 }

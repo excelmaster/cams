@@ -1,4 +1,4 @@
-//JS DatePicker @0-6DBDB6C3
+//JS DatePicker @0-3872491A
 
 var DateMasks = new Array(26);
     DateMasks["d"] = 0;
@@ -922,7 +922,7 @@ function buildDatePickerParts()
 
   if (DatePickerObject.themeVersion=="3.0")
   {
-    var translation_language = "en";
+    var translation_language = "{res:CCS_LanguageID}";
     var imgToday = DatePickerObject.themePath+"Images/"+translation_language+"/ButtonToday.gif";
     DatePickerEnd += "<tr class=Footer><form id=calTable name=calTable><td colspan=7><input type=image src="+imgToday+" name=today onClick=\"parent.opener.setToday()\"></td></form></tr>";
   }
@@ -938,7 +938,7 @@ function buildDatePickerParts()
       "<TABLE CELLPADDING=0 CELLSPACING=0 BORDER='0'>" + 
       (isNav?"":"<FORM NAME='calTable' onSubmit='return false;'>") +
       "<TD>" +
-      "<INPUT TYPE='button' CLASS='CalendarButton' NAME='today' VALUE='Today' onClick=\"parent.opener.setToday()\">" + 
+      "<INPUT TYPE='button' CLASS='CalendarButton' NAME='today' VALUE='{res:CCS_Today}' onClick=\"parent.opener.setToday()\">" + 
       "</TD>" + 
       (isNav?"":"</FORM>")+
       "</TABLE>" +

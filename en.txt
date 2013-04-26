@@ -1,3 +1,4 @@
+categorias_DirectoryForm=List of Categorias 
 CCS_AdvSearchAllWords=All Words
 CCS_AdvSearchAnyOfWords=Any Of Words
 CCS_AdvSearchConditionsCaption=Search For
@@ -109,4 +110,4 @@ CCS_UploadingError=An error occured when uploading file specified in {0}. Error 
 CCS_UploadingTempFolderError=An error occured when uploading file specified in {0} into temporary folder. Error description: {1}.
 CCS_WrongType=The file type specified in field {0} is not allowed.
 Directory_Form=Directory
-categorias_DirectoryForm=List of Categorias 
+CCS_LoginForm=Login

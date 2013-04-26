@@ -77,7 +77,8 @@
 		<Style id="1" name="Black" caption="Black"/>
 		<Style id="2" name="Blueprint" caption="Blueprint"/>
 		<Style id="9" name="Austere" caption="Austere"/>
-	</Styles>
+		<Style id="10" name="Compact" caption="Compact"/>
+</Styles>
 	<CustomButtons/>
 	<Profiles>
 		<Profile name="Server1" FTPPassiveMode="True" FTPSecureConnection="False" FTPpublishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" FTPpublishingExceptMask="ccs;ccp" FTPpublishingType="Project" fileExtension=".php" location="Local" publishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" publishingExceptMask="ccs;ccp" publishingType="Project" FTPFolder="" FTPLogin="" FTPPassword="" FTPServer="" FTPServerURL="" __specValue="" localServerPath="C:\AppServ\www\cams_dev" localServerURL="http://localhost/cams_dev">

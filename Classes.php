@@ -1669,7 +1669,7 @@ class clsPanel
 
 //End clsPanel Class
 
-//clsFileUpload Class @0-3FBC7A93
+//clsFileUpload Class @0-8EBC1D11
 class clsFileUpload
 {
   public $ComponentType = "FileUpload";
@@ -1758,6 +1758,7 @@ class clsFileUpload
     global $CCSLocales;
     global $TemplateEncoding;
     global $FileEncoding;
+    global $CCSLocales;
      
 
     $FieldName = $this->Caption;
@@ -1792,7 +1793,7 @@ class clsFileUpload
         && $_FILES[$FileControl]["tmp_name"] != "none" 
         && strlen ($_FILES[$FileControl]["tmp_name"])) {
       $this->Value = ""; $this->Text = "";
-      $FileName = CCConvertEncoding(CCStrip($_FILES[$FileControl]["name"]), $TemplateEncoding, $FileEncoding);
+      $FileName = CCConvertEncoding(CCStrip($_FILES[$FileControl]["name"]), $CCSLocales->GetFormatInfo("Encoding"), $FileEncoding);
       $GoodFileMask = 1;
       $meta_characters = array("*" => ".+", "?" => ".", "\\" => "\\\\", "^" => "\\^", "\$" => "\\\$", "." => "\\.", "[" => "\\[", "]" => "\\]", "|" => "\\|", "(" => "\\(", ")" => "\\)", "{" => "\\{", "}" => "\\}", "+" => "\\+", "-" => "\\-");
       if ($this->AllowedFileMasks != "") {
@@ -2295,7 +2296,7 @@ class clsLocaleInfo {
 
 //End clsLocaleInfo
 
-//clsLocale Class @0-4765656A
+//clsLocale Class @0-684BF395
 class clsLocale {
   public $Name;
   public $Dir;
@@ -2305,7 +2306,7 @@ class clsLocale {
   public $IsLoaded = false;
   public $LocaleInfo;
   public $Messages;
-  public $InternalEncoding = "CP1252";
+  public $InternalEncoding = "UTF-8";
 
   function clsLocale($name, $LocaleInfoArray, $dir = "") {
     $this->Name = $name;
@@ -2319,117 +2320,17 @@ class clsLocale {
 
   function LoadTranslation($filename = "") {
     $this->Messages = array();
-    $this->Messages["ccs_advsearchallwords"] = "All Words";
-    $this->Messages["ccs_advsearchanyofwords"] = "Any Of Words";
-    $this->Messages["ccs_advsearchconditionscaption"] = "Search For";
-    $this->Messages["ccs_advsearchexactphrase"] = "Exact Phrase";
-    $this->Messages["ccs_asc"] = "Ascending";
-    $this->Messages["ccs_bytes"] = "bytes";
-    $this->Messages["ccs_calendarformprefix"] = "";
-    $this->Messages["ccs_calendarformsuffix"] = "";
-    $this->Messages["ccs_cancel"] = "Cancel";
-    $this->Messages["ccs_cannotseek"] = "Cannot find specified record.";
-    $this->Messages["ccs_captcha_controlvalidation"] = "The value does not match validation code.";
-    $this->Messages["ccs_charset"] = "windows-1252";
-    $this->Messages["ccs_clear"] = "Clear";
-    $this->Messages["ccs_customlinkfield"] = "Detail";
-    $this->Messages["ccs_customoperationerror_missingparameters"] = "One or more parameters missing to perform the Update/Delete. The application is misconfigured.";
-    $this->Messages["ccs_databasecommanderror"] = "Database command error.";
-    $this->Messages["ccs_datepickernav61"] = "Date Picker component is not compatible with Netscape 6.1";
-    $this->Messages["ccs_delete"] = "Delete";
-    $this->Messages["ccs_deleteconfirmation"] = "Delete record?";
-    $this->Messages["ccs_desc"] = "Descending";
-    $this->Messages["ccs_directoryformprefix"] = "List of";
-    $this->Messages["ccs_directoryformsuffix"] = "";
-    $this->Messages["ccs_editablegridformprefix"] = "Add/Edit";
-    $this->Messages["ccs_editablegridformsuffix"] = "";
-    $this->Messages["ccs_filenotfound"] = "The file {0} specified in {1} was not found.";
-    $this->Messages["ccs_filesfoldernotfound"] = "Unable to upload the file specified in {0} - upload folder doesn't exist.";
-    $this->Messages["ccs_fileupload"] = "File upload";
-    $this->Messages["ccs_filter"] = "Keyword";
-    $this->Messages["ccs_first"] = "First";
-    $this->Messages["ccs_galleryformprefix"] = "";
-    $this->Messages["ccs_galleryformsuffix"] = "Gallery";
-    $this->Messages["ccs_gridformprefix"] = "List of";
-    $this->Messages["ccs_gridformsuffix"] = "";
-    $this->Messages["ccs_gridpagenumbererror"] = "Invalid page number.";
-    $this->Messages["ccs_gridpagesizeerror"] = "(CCS06) Invalid page size.";
-    $this->Messages["ccs_incorrectemailformat"] = "Invalid email format in field {0}.";
-    $this->Messages["ccs_incorrectformat"] = "The value in field {0} is not valid. Use the following format: {1}.";
-    $this->Messages["ccs_incorrectphoneformat"] = "Invalid phone number format in field {0}.";
-    $this->Messages["ccs_incorrectvalue"] = "The value in field {0} is not valid.";
-    $this->Messages["ccs_incorrectzipformat"] = "Invalid zip code format in field {0}.";
-    $this->Messages["ccs_insert"] = "Add";
-    $this->Messages["ccs_insertlink"] = "Add New";
-    $this->Messages["ccs_insufficientpermissions"] = "Insufficient filesystem permissions to upload the file specified in {0}.";
-    $this->Messages["ccs_languageid"] = "en";
-    $this->Messages["ccs_largefile"] = "The file size in field {0} is too large.";
-    $this->Messages["ccs_last"] = "Last";
-    $this->Messages["ccs_localeid"] = "en";
-    $this->Messages["ccs_login"] = "Login";
-    $this->Messages["ccs_login_autologin_caption"] = "Remember me";
-    $this->Messages["ccs_login_form_caption"] = "Login";
-    $this->Messages["ccs_loginbtn"] = "Login";
-    $this->Messages["ccs_loginerror"] = "Login or Password is incorrect.";
-    $this->Messages["ccs_logoutbtn"] = "Logout";
-    $this->Messages["ccs_main"] = "Main";
-    $this->Messages["ccs_maskvalidation"] = "Mask validation failed for field {0}.";
-    $this->Messages["ccs_maximumlength"] = "The number of symbols in field {0} can't be greater than {1}.";
-    $this->Messages["ccs_maximumvalue"] = "The value in field {0} can't be greater than {1}.";
-    $this->Messages["ccs_minimumlength"] = "The number of symbols in field {0} can't be less than {1}.";
-    $this->Messages["ccs_minimumvalue"] = "The value in field {0} can't be less than {1}.";
-    $this->Messages["ccs_more"] = "More...";
-    $this->Messages["ccs_next"] = "Next";
-    $this->Messages["ccs_nextmonthhint"] = "Next Month";
-    $this->Messages["ccs_nextquarterhint"] = "Next Quarter";
-    $this->Messages["ccs_nextthreemonthshint"] = "Next Three Months";
-    $this->Messages["ccs_nextyearhint"] = "Next Year";
-    $this->Messages["ccs_nocategories"] = "No categories found";
-    $this->Messages["ccs_noevents"] = "No events";
-    $this->Messages["ccs_norecords"] = "No records";
-    $this->Messages["ccs_of"] = "of";
-    $this->Messages["ccs_operationerror"] = "Unable to perform the {0} operation. One or more parameters are unspecified.";
-    $this->Messages["ccs_password"] = "Password";
-    $this->Messages["ccs_previous"] = "Prev";
-    $this->Messages["ccs_prevmonthhint"] = "Prev Month";
-    $this->Messages["ccs_prevquarterhint"] = "Prev Quarter";
-    $this->Messages["ccs_prevthreemonthshint"] = "Prev Three Months";
-    $this->Messages["ccs_prevyearhint"] = "Prev Year";
-    $this->Messages["ccs_recordformprefix"] = "Add/Edit";
-    $this->Messages["ccs_recordformprefix2"] = "View";
-    $this->Messages["ccs_recordformsuffix"] = "";
-    $this->Messages["ccs_recperpage"] = "Records per page";
-    $this->Messages["ccs_rememberlogin"] = "Remember my Login and Password";
-    $this->Messages["ccs_reportformprefix"] = "";
-    $this->Messages["ccs_reportformsuffix"] = "";
-    $this->Messages["ccs_reportpagenumber1"] = "Page";
-    $this->Messages["ccs_reportpagenumber2"] = "of";
-    $this->Messages["ccs_reportprintlink"] = "Printable version";
-    $this->Messages["ccs_reportsubtotal"] = "Sub Total";
-    $this->Messages["ccs_reporttotal"] = "Grand Total";
-    $this->Messages["ccs_requiredfield"] = "The value in field {0} is required.";
-    $this->Messages["ccs_requiredfieldupload"] = "The file attachment in field {0} is required.";
-    $this->Messages["ccs_requiredsmtpserver_or_dir"] = "Please specify the SMTP server or Pickup directory for the CDO.Message email component.";
-    $this->Messages["ccs_search"] = "Search";
-    $this->Messages["ccs_searchformprefix"] = "Search";
-    $this->Messages["ccs_searchformsuffix"] = "";
-    $this->Messages["ccs_selectfield"] = "Select Field";
-    $this->Messages["ccs_selectorder"] = "Select Order";
-    $this->Messages["ccs_selectvalue"] = "Select Value";
-    $this->Messages["ccs_sortby"] = "Sort by";
-    $this->Messages["ccs_sortdir"] = "Sort direction";
-    $this->Messages["ccs_submitconfirmation"] = "Submit records?";
-    $this->Messages["ccs_tempfoldernotfound"] = "Unable to upload the file specified in {0} - temporary upload folder doesn't exist.";
-    $this->Messages["ccs_tempinsufficientpermissions"] = "Insufficient filesystem permissions to upload the file specified in {0} into temporary folder.";
-    $this->Messages["ccs_today"] = "Today";
-    $this->Messages["ccs_totalrecords"] = "Total Records:";
-    $this->Messages["ccs_uniquevalue"] = "The value in field {0} is already in database.";
-    $this->Messages["ccs_update"] = "Submit";
-    $this->Messages["ccs_uploadcomponenterror"] = "Error occurred while initializing the upload component.";
-    $this->Messages["ccs_uploadcomponentnotfound"] = "{0} uploading component {1} is not found. Please install the component or select another one.";
-    $this->Messages["ccs_uploadingerror"] = "An error occured when uploading file specified in {0}. Error description: {1}.";
-    $this->Messages["ccs_uploadingtempfoldererror"] = "An error occured when uploading file specified in {0} into temporary folder. Error description: {1}.";
-    $this->Messages["ccs_wrongtype"] = "The file type specified in field {0} is not allowed.";
+    if ($filename == "")
+      $filename = $this->Name . $this->Ext;
+    if (CCSubStr($filename, 0, 1) != "/" && CCSubStr($filename, 0, 1) != ".")
+      $filename = $this->Dir . "/" . $filename;
+    if ($FileContent = @file($filename)) {
+      foreach($FileContent as $str) {
+        if (preg_match("/^([^'].+?)=(.*)$/", $str, $matches)) { 
+          $this->Messages[strtolower($matches[1])] = str_replace(chr(13), "", $matches[2]);
+        }
+      }
+    }
     $this->IsLoaded = true;
   }
 
