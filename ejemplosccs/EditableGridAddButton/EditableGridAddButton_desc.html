@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Editable Grid with 'Add Row' button</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Editable Grid with 'Add Row' button</h1>
+<h2>Description</h2>
+<p>This example shows how to create an&nbsp;Editable Grid in which you can
+dynamically add empty rows for adding new records. Usually, an editable grid has
+a set number of empty rows for adding new records.&nbsp;This example shows how
+the empty rows can be dynamically&nbsp;displayed as needed by clicking on
+a&nbsp;'Add Row' button.</p>
+<h2>Usage</h2>
+<ol>
+  <li>Click on the 'Add Row' button to add a new empty row. 
+  <li>Enter the department name and select the department manager. 
+  <li>If you need to add another record, click on the 'Add Row' button again to
+  add another empty row. 
+  <li>After adding all the new records you want to add,&nbsp;click on&nbsp;the
+  'Submit' button to save the information.</li>
+</ol>
+<p></p>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Use the <strong>Editable Grid</strong> Builder to create the editable grid based on 
+    the "departments" table and its two columns: <em>department_name</em> and <em>department_manager_id</em>. 
+  <li>Set the <strong>Empty Rows</strong> property of the editable grid to 30.&nbsp;This 
+    number defines the maximum number of empty rows which could possibly&nbsp;appear 
+    when you click on the Add Row button. 
+  <li>Convert the <em>manager_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>IntranetDB</em>&nbsp; and select&nbsp;<em>employees 
+    </em> in the <strong>Data Source</strong> property. Select <em>emp_id </em>in the <strong>Bound 
+    Column</strong> property, <em>emp_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>Add a button to the bottom row of the editable grid and sets its <strong>Name</strong> 
+    property to <em>AddRowBtn</em>. Also set the <strong>Enable Validation</strong> 
+    property to <em>No</em> and leave the <strong>Operation</strong> property empty. 
+    Under the Format tab of the properties window, set the <strong>Value</strong> property 
+    to <em>Add Row</em> and the <strong>type</strong> property to <em>button</em>.
+  <li>Switch to HTML mode and locate the table row &lt;TR&gt; where the TextBox 
+    and ListBox appear. Within the &lt;TR&gt; tag, add the attributes <em>id=""</em> 
+    and <em>name=""</em>. 
+  <li>Place the cursor within the value of the <em>id</em> attribute and add a 
+    Label control called <em>RowIDAttribute</em>. Do the same for the <em>name</em> 
+    attribute and add a Label control called <em>RowNameAttribute</em>. After 
+    the two attributes, add a <em>RowStyleAttribute </em>Label at the end of the 
+    &lt;TR&gt; tag. 
+  <li>Set the <strong>Content</strong> property of the <em>RowStyleAttribute</em> Label 
+    to <em>HTML</em>.
+  <li>Add Custom Code to the <strong><em>On Click </em></strong>client side event 
+    of the <em>Add Row </em>Button as shown in the example.
+  <li>Add Custom Code to the <strong>Before Show Row</strong> and <strong>Before 
+    Execute Delete </strong>server events of the editable grid form and add a <strong>RowNumber</strong> global variable
+    as shown in the example.
+   <br>Note: In .NET the <strong>Before Show</strong> and <strong>Before Submit</strong> event are used additionally.
+   <br>Note: In Java the <strong>RowNumber</strong> variable is not used, as the <strong>getCurrentRowNumber()</strong> method of the Editable Grid is used.
+
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>departments, employees</em></p>
+<h2>Programming Notes</h2>
+<p>The editable grid's <strong><em>Before Show Row</em></strong> event is used to fill the 
+  <em>id</em>, <em>name </em>and <em>style </em>attributes of the &lt;TR&gt; tag 
+  depending on whether the row is empty or filled.</p>
+<p>
+<strong>For .NET </strong>
+<br>
+The editable grid's <strong><em>Before Show event</em></strong> is used to create the element array. <br>
+The editable grid's <strong><em>Before Show Row</em></strong> event is used to fill the style attributes of the &lt;TR&gt; tag.<br>
+The editable grid's <strong><em>Before Submit</em></strong> event is used for the error handling when redisplaying the page, as the second raising of BeforeShowRow event is not supported.</p>
+
+<p>The editable grid's <strong><em>Before Execute Delete</em></strong> event is used to update 
+  the related employees table to set the value of the 'department_id' field to 
+  NULL if a department is deleted.</p>
+</body>
+</html>

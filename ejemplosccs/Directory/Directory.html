@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Directory and Path Implementation</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header}
+<h2>Directory and Path Implementation</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<p>Select "Computers and Internet" and then "Software"</p>
+<table cellspacing="0" cellpadding="0" border="0" width="45%">
+  <tr>
+    <td valign="top">
+      <!-- BEGIN Path NewPath1 -->
+      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+          <td valign="top">
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <td class="th">
+                  <strong><a href="{PathBeginLink_Src}">Main</a> 
+                  <!-- BEGIN PathComponent -->&nbsp;&gt;&nbsp;<a href="{PathCategory_Src}">{PathCategory}</a><!-- END PathComponent -->
+                  <!-- BEGIN CurrentCategory -->&nbsp;&gt;&nbsp;{CurrentCategory} <!-- END CurrentCategory --></strong>
+ </td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Path NewPath1 -->
+      <!-- BEGIN Directory yp_categories -->
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Row">
+          <td valign="top">
+            <!-- BEGIN Category --><strong><a href="{CategoryLink_Src}">{CategoryLink}</a></strong><br>
+            <!-- BEGIN Subcategory -->&nbsp;&nbsp;&nbsp;&nbsp;<a href="{SubcategoryLink_Src}">{SubcategoryLink}</a><!-- END Subcategory -->
+            <!-- BEGIN SubcategorySeparator --><br>
+            <!-- END SubcategorySeparator -->
+            <!-- BEGIN SubcategoriesTail -->&nbsp;<a href="{SubcategoriesTailLink_Src}">more...</a><!-- END SubcategoriesTail --><!-- END Category -->
+            <!-- BEGIN CategorySeparator -->
+            <hr><!-- END CategorySeparator -->
+            <!-- BEGIN ColumnSeparator --></td> 
+          <td valign="top"><!-- END ColumnSeparator -->
+            <!-- BEGIN NoCategories -->No categories found <!-- END NoCategories --></td> 
+        </tr>
+ 
+      </table>
+ <!-- END Directory yp_categories --></td> 
+  </tr>
+</table>
+<br>
+<!-- BEGIN Grid yp_grid -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table cellspacing="0" cellpadding="0" border="0" class="Header">
+        <tr>
+          <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+          <td class="th">
+            <strong>Yellow Pages Listings</strong>
+ </td> 
+          <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th nowrap>Category&nbsp;</th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_item_name --><a href="{Sort_URL}">Item Name</a><!-- END Sorter Sorter_item_name --></th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_address --><a href="{Sort_URL}">Address</a><!-- END Sorter Sorter_address --></th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_city --><a href="{Sort_URL}">City</a><!-- END Sorter Sorter_city --></th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_phone --><a href="{Sort_URL}">Phone</a><!-- END Sorter Sorter_phone --></th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_zip --><a href="{Sort_URL}">Zip</a><!-- END Sorter Sorter_zip --></th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_email --><a href="{Sort_URL}">Email</a><!-- END Sorter Sorter_email --></th>
+ 
+          <th nowrap>
+          <!-- BEGIN Sorter Sorter_url --><a href="{Sort_URL}">Url</a><!-- END Sorter Sorter_url --></th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{category_name}&nbsp;</td> 
+          <td>{item_name}&nbsp;</td> 
+          <td>{address}&nbsp;</td> 
+          <td>{city}&nbsp;</td> 
+          <td>{phone}&nbsp;</td> 
+          <td>{zip}&nbsp;</td> 
+          <td><a href="mailto:{email_Src}">{email}</a>&nbsp;</td> 
+          <td><a href="{url_Src}">{url}</a></td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="8">No records&nbsp;</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="8" nowrap>
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/EXPack/Images/First.gif" alt="First" /></a> <!-- END First_On -->
+            <!-- BEGIN First_Off --><img border="0" src="../Styles/EXPack/Images/FirstOff.gif" alt="FirstOff" /><!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/EXPack/Images/Prev.gif" alt="Prev" /></a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off --><img border="0" src="../Styles/EXPack/Images/PrevOff.gif" alt="PrevOff" /><!-- END Prev_Off -->&nbsp;{Page_Number}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/EXPack/Images/Next.gif" alt="Next" /></a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off --><img border="0" src="../Styles/EXPack/Images/NextOff.gif" alt="NextOff" /><!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/EXPack/Images/Last.gif" alt="Last" /></a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off --><img border="0" src="../Styles/EXPack/Images/LastOff.gif" alt="LastOff" /><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp; </td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid yp_grid -->{Footer}
+</body>
+</html>

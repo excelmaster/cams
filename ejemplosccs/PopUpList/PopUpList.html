@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Pop-up List & Smart Lookup</title>
+<script language="JavaScript" type="text/javascript">
+function OpenPop_UpList()
+{
+var FieldValue;
+  if (document.departments.is_change.value == 1) {
+     FieldValue = escape(document.departments.department_manager_id.value);
+  } else {
+     FieldValue = "";
+  }
+  var linkhref = document.getElementById("EmployeesList").href;
+  var win=window.open(linkhref+"?s_emp_name="+FieldValue, "EmployeesList", "left=100,top=10,width=480,height=480,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes");
+  win.focus();
+}
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include JSFunctions @1-6FA9DE6A
+</script>
+<script language="JavaScript" src="../ClientI18N.asp?file=Functions.js&amp;lang={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include JSFunctions
+
+//page_departments_department_manager_id_OnChange @15-D46561EB
+function page_departments_department_manager_id_OnChange()
+{
+    var result;
+//End page_departments_department_manager_id_OnChange
+
+//Custom Code @64-2A29BDB7
+
+  document.departments.is_change.value = 1;
+  return false;
+
+//End Custom Code
+
+//Close page_departments_department_manager_id_OnChange @15-BC33A33A
+    return result;
+}
+//End Close page_departments_department_manager_id_OnChange
+
+//bind_events @1-6E23E6EA
+function bind_events() {
+    if (document.forms["departments"]) check_and_bind('document.forms["departments"].department_manager_id','onchange',page_departments_department_manager_id_OnChange);
+    forms_onload();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Pop-up List &amp; Smart Lookup</h2>
+<p><a href="{Link2_Src}">View more information about this example</a></p>
+<table>
+  <tr>
+    <td valign="top">
+      <!-- BEGIN Grid departments_emp -->
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top">
+            <table class="Header" cellspacing="0" cellpadding="0" border="0">
+              <tr>
+                <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                <td class="th">
+                  <strong>List of Departments</strong>
+ </td> 
+                <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <th>Department</th>
+ 
+                <th>Manager</th>
+ 
+              </tr>
+ 
+              <!-- BEGIN Row -->
+              <tr class="Row">
+                <td><a href="{department_name_Src}">{department_name}</a>&nbsp;</td> 
+                <td>{emp_name}&nbsp;</td> 
+              </tr>
+ <!-- END Row -->
+              <tr class="Footer">
+                <td colspan="2"><a href="{Add_Src}">Add New</a>&nbsp; 
+                  <!-- BEGIN Navigator Navigator1 -->
+                  <!-- BEGIN First_On --><a href="{First_URL}"><img src="../Styles/EXPack/Images/First.gif" border="0" alt="{First_URL}"></a> <!-- END First_On -->
+                  <!-- BEGIN First_Off --><img src="../Styles/EXPack/Images/FirstOff.gif" border="0" alt="First Off"><!-- END First_Off -->
+                  <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img src="../Styles/EXPack/Images/Prev.gif" border="0" alt="{Prev_URL}"></a> <!-- END Prev_On -->
+                  <!-- BEGIN Prev_Off --><img src="../Styles/EXPack/Images/PrevOff.gif" border="0" alt="Prev Off"><!-- END Prev_Off -->&nbsp;{Page_Number}&nbsp;of&nbsp;{Total_Pages}&nbsp; 
+                  <!-- BEGIN Next_On --><a href="{Next_URL}"><img src="../Styles/EXPack/Images/Next.gif" border="0" alt="{Next_URL}"></a> <!-- END Next_On -->
+                  <!-- BEGIN Next_Off --><img src="../Styles/EXPack/Images/NextOff.gif" border="0" alt="Next Off"><!-- END Next_Off -->
+                  <!-- BEGIN Last_On --><a href="{Last_URL}"><img src="../Styles/EXPack/Images/Last.gif" border="0" alt="{Last_URL}"></a> <!-- END Last_On -->
+                  <!-- BEGIN Last_Off --><img src="../Styles/EXPack/Images/LastOff.gif" border="0" alt="Last Off"><!-- END Last_Off --><!-- END Navigator Navigator1 --></td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Grid departments_emp --></td> 
+    <td valign="top">
+      <!-- BEGIN Record departments -->
+      <form name="{HTMLFormName}" action="{Action}" method="post">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                  <td class="th">
+                    <strong>Add/Edit Department</strong>
+ </td> 
+                  <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="departmentsdepartment_name">Department</label></td> 
+                  <td><input maxlength="30" size="30" value="{department_name}" name="{department_name_Name}" id="departmentsdepartment_name">&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="departmentsdepartment_manager">Manager</label></td> 
+                  <td><input maxlength="30" size="30" value="{department_manager_id}" name="{department_manager_id_Name}" id="departmentsdepartment_manager">&nbsp; <a href="{Link1_Src}" id="EmployeesList" onclick="OpenPop_UpList();return false;">Employees List</a> <br>
+                    Enter the full name, first name, last name&nbsp;or initials</td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td nowrap align="right" colspan="2"><input type="hidden" value="{is_change}" name="{is_change_Name}">
+                    <!-- BEGIN Button Insert_Button --><input type="image" src="../Styles/EXPack/Images/en/ButtonInsert.gif" value="Add" name="{Button_Name}" alt="{res:CCS_Insert}" style="border-width: 0; "><!-- END Button Insert_Button -->
+                    <!-- BEGIN Button Update_Button --><input type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" name="{Button_Name}" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Update_Button -->
+                    <!-- BEGIN Button Delete_Button --><input type="image" src="../Styles/EXPack/Images/en/ButtonDelete.gif" value="Deletess" name="{Button_Name}" alt="{res:CCS_Delete}" style="border-width: 0; "><!-- END Button Delete_Button --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record departments --></td> 
+  </tr>
+</table>
+{Footer}
+</body>
+</html>

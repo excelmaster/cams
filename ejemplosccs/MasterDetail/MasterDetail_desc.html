@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Simple Master-Detail for Employees/Projects</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Simple Master-Detail for Employees/Projects</h1>
+<h2>Description</h2>
+<p>This example shows how to implement a master-detail page consisting of grid, 
+  record and editable grid forms. The grid form lists all the 'master' records 
+  while the record form and editable grid display detail information for a selected 
+  master record. </p>
+<h2>Usage</h2>
+<p>To add a new employee:
+<ol>
+  <li>Click the 'Add New' link&nbsp;at the bottom of the employee list. 
+  <li>Enter the employee name, title and select a department then click the 'Add' 
+    button. 
+  <li>In the 'Employee Projects' grid, select the projects to be assigned to the 
+    employee and enter the % allocation for up to&nbsp;three projects.
+  <li>Click 'Submit' to save the information. </li>
+</ol>
+<p></p>
+<p>To modify an employee's information:
+<ol>
+  <li>Select an employee by clicking on his name in the employee list. 
+  <li>Modify the employee information and click the top 'Submit' button, or
+  change the project assignment and click the bottom 'Submit' button.</li>
+</ol>
+<p></p>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Create a HTML table with two columns. 
+  <li>In the left column cell of the HTML table, use the <strong>Grid Builder</strong> to create 
+    the 'Employee' Grid based on the <em>employees</em> table with two columns: <em>emp_id</em> and <em>emp_name.</em> 
+  <li>Convert the <em>emp_name</em> field to a link that points to the current 
+    page and passes an <em>emp_id</em> output parameter. Use the <strong>Href Source</strong> 
+    property to configure the link and the output parameter.
+  <li>In the bottom row of the Grid, add a <em><strong>Add New</strong></em> Link 
+    control and set it's <strong>Href Source</strong> property to the current 
+    page and add the text <em>emp_id</em> into the <strong>Remove Parameters</strong> property. 
+  <li> In the right column cell of the HTML table, use the <strong>Record Builder</strong> to create 
+    a record maintenance form based on the <em>employees</em> table 
+    with the following three fields: <em>emp_name</em>, <em>title</em> and <em>department_id</em>. 
+  <li> Convert the <em>department_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>departments</em>
+    in the <strong>Data Source</strong> property. Select <em>department_id</em> in the <strong>Bound 
+    Column</strong> property, <em>department_name</em> in the <strong>Text Column</strong> 
+    Property and <em>Integer</em> in the <strong>Data Type</strong> property. 
+  <li>In the right column cell of the HTML table and below the record form, use 
+    the <strong>Editable Grid Builder</strong> to create the editable Grid for record maintenance 
+     based on the <em>projects_employees</em> table 
+    with the following three fields: <em>emp_id</em>, <em>project_id</em> and <em>percent_allocation</em>. 
+  <li>In the <strong>Data Source</strong> property of the editable grid, add a Where 
+    parameter of the form: <em>em_id</em> equals(=) <em>emp_id</em> with the <strong>Type</strong> 
+    of the Parameter source set to <em>URL</em> and the <strong>Default Value</strong> 
+    set to <em>-1</em>. 
+  <li>Convert the <em>emp_id</em> TextBox to a Hidden control. 
+  <li> Convert the <em>project_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>projects 
+    </em>in the <strong>Data Source</strong> property. Select <em>project_id </em>in the <strong>Bound 
+    Column</strong> property, <em>project_name</em> in the <strong>Text Column</strong> 
+    Property and <em>Integer</em> in the <strong>Data Type</strong> property.
+  <li>Add the appropriate programming code into the&nbsp; <strong>Before Show</strong>, 
+    <strong>After Insert</strong> and <strong>Before Delete</strong> events of the Record form, the 
+    <strong>Before Build Insert </strong>event of the editable grid and the <strong>OnValidate</strong> 
+    event of the <em>project_id</em> field in the editable grid, as shown in the 
+    example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>projects, employees, projects_employees</em></p>
+<h2>Programming Notes</h2>
+<p>The record form's <strong><em>Before Show</em></strong> event is used to hide the editable 
+  grid if the form is not used for editing an existing record.</p>
+<p>The record form's<strong><em> After Insert</em></strong> event is used to retrieve the 
+  last inserted key (emp_id) after a new record is added. The key is then sent 
+  over the URL by appending it to the 'redirect' variable as a URL parameter.</p>
+<p>The record form's<strong><em> Before Delete</em></strong> event is used to update the 'project_employees' 
+  table after an employee record has been deleted.</p>
+<p>The project_id field's <strong><em>On Validate</em></strong> event is used to ensure that 
+  the selected projects are unique.</p>
+<p>The editable grid's <strong><em>Before Build Insert</em></strong> event is used to update 
+  the hidden 'emp_id' field&nbsp;with the current employee id received over the 
+  URL. </p>
+<p>&nbsp;</p>
+</body>
+</html>

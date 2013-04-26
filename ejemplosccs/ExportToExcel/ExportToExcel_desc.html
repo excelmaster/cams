@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Export to Excel</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Export to Excel</h1>
+
+<h2>Description</h2>
+<p align="left">This <a href="{Link1_Src}">example</a> demonstrates how to implement 
+data export to Microsoft&reg; Excel&reg;. <br>
+A single Web page is used with a grid that outputs the same data in both Web and 
+Excel modes. An event code is used to determine if Excel mode was specified via 
+a URL parameter, and to set the appropriate content type. The code is also used 
+to force up to 10,000 data records to be output in Excel mode.</p>
+
+<h2>Usage</h2>
+<p>Click on the "Export to Excel" link.</p>
+
+<h2>Steps to Recreate</h2>
+<ol>
+  <li>Use the Grid Builder to create the <em>employees</em> grid that is based on the <em>employees</em> 
+	table from <em>Intranet </em>database.<ul>
+    <li>On Step 4 select <strong>No Sorting</strong>. 
+    <li>On Step 5 select <strong>(No Theme)</strong>. 
+  </ul>
+
+  <li>Add the <em><strong>ToExcelLink</strong></em> Link control above the Grid and 
+   set its <strong>Default Value</strong> property to <em>"Export to Excel"</em>, 
+  set the <strong>Preserve Parameters</strong> property to <em>None</em> and the <strong>Href Source</strong> property to the current page. Then add the Link Parameter with the following values: <strong>Data Source Type</strong> = <em>Expression</em>, <strong>Parameter Source</strong> = <em>1</em> and <strong>Parameter name</strong> = <em>export</em>.
+
+  <li>Add the appropriate programming code to the <strong>Before OnInitializeView</strong> Page event and <strong>Before Select</strong> Grid event., 
+	as provided with the example.<li>Make cosmetic changes as needed by modifying the text and captions within the HTML.</li>
+</ol>
+
+<h2>Database Tables Used</h2>
+<p>Database: <em>IntranetDB</em></p>
+<p>Tables: <em>employees</em></p>
+
+<h2>Events Used</h2>
+<p>The page's <em><strong>OnInitializeView</strong></em> event is used to specify the file name and required "ContentType" and "Content-Disposition" header.</p>
+<p>The grid's <strong><em>Before Select</em></strong> is used to hide the navigator (except 
+in .NET) and display all records in the Excel mode.</p>
+<p>The grid's <strong><em>Before Show</em></strong> event is used to hide the navigator in .NET.</p>
+
+</body>
+</html>

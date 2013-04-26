@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Record Maintenance with Navigation</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header}
+<h2>Record Maintenance with Navigation</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<!-- BEGIN EditableGrid employees -->
+<form action="{Action}" method="post" name="{HTMLFormName}">
+  <input name="FormState" type="hidden" value="{FormState}">{FormScript} 
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="0" border="0" class="Header">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+            <td class="th">
+              <strong>Employees</strong>
+ </td> 
+            <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="15">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="17">{Error}</td> 
+          </tr>
+ <!-- END RowError -->
+          <tr class="Row">
+            <th><label for="employeesemp_name{employees:rowNumber}">Name *</label></th>
+ 
+            <td><input maxlength="50" name="{emp_name_Name}" size="50" value="{emp_name}" id="employeesemp_name{employees:rowNumber}">&nbsp;<input name="{Hidden1_Name}" type="hidden" value="{Hidden1}"></td> 
+          </tr>
+ 
+          <tr class="Row">
+            <th><label for="employeesemp_login{employees:rowNumber}">Login *</label></th>
+ 
+            <td><input maxlength="20" name="{emp_login_Name}" value="{emp_login}" id="employeesemp_login{employees:rowNumber}">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Row">
+            <th><label for="employeesemp_password{employees:rowNumber}">Password *</label></th>
+ 
+            <td><input maxlength="20" name="{emp_password_Name}" value="{emp_password}" id="employeesemp_password{employees:rowNumber}">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Row">
+            <th><label for="employeestitle{employees:rowNumber}">Title</label></th>
+ 
+            <td><input maxlength="50" name="{title_Name}" size="50" value="{title}" id="employeestitle{employees:rowNumber}">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Row">
+            <th><label for="employeesgroup_id{employees:rowNumber}">Group *</label></th>
+ 
+            <td>
+              <select name="{group_id_Name}" id="employeesgroup_id{employees:rowNumber}">
+                <option value="" selected>Select Value</option>
+ {group_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Row">
+            <th><label for="employeesdepartment_id{employees:rowNumber}">Department</label></th>
+ 
+            <td>
+              <select name="{department_id_Name}" id="employeesdepartment_id{employees:rowNumber}">
+                <option value="" selected>Select Value</option>
+ {department_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Row">
+            <th><label for="employeesphone_work{employees:rowNumber}">Phone Work</label></th>
+ 
+            <td><input maxlength="50" name="{phone_work_Name}" size="30" value="{phone_work}" id="employeesphone_work{employees:rowNumber}">&nbsp;</td> 
+          </tr>
+ 
+          <!-- BEGIN Panel Delete1_Panel -->
+          <tr class="Row">
+            <th><label for="employeesDelete1{employees:rowNumber}">Delete</label></th>
+ 
+            <td>
+              <!-- BEGIN CheckBox Delete1 --><input name="{Delete1_Name}" type="checkbox" value="1" id="employeesDelete1{employees:rowNumber}" {Delete1}><!-- END CheckBox Delete1 -->&nbsp;</td> 
+          </tr>
+ <!-- END Panel Delete1_Panel --><!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="15">No records&nbsp;</td> 
+          </tr>
+ <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="15">
+              <div style="FLOAT: left">
+<a href="{Link1_Src}">Add New</a>&nbsp;&nbsp; 
+              </div>
+ 
+              <div>
+                <!-- BEGIN Navigator Navigator -->
+                <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/EXPack/Images/First.gif" alt="First" /></a> <!-- END First_On -->
+                <!-- BEGIN First_Off --><img border="0" src="../Styles/EXPack/Images/FirstOff.gif" alt="FirstOff" /><!-- END First_Off -->
+                <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/EXPack/Images/Prev.gif" alt="Prev" /></a> <!-- END Prev_On -->
+                <!-- BEGIN Prev_Off --><img border="0" src="../Styles/EXPack/Images/PrevOff.gif" alt="PrevOff" /><!-- END Prev_Off -->&nbsp; 
+                <!-- BEGIN Pages -->
+                <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of&nbsp;{Total_Pages}&nbsp; 
+                <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/EXPack/Images/Next.gif" alt="Next" /></a> <!-- END Next_On -->
+                <!-- BEGIN Next_Off --><img border="0" src="../Styles/EXPack/Images/NextOff.gif" alt="NextOff" /><!-- END Next_Off -->
+                <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/EXPack/Images/Last.gif" alt="Last" /></a> <!-- END Last_On -->
+                <!-- BEGIN Last_Off --><img border="0" src="../Styles/EXPack/Images/LastOff.gif" alt="LastOff" /><!-- END Last_Off --><!-- END Navigator Navigator -->
+              </div>
+ </td> 
+            <tr class="Footer">
+              <td style="text-align:right;" colspan="15">
+                <!-- BEGIN Button Submit --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Submit -->
+                <!-- BEGIN Button Cancel --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonCancel.gif" value="Cancel" alt="{res:CCS_Cancel}" style="border-width: 0; "><!-- END Button Cancel --></td> 
+            </tr>
+ 
+          </table>
+ </td> 
+      </tr>
+ 
+    </table>
+ 
+  </form>
+ <!-- END EditableGrid employees -->{Footer} 
+  </body>
+ 
+  </html>

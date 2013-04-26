@@ -1,0 +1,57 @@
+<Site id="0" language="PHPTemplates" name="ejemplosccs" siteLanguage="en" securityType="None" urlType="Absolute" server="IIS4" userIDStoreMethod="Session" userIDVariable="UserID" userLoginVariable="UserLogin" userPasswordVariable="UserPassword" groupIDVariable="GroupID" cookieVariable="UserInfo" automatedLogin="False" culture="en-US" IISApplication="False" connection="InternetDB" securityConnection="InternetDB" higherLevel="False" startPage="Default.ccp" defaultDateFormat="mm/dd/yyyy" useCCSCultureFormats="True" TargetSchema="IE50" tempSaveDir="CCSBuild" targetServer="Other servers" appAsWar="True" outputFileFormat="Windows" PerlPath="#!c:\perl\bin\perl.exe" SessionFilesPath=".\session_files" SessionTimeout="30" SessionsFilesCleanRate="100" LSEnableQueryString="True" LSQueryStringName="lang" LSEnableHTTPHeader="True" LSEnableSession="True" LSSessionName="lang" LSEnableCookie="False" LSCookieName="lang" LSCookieExpired="365" cachingMethod="None" useI18nFeatures="False" emailProgID="CDONTS.NewMail" includeType="Virtual" LSLanguageSessionName="lang" showDepreciatedStyles="Styles" useDynamicStyles="False" SSEnableQueryString="True" SSQueryStringName="style" SSEnableSession="True" SSSessionName="style" SSEnableCookie="False" SSCookieName="style" SSCookieExpired="365" defaultStyle="EXPack" omitIfEmpty="False" htmlTemplateType="HTML" isSection508="True" createIdsForControls="False" createIdsForNonEditableControls="False" createLablesForControls="False" ccsVersion="5.0.0.16254" PHPEncodeExtension="iconv" generateJS="True" useDynamicDesigns="True" DDEnableQueryString="True" DDQueryStringName="design" DDEnableSession="True" DDSessionName="design" DDEnableCookie="False" DDCookieName="design" DDCookieExpired="365" improvedHTTPCaching="True" PHPVersion="5" designFolder="Designs">
+	<Components>
+	</Components>
+	<Connections>
+		<Connection id="1" serverSameAsDesign="True" serverConnectionType="ODBC" database="MSAccess" serverDatabase="MSAccess" showViews="True" showSynonyms="True" showSysTable="False" showSysView="False" showAliases="False" relationshipDiscovery="True" name="InternetDB" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Archivos de programa\CodeChargeStudio5\Examples\Internet\Internet.mdb;Persist Security Info=False" connectionType="String" DBDateFormat="yyyy-mm-dd HH:nn:ss" DBBooleanFormat="true;false" connection="InternetDB" login="Admin" DBNameUppercase="False" PHPDBLib="ODBC" PerlDBDriver="MySQL" serverLongReadLen="1000" serverLogin="Admin" OptimizeSQL="True" serverDatabaseName="CCSInternet"/>
+		<Connection id="2" serverSameAsDesign="True" serverConnectionType="ODBC" database="MSAccess" serverDatabase="MSAccess" showViews="True" showSynonyms="True" showSysTable="False" showSysView="False" showAliases="False" relationshipDiscovery="True" connectionType="String" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Archivos de programa\CodeChargeStudio5\Examples\Intranet\Intranet.mdb;Persist Security Info=False" name="IntranetDB" login="Admin" DBNameUppercase="False" connection="IntranetDB" PHPDBLib="ODBC" PerlDBDriver="MySQL" serverLogin="Admin" DBDateFormat="yyyy-mm-dd HH:nn:ss" serverLongReadLen="1000" DBBooleanFormat="true;false" OptimizeSQL="True" serverDatabaseName="CCSIntranet"/>
+	</Connections>
+	<CodeFiles>
+		<CodeFile id="Templates" language="ASPTemplates" name="Template.asp" comment="'" forShow="False"/>
+		<CodeFile id="Common" language="ASPTemplates" name="Common.asp" comment="'" forShow="False"/>
+		<CodeFile id="Cache" language="ASPTemplates" name="Cache.asp" comment="'" forShow="False"/>
+		<CodeFile id="Sorter" language="ASPTemplates" name="Sorter.asp" comment="'" forShow="False"/>
+		<CodeFile id="Navigator" language="ASPTemplates" name="Navigator.asp" comment="'" forShow="False"/>
+		<CodeFile id="Classes" language="ASPTemplates" name="Classes.asp" comment="'" forShow="False"/>
+		<CodeFile id="ADOVBS" language="ASPTemplates" name="Adovbs.asp" comment="'" forShow="False"/>
+		<CodeFile id="JSFunctions" language="ASPTemplates" name="functions.js" comment="//" forShow="False"/>
+		<CodeFile id="JSDatePickerHTML" language="ASPTemplates" name="DatePicker.html" comment="&lt;!--" commentEnd="--&gt;" forShow="False"/>
+		<CodeFile id="JSDatePicker" language="ASPTemplates" name="DatePicker.js" comment="//" forShow="False"/>
+		<CodeFile id="JSFunctions" language="C#" name="functions.js" comment="//" forShow="False"/>
+		<CodeFile id="JSDatePickerHTML" language="C#" name="DatePicker.html" comment="&lt;!--" commentEnd="--&gt;" forShow="False"/>
+		<CodeFile id="JSDatePicker" language="C#" name="DatePicker.js" comment="//" forShow="False"/>
+		<CodeFile id="JSFunctions" language="VB" name="functions.js" comment="//" forShow="False"/>
+		<CodeFile id="JSDatePickerHTML" language="VB" name="DatePicker.html" comment="&lt;!--" commentEnd="--&gt;" forShow="False"/>
+		<CodeFile id="JSDatePicker" language="VB" name="DatePicker.js" comment="//" forShow="False"/>
+		<CodeFile id="JSFunctions" language="PHPTemplates" name="functions.js" comment="//" forShow="False"/>
+		<CodeFile id="JSDatePickerHTML" language="PHPTemplates" name="DatePicker.html" comment="&lt;!--" commentEnd="--&gt;" forShow="False"/>
+		<CodeFile id="JSDatePicker" language="PHPTemplates" name="DatePicker.js" comment="//" forShow="False"/>
+		<CodeFile id="JSFunctions" language="PerlTemplates" name="functions.js" comment="//" forShow="False"/>
+		<CodeFile id="JSDatePickerHTML" language="PerlTemplates" name="DatePicker.html" comment="&lt;!--" commentEnd="--&gt;" forShow="False"/>
+		<CodeFile id="JSDatePicker" language="PerlTemplates" name="DatePicker.js" comment="//" forShow="False"/>
+	</CodeFiles>
+	<Groups/>
+	<Events/>
+	<Profiles>
+		<Profile name="Server1" FTPPassiveMode="True" FTPSecureConnection="False" FTPpublishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" FTPpublishingExceptMask="ccs;ccp" FTPpublishingType="Project" fileExtension=".php" location="Local" publishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" publishingExceptMask="ccs;ccp" publishingType="AllMask">
+<Connections>
+				<Connection id="1" serverSameAsDesign="True" serverConnectionType="ODBC" database="MSAccess" serverDatabase="MSAccess" showViews="True" showSynonyms="True" showSysTable="False" showSysView="False" showAliases="False" relationshipDiscovery="True" name="InternetDB" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Archivos de programa\CodeChargeStudio5\Examples\Internet\Internet.mdb;Persist Security Info=False" connectionType="String" DBDateFormat="yyyy-mm-dd HH:nn:ss" DBBooleanFormat="true;false" connection="InternetDB" login="Admin" DBNameUppercase="False" PHPDBLib="ODBC" PerlDBDriver="MySQL" serverLongReadLen="1000" serverLogin="Admin" OptimizeSQL="True" serverDatabaseName="CCSInternet"/>
+				<Connection id="2" serverSameAsDesign="True" serverConnectionType="ODBC" database="MSAccess" serverDatabase="MSAccess" showViews="True" showSynonyms="True" showSysTable="False" showSysView="False" showAliases="False" relationshipDiscovery="True" connectionType="String" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Archivos de programa\CodeChargeStudio5\Examples\Intranet\Intranet.mdb;Persist Security Info=False" name="IntranetDB" login="Admin" DBNameUppercase="False" connection="IntranetDB" PHPDBLib="ODBC" PerlDBDriver="MySQL" serverLogin="Admin" DBDateFormat="yyyy-mm-dd HH:nn:ss" serverLongReadLen="1000" DBBooleanFormat="true;false" OptimizeSQL="True" serverDatabaseName="CCSIntranet"/>
+			</Connections>
+		</Profile>
+<Profile name="Server2" FTPPassiveMode="True" FTPSecureConnection="False" FTPpublishingAllMask="html;js;asp;php;jsp;cfm;cfc;pl;pm;cgi;mdb;gif;jpg;png;css;xml;java;asax;ascx;aspx;asmx;cs;vb;vbproj;resx;config;vsdisco;csproj;webinfo;bat;tld;jar;properties;inc;txt;resources;dll;swf;master;res;ico" FTPpublishingExceptMask="ccs;ccp" FTPpublishingType="Project" fileExtension=".php" location="FTP" publishingAllMask="" publishingExceptMask="" publishingType="">
+<Connections>
+				<Connection id="1" serverSameAsDesign="True" serverConnectionType="ODBC" database="MSAccess" serverDatabase="MSAccess" showViews="True" showSynonyms="True" showSysTable="False" showSysView="False" showAliases="False" relationshipDiscovery="True" name="InternetDB" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Archivos de programa\CodeChargeStudio5\Examples\Internet\Internet.mdb;Persist Security Info=False" connectionType="String" DBDateFormat="yyyy-mm-dd HH:nn:ss" DBBooleanFormat="true;false" connection="InternetDB" login="Admin" DBNameUppercase="False" PHPDBLib="ODBC" PerlDBDriver="MySQL" serverLongReadLen="1000" serverLogin="Admin" OptimizeSQL="True" serverDatabaseName="CCSInternet"/>
+				<Connection id="2" serverSameAsDesign="True" serverConnectionType="ODBC" database="MSAccess" serverDatabase="MSAccess" showViews="True" showSynonyms="True" showSysTable="False" showSysView="False" showAliases="False" relationshipDiscovery="True" connectionType="String" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Archivos de programa\CodeChargeStudio5\Examples\Intranet\Intranet.mdb;Persist Security Info=False" name="IntranetDB" login="Admin" DBNameUppercase="False" connection="IntranetDB" PHPDBLib="ODBC" PerlDBDriver="MySQL" serverLogin="Admin" DBDateFormat="yyyy-mm-dd HH:nn:ss" serverLongReadLen="1000" DBBooleanFormat="true;false" OptimizeSQL="True" serverDatabaseName="CCSIntranet"/>
+			</Connections>
+		</Profile>
+</Profiles>
+	<Languages>
+		<Language name="en" encoding="iso-8859-1" defaultCountry="US">
+			<LocaleInfo overrideDateFormats="False" booleanFormat="Yes;No;" overrideNumberFormats="False" msValue="1033" phpValue=""/>
+		</Language>
+	</Languages>
+	<Styles>
+		<Style id="4" name="EXPack" caption="EXPack"/>
+	</Styles>
+	<CustomButtons/>
+</Site>

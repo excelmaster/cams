@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>MultiStepRegistration1</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} <br>
+<!-- BEGIN Record users -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+            <td class="th">
+              <strong>Registration - Step 3</strong>
+ </td> 
+            <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th">Gender</td> 
+            <td>
+              <!-- BEGIN RadioButton gender_id --><input type="radio" value="{Value}" name="{gender_id_Name}" id="usersgender_id{gender_id:optionNumber}" {Check}><label for="usersgender_id{gender_id:optionNumber}">{Description}</label><!-- END RadioButton gender_id -->&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersage_id">Age</label></td> 
+            <td>
+              <select name="{age_id_Name}" id="usersage_id">
+                <option value="" selected>Select Value</option>
+ {age_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userslanguage_id">Language</label></td> 
+            <td>
+              <select name="{language_id_Name}" id="userslanguage_id">
+                <option value="" selected>Select Value</option>
+ {language_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userseducation_id">Education</label></td> 
+            <td>
+              <select name="{education_id_Name}" id="userseducation_id">
+                <option value="" selected>Select Value</option>
+ {education_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userstitle">Title</label></td> 
+            <td><input maxlength="50" size="50" value="{title}" name="{title_Name}" id="userstitle">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersincome_id">Income</label></td> 
+            <td>
+              <select name="{income_id_Name}" id="usersincome_id">
+                <option value="" selected>Select Value</option>
+ {income_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userscard_number">Card Number</label></td> 
+            <td><input maxlength="50" size="50" value="{card_number}" name="{card_number_Name}" id="userscard_number">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userscard_expire_date">Card Expire Date</label></td> 
+            <td><input maxlength="10" size="10" value="{card_expire_date}" name="{card_expire_date_Name}" id="userscard_expire_date">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersimage_url">Image Url</label></td> 
+            <td><input maxlength="64" size="50" value="{image_url}" name="{image_url_Name}" id="usersimage_url">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersnotes">Notes</label></td> 
+            <td><textarea name="{notes_Name}" rows="3" cols="50" id="usersnotes">{notes}
+</textarea>&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button1 --><input type="submit" value="&lt;&lt; Prev" name="{Button_Name}"><!-- END Button Button1 -->&nbsp; 
+              <!-- BEGIN Button Button_Insert --><input type="submit" value="Save" name="{Button_Name}"><!-- END Button Button_Insert -->&nbsp;</td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record users -->{Footer}
+</body>
+</html>

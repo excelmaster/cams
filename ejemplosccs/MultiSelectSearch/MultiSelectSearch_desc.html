@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Search Form with a Multi-Select Listbox</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Search Form with a Multi-Select Listbox</h1>
+<h2>Description</h2>
+<p>This example shows how use&nbsp;a&nbsp;multi-select ListBox in a search form.</p>
+<h2>Usage</h2>
+<p>For search:
+<ol>
+  <li>Optionally enter an employee's name (can be partial). 
+  <li>Select one or more projects in the multi-select Listbox by holding the CTRL 
+    key when selecting individual projects. 
+  <li>Click "Search" to view the search results.</li>
+</ol>
+<p></p>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Use the <strong>Grid Builder</strong> to create the <em>employees</em> grid as well as the search 
+    form which can search against the <em>emp_name</em> and <em>title</em> fields.<br>
+    On Step 3 click on the "Advanced" button and select the "Create a single search field and use OR condition" in the "Advansed Search window"  
+  <li>Insert a new row into the search form and move it below the row with the 
+    <em>s_keyword</em> control (ALT + arrow-down). Then add a ListBox called <em>s_project</em> 
+    into the right cell of the new row.
+  <li>Under the Format tab of the Properties window, activate the 'multiple' property 
+    of the <em>s_project</em> ListBox and set its &quot;Size&quot; property to 
+    3.
+  <li>Switch to HTML mode and locate the code for the <em>s_project</em> ListBox 
+    then delete the &lt;option&gt; tag for the default 'Select Value' option (i.e. 
+    &lt;option value=&quot;&quot; selected&gt;Select Value&lt;/option&gt;).
+  <li>For the <em>s_project</em> ListBox, set the <strong>Connection</strong> property 
+    to&nbsp;<em>IntranetDB</em>&nbsp; and select&nbsp;<em>projects</em> in the 
+    <strong>Data Source</strong> property. Select <em>project_id </em>in the <strong>Bound Column</strong> 
+    property, <em>project_name</em> in the <strong>Text Column</strong> Property and 
+    <em>Integer </em>in the <strong>Data Type</strong> property.
+  <li>Open the 'Data Source' window by clicking on the [...] button next to the 
+    <strong>Data Source</strong> property of the grid form, then select 'SQL' in the 
+    &quot;Data Source Type&quot; field.
+    <br>Add the 's_project' URL parameter to the grid's data source with "0" as a Default Value. 
+    <br>Then modify the SQL statement in the <strong>Data Source</strong> property by adding the "IN" statement as shown in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>projects, employees, projects_employees</em></p>
+<h2>Programming Notes</h2>
+<p>This example doesn't require events.</p>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Editable Grid with 'Add Row' Button</title>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include JSFunctions @1-6FA9DE6A
+</script>
+<script language="JavaScript" src="../ClientI18N.asp?file=Functions.js&amp;lang={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include JSFunctions
+
+//page_departments_AddRowBtn_OnClick @12-2206DCEA
+function page_departments_AddRowBtn_OnClick()
+{
+    var result;
+//End page_departments_AddRowBtn_OnClick
+
+//Custom Code @13-2A29BDB7
+var NS6 = (!document.all && document.getElementById) ? 1 : 0;
+var IE  = (document.all) ? 1 : 0;
+var O = typeof(opera) != "undefined";
+
+var FormState = document.departments.FormState.value.split(";");
+var AllLength = parseInt(FormState[0])+parseInt(FormState[1]);
+
+  if (parseInt(FormState[0]) == 0 ) {
+      FormState[0] = 1;
+  }
+
+  var i;
+  for (i=FormState[0]; i<AllLength; i++) {
+     var objRow = document.getElementById('row' + i);
+     if (NS6 || O) {
+       if (objRow.style.display == "none") {
+           objRow.style.display = '';
+           break;
+       }
+     } else {
+       if (objRow.style.display == "none") {
+           objRow.style.display = "block"; 
+           break;
+       }
+         }
+  }
+
+  if (i >= AllLength) 
+      document.forms["departments"].AddRowBtn.disabled = true;
+
+//End Custom Code
+
+//Close page_departments_AddRowBtn_OnClick @12-BC33A33A
+    return result;
+}
+//End Close page_departments_AddRowBtn_OnClick
+
+//bind_events @1-65F9433A
+function bind_events() {
+    if (document.forms["departments"]) check_and_bind('document.forms["departments"].AddRowBtn','onclick',page_departments_AddRowBtn_OnClick);
+    forms_onload();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Editable Grid with 'Add Row' button</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<!-- BEGIN EditableGrid departments -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+            <td class="th">
+              <strong>List of Departments</strong>
+ </td> 
+            <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Caption">
+            <th>Department</th>
+ 
+            <th>Manager</th>
+ 
+            <th>Delete</th>
+ 
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td> 
+          </tr>
+ <!-- END RowError -->
+          <tr class="Row" id="row{RowIDAttribute}" title="{RowNameAttribute}" {RowStyleAttribute}>
+            <td><label for="departmentsdepartment_name{departments:rowNumber}" style="display: none;">Department</label><input maxlength="50" size="50" value="{department_name}" name="{department_name_Name}" id="departmentsdepartment_name{departments:rowNumber}">&nbsp;</td> 
+            <td><label for="departmentsmanager_id{departments:rowNumber}" style="display: none;">Manager</label> 
+              <select name="{manager_id_Name}" id="departmentsmanager_id{departments:rowNumber}">
+                <option value="" selected></option>
+ {manager_id_Options} 
+              </select>
+ </td> 
+            <td>
+              <!-- BEGIN Panel CheckBox_Delete_Panel --><label for="departmentsCheckBox_Delete{departments:rowNumber}" style="display: none;">Delete</label> 
+              <!-- BEGIN CheckBox CheckBox_Delete --><input type="checkbox" value="1" name="{CheckBox_Delete_Name}" id="departmentsCheckBox_Delete{departments:rowNumber}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete --><!-- END Panel CheckBox_Delete_Panel -->&nbsp;</td> 
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">No records&nbsp;</td> 
+          </tr>
+ <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="3">
+              <label style="display: none;" for="departmentsAddRowBtn">Add Row</label>
+              <!-- BEGIN Button AddRowBtn --><input type="button" value="Add Row" name="{Button_Name}" id="departmentsAddRowBtn"><!-- END Button AddRowBtn -->&nbsp; 
+              <!-- BEGIN Button Button_Submit --><input type="submit" value="Submit" name="{Button_Name}"><!-- END Button Button_Submit -->&nbsp;</td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END EditableGrid departments -->{Footer}
+</body>
+</html>

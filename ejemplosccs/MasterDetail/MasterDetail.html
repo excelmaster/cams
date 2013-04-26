@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Simple Master-Detail for Employees/Projects</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Simple Master-Detail for Employees/Projects</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<table>
+  <tr>
+    <td valign="top">
+      <!-- BEGIN Grid employees_grid -->
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top">
+            <table class="Header" cellspacing="0" cellpadding="0" border="0">
+              <tr>
+                <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                <td class="th">
+                  <strong>Employees</strong>
+ </td> 
+                <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <th>#</th>
+ 
+                <th>Employee</th>
+ 
+              </tr>
+ 
+              <!-- BEGIN Row -->
+              <tr class="Row">
+                <td>{emp_id}</td> 
+                <td><a href="{emp_name_Src}">{emp_name}</a></td> 
+              </tr>
+ <!-- END Row -->
+              <!-- BEGIN NoRecords -->
+              <tr class="NoRecords">
+                <td colspan="2">No records&nbsp;</td> 
+              </tr>
+ <!-- END NoRecords -->
+              <tr class="Footer">
+                <td nowrap colspan="2"><a href="{Link1_Src}">Add New</a>&nbsp;&nbsp;&nbsp;&nbsp; 
+                  <!-- BEGIN Navigator Navigator -->
+                  <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/EXPack/Images/First.gif" alt="First" /></a> <!-- END First_On -->
+                  <!-- BEGIN First_Off --><img border="0" src="../Styles/EXPack/Images/FirstOff.gif" alt="FirstOff" /><!-- END First_Off -->
+                  <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/EXPack/Images/Prev.gif" alt="Prev" /></a> <!-- END Prev_On -->
+                  <!-- BEGIN Prev_Off --><img border="0" src="../Styles/EXPack/Images/PrevOff.gif" alt="PrevOff" /><!-- END Prev_Off -->&nbsp; 
+                  <!-- BEGIN Pages -->
+                  <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                  <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of&nbsp;{Total_Pages}&nbsp; 
+                  <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/EXPack/Images/Next.gif" alt="Next" /></a> <!-- END Next_On -->
+                  <!-- BEGIN Next_Off --><img border="0" src="../Styles/EXPack/Images/NextOff.gif" alt="NextOff" /><!-- END Next_Off -->
+                  <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/EXPack/Images/Last.gif" alt="Last" /></a> <!-- END Last_On -->
+                  <!-- BEGIN Last_Off --><img border="0" src="../Styles/EXPack/Images/LastOff.gif" alt="LastOff" /><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp; </td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Grid employees_grid --></td> 
+    <td valign="top">&nbsp; </td> 
+    <td valign="top">
+      <!-- BEGIN Record employees_record -->
+      <form method="post" action="{Action}" name="{HTMLFormName}">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table cellspacing="0" cellpadding="0" border="0" class="Header">
+                <tr>
+                  <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                  <td class="th">
+                    <strong>Add/Edit Employees</strong>
+ </td> 
+                  <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="employees_recordemp_name">Name</label></td> 
+                  <td><input maxlength="50" value="{emp_name}" name="{emp_name_Name}" id="employees_recordemp_name">&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="employees_recordtitle">Title</label></td> 
+                  <td><input maxlength="50" value="{title}" name="{title_Name}" id="employees_recordtitle">&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="employees_recorddepartment_id">Department</label></td> 
+                  <td>
+                    <select name="{department_id_Name}" id="employees_recorddepartment_id">
+                      <option value="" selected>(Select Department)</option>
+ {department_id_Options} 
+                    </select>
+ &nbsp;</td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td colspan="2" align="right">
+                    <!-- BEGIN Button Button_Insert --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonInsert.gif" value="Add" alt="{res:CCS_Insert}" style="border-width: 0; "><!-- END Button Button_Insert -->
+                    <!-- BEGIN Button Button_Update --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Button_Update -->
+                    <!-- BEGIN Button Button_Delete --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonDelete.gif" value="Delete" alt="{res:CCS_Delete}" style="border-width: 0; "><!-- END Button Button_Delete -->
+                    <!-- BEGIN Button Button_Cancel --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonCancel.gif" value="Cancel" alt="{res:CCS_Cancel}" style="border-width: 0; "><!-- END Button Button_Cancel --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record employees_record --><br>
+      <!-- BEGIN EditableGrid projects_employees -->
+      <form name="{HTMLFormName}" action="{Action}" method="post">
+        <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                  <td class="th">
+                    <strong>Employee Projects</strong>
+ </td> 
+                  <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Grid" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="3">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Caption">
+                  <th>Project</th>
+ 
+                  <th>%</th>
+ 
+                  <th>Delete</th>
+ 
+                </tr>
+ 
+                <!-- BEGIN Row -->
+                <!-- BEGIN RowError -->
+                <tr class="Error">
+                  <td colspan="3">{Error}</td> 
+                </tr>
+ <!-- END RowError -->
+                <tr class="Row">
+                  <td><input type="hidden" value="{emp_id}" name="{emp_id_Name}"><label for="projects_employeesproject_id{projects_employees:rowNumber}" style="display: none;">Project</label> 
+                    <select name="{project_id_Name}" id="projects_employeesproject_id{projects_employees:rowNumber}">
+                      <option value="" selected>(Select Project)</option>
+ {project_id_Options} 
+                    </select>
+ </td> 
+                  <td><label for="projects_employeespercent_allocation{projects_employees:rowNumber}" style="display: none;">%</label><input value="{percent_allocation}" name="{percent_allocation_Name}" id="projects_employeespercent_allocation{projects_employees:rowNumber}"></td> 
+                  <td>
+                    <!-- BEGIN Panel Delete1_Panel --><label for="projects_employeesDelete1{projects_employees:rowNumber}" style="display: none;">Delete</label> 
+                    <!-- BEGIN CheckBox Delete1 --><input type="checkbox" value="1" name="{Delete1_Name}" id="projects_employeesDelete1{projects_employees:rowNumber}" {Delete1}><!-- END CheckBox Delete1 --><!-- END Panel Delete1_Panel -->&nbsp;</td> 
+                </tr>
+ <!-- END Row -->
+                <!-- BEGIN NoRecords -->
+                <tr class="NoRecords">
+                  <td colspan="3">No records&nbsp;</td> 
+                </tr>
+ <!-- END NoRecords -->
+                <tr class="Footer">
+                  <td style="text-align:right;" colspan="3">&nbsp; 
+                    <!-- BEGIN Button Button_Submit --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Button_Submit --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END EditableGrid projects_employees --></td> 
+  </tr>
+</table>
+{Footer}
+</body>
+</html>

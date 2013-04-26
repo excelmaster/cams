@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Directory Maintenance System</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header}
+<h2>Directory Maintenance System</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="45%">
+      <!-- BEGIN Path Path_link_categories -->
+      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+          <td valign="top">
+            <table cellspacing="0" cellpadding="0" border="0" class="Header" width="100%">
+              <tr>
+                <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                <td class="th">
+                  <strong>Category List</strong>
+ </td> 
+                <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <td nowrap><a href="{PathBeginLink_Src}">Main</a> 
+                  <!-- BEGIN PathComponent -->&nbsp;&gt;&nbsp;<a href="{PathCategory_Src}">{PathCategory}</a><!-- END PathComponent -->
+                  <!-- BEGIN CurrentCategory -->&nbsp;&gt;&nbsp;{CurrentCategory} <!-- END CurrentCategory --></td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Path Path_link_categories -->
+      <!-- BEGIN Directory yp_category -->
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Row">
+          <td valign="top">
+            <!-- BEGIN Category --><a href="{Link1_Src}">{Link1}</a>&nbsp;<strong><a href="{CategoryLink_Src}">{CategoryLink}</a></strong><br>
+            <!-- BEGIN Subcategory -->&nbsp;&nbsp;&nbsp;<a href="{Link2_Src}">{Link2}</a>&nbsp;<a href="{SubcategoryLink_Src}">{SubcategoryLink}</a><!-- END Subcategory -->
+            <!-- BEGIN SubcategorySeparator --><br>
+            <!-- END SubcategorySeparator -->
+            <!-- BEGIN SubcategoriesTail -->&nbsp;<a href="{SubcategoriesTailLink_Src}">More...</a><!-- END SubcategoriesTail --><!-- END Category -->
+            <!-- BEGIN CategorySeparator -->
+            <hr><!-- END CategorySeparator -->
+            <!-- BEGIN ColumnSeparator --></td> 
+          <td><!-- END ColumnSeparator -->
+            <!-- BEGIN NoCategories -->This is last category<!-- END NoCategories --></td> 
+        </tr>
+ 
+      </table>
+ <!-- END Directory yp_category --></td> 
+    <td valign="top" width="5%">&nbsp;</td> 
+    <td valign="top" width="50%">
+      <!-- BEGIN Record form_categories -->
+      <form action="{Action}" method="post" name="{HTMLFormName}">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table cellspacing="0" cellpadding="0" border="0" class="Header">
+                <tr>
+                  <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                  <td class="th">
+                    <strong>Add/Edit Category</strong>
+ </td> 
+                  <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="form_categoriescategory_name">Category Name</label></td> 
+                  <td><input maxlength="50" name="{category_name_Name}" size="30" value="{category_name}" id="form_categoriescategory_name"><input name="{category_id_parent_Name}" type="hidden" value="{category_id_parent}" id="form_categoriescategory_id_parent"></td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td align="right" colspan="2" nowrap>
+                    <!-- BEGIN Button Insert1 --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonInsert.gif" value="Add" alt="{res:CCS_Insert}" style="border-width: 0; "><!-- END Button Insert1 -->
+                    <!-- BEGIN Button Update1 --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Update1 -->
+                    <!-- BEGIN Button Delete1 --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonDelete.gif" value="Delete" alt="{res:CCS_Delete}" style="border-width: 0; "><!-- END Button Delete1 -->
+                    <!-- BEGIN Button Cancel --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonCancel.gif" value="Cancel" alt="{res:CCS_Cancel}" style="border-width: 0; "><!-- END Button Cancel --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record form_categories --></td> 
+  </tr>
+</table>
+{Footer}
+</body>
+</html>

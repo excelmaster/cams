@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Updating Many-to-Many Relations via Two Listboxes - description</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Updating Many-to-Many Relations via Two Listboxes</h1>
+<h2>Description</h2>
+<p>This example shows how to implement a sample record form that allows users 
+  to assign multiple projects to an employee using two Listboxes. This is an example 
+  of a many-to-many relationship whereby one employee can have many projects and 
+  one project can have many employees.</p>
+<h2>Usage</h2>
+<p>To assign projects to an employee, select an employee from the list to the 
+  left, then select multiple projects by holding the CTRL key and clicking on 
+  the project in the list. Click on the "&gt;&gt;" button to move projects to 
+  the 'Assigned projects' list. Note that can also remove projects from 'Assigned 
+  projects' by selecting them and clicking on the "&lt;&lt;" button. When done, 
+  click “Submit” to save the selection.</p>
+<p>To add a new employee and assign projects to him\her, click the "Add New" link 
+  and enter the name of the employee in the 'Employee' field, then assign the 
+  projects as described above . When done, click &quot;Submit&quot; to save the 
+  new record.</p>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Create a HTML table with two columns.
+  <li>In the left cell of the HTML table, use the <strong>Grid Builder</strong> to create the
+  grid based on the "Employees" table and its two columns: <em>emp_id</em> and <em>emp_name</em>.
+  <li>Convert the <em>emp_name</em> field to a Link field that points to the current 
+    page and passes the value of <em>emp_id</em> as a URL parameter. (Use the 
+    <strong>Href Source</strong> property).
+  <li>In the bottom row of the Grid, add a <em><strong>Add New</strong></em> Link 
+    control and set it's <strong>Href Source</strong> property to the current 
+    page and add the text <em>emp_id</em> into the <strong>Remove Parameters</strong> property. 
+  <li>In the right cell of the HTML table, use the Record Builder to create a 
+    record form with one <em>emp_name</em> field. 
+  <li>Enter <em>emp_id</em> in the <strong>Remove Parameters</strong> property of
+    the record form. 
+  <li>Insert a new row into the record form and move it below the row with the 
+    <em>emp_name</em> control.
+  <li>Within the new row, add a HTML table with three columns. In the first and 
+    last column, add two ListBox controls (named <em>AvailableListBox </em>and 
+    <em>LinkedListBox </em>respectively) and in the middle column, add two buttons 
+    (named <em>RightButton</em> and <em>LeftButton</em> respectively)
+  <li>Under the Format tab of the Properties window, activate the <strong>multiple</strong> property 
+    of the two ListBox controls and set their <strong>Size</strong> property to 8. 
+  <li>Switch to HTML mode and locate the code for both ListBox controls then delete 
+    the &lt;option&gt; tag for the default 'Select Value' option (i.e. &lt;option 
+    value=&quot;&quot; selected&gt;Select Value&lt;/option&gt;).
+  <li> For the <em>AvailableListBox </em>ListBox, set the <strong>Connection</strong> property 
+    to&nbsp;<em>IntranetDB</em>&nbsp; and select&nbsp;<em>projects</em> in the 
+    <strong>Data Source</strong> property. Select <em>project_id </em>in the <strong>Bound Column</strong> 
+    property, <em>project_name</em> in the <strong>Text Column</strong> Property and 
+    <em>Integer </em>in the <strong>Data Type</strong> property. Also set the <strong>Source 
+    Type</strong> property to <em>Code Expression</em>. <br>
+In the Format tab of the <strong>Properties</strong> window, set the <strong>Id</strong> property to <em>available.</em> 
+
+  <li>For the <em>LinkedListBox </em>ListBox, open the 'Data Source' window by 
+    clicking on the [...] button next to the <strong>Data Source</strong> property, 
+    then click on the "Build Query" button and select the following tables: 'projects' 
+    and 'project_employees'. Select [*] (all fields) in the 'projects' table and 
+    unselect all fields in the 'projects_employees' table. 
+  <li>While still in the 'Data Source' window, add a Where parameter of the form: 
+    <em>emp_id</em> equals(=) <em>emp_id</em> with the <strong>Parameter Source</strong> 
+    Type set to <em>URL</em> and the <strong>Default Value</strong> set to <em>-1</em>.
+  <li>Close the 'Data Source' window then with the <em>LinkedListBox </em>ListBox 
+    still selected, select <em>project_id </em>in the <strong>Bound Column</strong> 
+    property, <em>project_name</em> in the <strong>Text Column</strong> Property and 
+    <em>Integer </em>in the <strong>Data Type</strong> property. Also set the <strong>Source 
+    Type</strong> property to <em>Code Expression</em>. 
+  <li>Within the record form, add a Hidden control called <em>LinkedID</em>.
+  <li>Add Custom code to the <strong>On Click</strong> client event of the<em> RightButton</em> 
+    and <em>LeftButton</em> buttons as shown in the example.
+  <li>Add Custom code to the <strong>On Submit</strong> client event of the record form as shown 
+    in the example.
+  <li>Add the appropriate programming code into the <strong>After Insert</strong>, <strong>After 
+    Update</strong> and <strong>Before Delete</strong> events of the record form and the <strong>Before 
+    Build Select</strong> event of the <em>AvailableListBox </em>ListBox as shown in 
+    the example. Note that you also need to copy the function <em>ProjectEmployeesModify</em>, 
+    which should to be added anywhere in the event file, preferably between Events. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>projects, employees, projects_employees</em></p>
+<h2>Programming Notes</h2>
+<p>The <strong><em>Before Build Select</em></strong> event of the <em>AvailableListBox </em>ListBox 
+  is used to show only the projects bound to the current employee.</p>
+<p>The <em>ProjectEmployeesModify</em> function is used to simplify the updates 
+  performed by the events below.</p>
+<p>The record form's <strong><em>After Update</em></strong> event is used to retrieve the 
+  ListBox values and update the many-to-many relationship table, in this case 
+  <em>projects_employees</em>.</p>
+<p>The record form's <strong><em>After Insert</em></strong> event is used to obtain the last 
+  inserted key and update the many-to-many relationship table when a new record 
+  is added by a user. 
+<p style="MARGIN: 0in 0in 0pt 0.5in">Note: you can use several methods to retrieve 
+  the value of the last key inserted into the database, which is the current <em>project_id</em>. 
+  Although many databases have appropriate functions for retrieving the last inserted 
+  key within the current session, some databases do not support this. As such, 
+  you can simply retrieve the highest key value in the table and assume that it 
+  is the key last inserted by the current user. This method can be improved to 
+  be more reliable, though this is not the purpose of this example.</p>
+<p>The record form's <strong><em>Before Delete</em></strong> event is used to delete records 
+  from the many-to-many relationship table whenever a project is deleted.</p>
+</body>
+</html>

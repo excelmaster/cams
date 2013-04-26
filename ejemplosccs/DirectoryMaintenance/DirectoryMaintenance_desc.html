@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Hierarchical Category & Directory Maintenance</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header} </p>
+<h1>Hierarchical Category &amp; Directory Maintenance</h1>
+<h2>Description</h2>
+<p>This example shows a sample implementation of a system that can be used to
+manage hierarchical data. In this case, it is the list of categories that are
+later used in the directory.</p>
+<h2>Usage</h2>
+<ol>
+  <li>Navigate to the directory level that you want to update. 
+  <li>To add a new category: enter the 'Category Name' and click the 'Add'
+  button. The new category will be added at the current level. If you are at the
+  root level then&nbsp;a new root category will be created. <br>
+  To edit a category: click the 'Edit' link next to the category, change the
+  value in the 'Category Name' field and then click the 'Submit' button. </li>
+</ol>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Create a new page and create a table with 2 columns. 
+  <li>In the left column of the table, use the <strong>Directory Builder</strong> to create the
+  directory with the path based on the <em>directory_categories</em> table.&nbsp;
+  In the 2<sup>nd</sup> step of the Builder leave the <strong>Root Category</strong> identifier
+  field empty and specify <strong>Number of Columns</strong> as "<em>1</em> ". 
+  <li>Switch to HTML mode and add a Link inside the "Category" block before "<em>&#123;CategoryLink&#125;" </em>to
+  create a link for editing the categories.&nbsp;&nbsp; 
+  <li>Set the current page as&nbsp;the value&nbsp;of the&nbsp;new
+  link's <strong>Href Source</strong> property and then also in the <strong>Href Source</strong> property
+  add a Link Parameter with the following values: <strong>Data Source Type</strong> = <em>DataSource
+  Column</em>, <strong>Parameter Source</strong> = <em>cat_category_id</em> and <strong>Parameter
+  name</strong> = <em>edit_id</em>. Set the <strong>Default</strong> property of the&nbsp;Link to
+  <em>Edit</em> and add <em>parent_id</em> into the <strong>Remove Parameters</strong> property.
+  <li>Add another Link link inside the "SubCategory" block before <em>&#123;SubCategoryLink&#125;</em>
+  to create a link for editing the&nbsp;subcategories. 
+  <li>Set the current page as&nbsp;the value&nbsp;of the&nbsp;link's <strong>Href
+  Source</strong> property and then add a Link Parameter with the following values:
+  <strong>Data Source Type</strong> = <em>DataSource Column</em>, <strong>Parameter Source</strong>&nbsp;= <em>sub_category_id</em>
+  and <strong>Parameter name</strong> = <em>edit_id</em>. 
+  <br>Add another Link Parameter with the
+  following property values: <strong>Data Source Type</strong> = <em>DataSource Column</em>,
+  <strong>Parameter Source</strong>&nbsp;= <em>cat_category_id</em>&nbsp; and <strong>Parameter name</strong>
+  = <em>parent_id</em>. Set the <strong>Default</strong> property of the&nbsp;Link to <em>Edit</em>. 
+  <li>Switch back to the Design mode and add the text <em>edit_id;parent_id</em> into
+  the <strong>Remove Parameters</strong> property of the following Links: 
+  "PathCategory" within the Path component, "CategoryLink", "SubCategoryLink" and "More" within the
+  Directory component. 
+  <li>Add the text <em>;edit_id;parent_id</em> to <em>category_id</em> into
+  the <strong>Remove Parameters</strong> property of the "Main" link within the Path component. 
+  <li>In the right column of the table, use the <strong>Record Builder</strong> to create the
+  record form based on the <em>directory_categories</em> table and containing two
+  fields: <em>category_name</em> and <em>category_id_parent</em>. In the 2<sup>nd</sup>
+  step of the builder specify that the field&nbsp;<em>category_id_parent</em> &nbsp;&nbsp;is
+  of "Hidden" type. 
+  <li>Open the "Data Source" dialog of the record form and double-click on the
+  Where parameter that is shown as "category_id = &#123;category_id&#125;", then change
+  the "Parameter source" from <em>category_id</em> to <em>edit_id</em>. 
+  <li>Enter <em>edit_id;parent_id</em> in the <strong>Remove Parameters</strong> property of
+  the record form. 
+  <li>Copy or add the appropriate programming code in the record's <strong>Before Show</strong> 
+  event, as provided&nbsp;with the example. You may also need to modify the code
+  to match your form names, or rename the Directory and Record forms on the page
+  to have the same names as those in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text, captions and the
+  layout within the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Internet</em></p>
+<p>Tables: <em>directory_categories</em></p>
+<h2>Programming Notes</h2>
+<p>The record form's&nbsp; <strong><em>Before Show</em></strong> event was used to
+automatically set the parent category id of the newly created or modified
+category.</p>
+</body>
+</html>

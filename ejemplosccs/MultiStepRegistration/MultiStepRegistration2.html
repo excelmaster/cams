@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Multi-Tab Registration</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} <br>
+<!-- BEGIN Record users -->
+<form method="post" action="{Action}" name="{HTMLFormName}">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="0" border="0" class="Header">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+            <td class="th">
+              <strong>Registration - Step 2</strong>
+ </td> 
+            <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="usersaddress1">Address1</label></td> 
+            <td><input maxlength="250" name="{address1_Name}" size="50" value="{address1}" id="usersaddress1">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersaddress2">Address2</label></td> 
+            <td><input maxlength="50" name="{address2_Name}" size="50" value="{address2}" id="usersaddress2">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersaddress3">Address3</label></td> 
+            <td><input maxlength="50" name="{address3_Name}" size="50" value="{address3}" id="usersaddress3">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userscity">City</label></td> 
+            <td><input maxlength="30" name="{city_Name}" size="30" value="{city}" id="userscity">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersstate_id">State</label></td> 
+            <td>
+              <select name="{state_id_Name}" id="usersstate_id">
+                <option value="" selected>Select Value</option>
+ {state_id_Options} 
+              </select>
+ &nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userszip">Zip</label></td> 
+            <td><input maxlength="10" name="{zip_Name}" size="10" value="{zip}" id="userszip">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="userscountry_id">Country</label></td> 
+            <td>
+              <select name="{country_id_Name}" id="userscountry_id">
+                <option value="" selected>Select Value</option>
+ {country_id_Options} 
+              </select>
+ &nbsp;&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersphone_work">Phone Work</label></td> 
+            <td><input maxlength="50" name="{phone_work_Name}" size="50" value="{phone_work}" id="usersphone_work">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersphone_home">Phone Home</label></td> 
+            <td><input maxlength="50" name="{phone_home_Name}" size="50" value="{phone_home}" id="usersphone_home">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersphone_day">Phone Day</label></td> 
+            <td><input maxlength="20" name="{phone_day_Name}" value="{phone_day}" id="usersphone_day">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersphone_evening">Phone Evening</label></td> 
+            <td><input maxlength="20" name="{phone_evening_Name}" value="{phone_evening}" id="usersphone_evening">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersphone_cell">Phone Cell</label></td> 
+            <td><input maxlength="50" name="{phone_cell_Name}" size="50" value="{phone_cell}" id="usersphone_cell">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="usersfax">Fax</label></td> 
+            <td><input maxlength="20" name="{fax_Name}" value="{fax}" id="usersfax">&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input name="{Button_Name}" type="submit" value="&lt;&lt; Prev"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input name="{Button_Name}" type="submit" value="Next &gt;&gt;"><!-- END Button Button_Update -->&nbsp; </td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record users -->{Footer}
+</body>
+</html>

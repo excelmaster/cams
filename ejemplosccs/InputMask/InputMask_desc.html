@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Data Entry with Input Mask</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Data Entry with Input Mask</h1>
+<h2>Description</h2>
+<p>This example shows how to create a form with input mask fields.</p>
+<h2>Usage</h2>
+<p>To add a new user:
+<ol>
+  <li>Click on the <em><strong>Add User</strong></em> Link. 
+  <li>Enter values for the <strong><em><!-- #BeginLibraryItem "/Library/Untitled.lbi" -->First name<!-- #EndLibraryItem --></em></strong>, 
+    <em> <strong>Last name</strong></em>, <em><strong>Email</strong></em>, <em><strong>Phone 
+    work </strong></em>and <em><strong>SSN </strong></em>fields.
+  <li>Click on <em><strong>Submit</strong></em> Button to save the information. 
+    An error message will be shown if the values in the <em><strong>Email</strong></em>, 
+    <em> <strong>Phone Work </strong></em>or <em><strong>SSN </strong></em>fields 
+    don't match their respective masks. </li>
+</ol>
+<p></p>
+<p>To modify a user's information:
+<ol>
+  <li>Select a user by clicking on the his\her first name in the user list. 
+  <li>Perform the same steps as when adding a new user.</li>
+</ol>
+<p></p>
+
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Create a HTML table with two columns. 
+  <li>In the left column cell of the HTML table, use the <strong>Grid Builder 
+    </strong>to create the <em><strong>List of Users </strong></em>Grid 
+    based on the <em>users</em> table and its five columns:
+    <em>first_name</em>, <em>last_name</em>, <em>email</em>, 
+    <em>phone_work</em> and <em>user_SSN</em>. 
+  <li>Change the <em>first_name</em> field type from Label to Link, then set the 
+    current page as the page name in its <strong>Href Source</strong> property. 
+    Also add a Link Parameter with the following property values: <strong>Data 
+    Source Type</strong>&nbsp;= <em>DataSource Column</em>, <strong>Parameter 
+    Source</strong> = <em>user_id</em> and <strong>Parameter Name</strong> = <em>user_id</em>. 
+  <li>Add a <em><strong>Add user Link</strong></em> at the bottom of the Grid 
+    and set the current page as the value of it's <strong>Href Source</strong> 
+    property. Then enter <em>user_id</em> in it's <strong>Remove Parameters</strong> 
+    property.</li>
+  <li>In the right column cell of the HTML table, use the <strong>Record Builder 
+    </strong>to create the <em><strong>Add/Edit Users</strong></em> Record form 
+    which is based on the following fields of the <em><strong>users</strong></em> 
+    database table: <em>first_name, last_Name</em>, <em>email</em>, <em>phone_work</em> 
+    and <em>user_SSN</em>. In Step 3 of the <strong>Record Builder, </strong>check 
+    the following options: <em>Allow Insert, Allow Update, Allow Delete</em> and <em>Allow Cancel</em>. 
+  <li>Set the <strong>Required </strong>property of <em><strong>first_name</strong> and 
+    <strong>last_Name</strong></em> Text Boxes 
+    to <em>Yes</em>. 
+  <li>Select <em>Email</em> in the <strong>Input Validation</strong> property 
+    of the <em><strong>email</strong></em> Text Box. 
+  <li>Add a <strong>Validate Entry</strong> action to the <strong>On Load </strong>client 
+    event of the <em><strong>phone_work</strong></em> Text Box. Set the <strong>Required 
+    </strong>property to <em>True</em>, the <strong>Minimum Length </strong>and 
+    <strong>Maximum Length </strong>properties to <em>14 </em>and the <strong>Input 
+    Mask </strong>property to <em><span style="white-space: nowrap;">(000) 000-0000</span></em>. 
+  <li>Add a <strong>Validate Entry </strong>action to the <strong>On Load </strong>client 
+    event of the <em><strong>user_SSN</strong></em> Text Box. Set the <strong>Required 
+    </strong>property to <em>True</em>, the <strong>Minimum Length </strong>and 
+    <strong>Maximum Length </strong>properties to <em>11 </em>and the <strong>Input 
+    Mask </strong>property to <span style="white-space: nowrap;"><em>000-00-0000</em></span>. 
+  <li>Add a <strong>Validate Form </strong>action to the <strong>On Submit </strong>client 
+    event of the Record form so as to validate the Required value and the Minimum 
+    and Maximum Length of the field values. 
+  <li>Add a <strong>Validate Phone</strong> action to the <strong>On Validate 
+    </strong> event of the <em><strong>phone_work</strong></em> Text Box. 
+  <li>Add a <strong>Regular Expression</strong> <strong>Validation</strong> action 
+    to the <strong>On Validate </strong>event of the <em><strong>user_SSN</strong></em> 
+    field. Set the <strong>Control Name </strong>property of the action to <em>user_SSN</em>, 
+    the <strong>Regular Expression</strong> property to <span style="white-space: nowrap;"><em>^[0-9]&#123;3&#125;-[0-9]&#123;2&#125;-[0-9]&#123;4&#125;$</em></span><em> 
+    </em>and enter the following value into the <strong>Error message </strong>property: 
+    <em>Invalid SSN format in SSN</em> field. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+
+<h2>Database Tables used</h2>
+<p>Database: <em>Internet</em></p>
+<p>Table: <em>users</em></p>
+
+<h2>Programming Notes</h2>
+<p>The <strong>Validate Entry </strong>action in the <strong><em>On Load</em></strong> client 
+  event of the <em><strong>Phone Work </strong></em>and <em><strong>SSN </strong></em>Text 
+  Boxes is used for formatting values based on a mask.</p>
+<p>The <strong>Validate Form </strong>action in the <strong><em>On Submit</em></strong> client 
+  event of the Record form is used to initiate validation of the fields in the 
+  form.</p>
+
+<p>The<strong><em> </em>On Validate</strong> event in the <em><strong>Phone Work </strong></em>Text 
+  Box is used for mask value validation of the field, in this case: (000) 000-0000.</p>
+<p>The <strong>On Validate</strong> event in the <em><strong>SSN</strong></em> Text Box 
+  is used for mask value validation of the field, in this case: 000-00-0000.</p>
+
+
+<p>&nbsp;</p>
+</body>
+</html>

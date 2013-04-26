@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Pop-up List and Smart Lookup</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Pop-up List &amp; Smart Lookup</h1>
+
+<h2>Description</h2>
+<p>This example shows an implementation of a pop-up list for selecting values 
+  and a smart lookup for quick data entry. The example is based on two tables: 
+  <em>departments </em>and <em>employees</em> where users assign a manager to 
+  each department. Although a simpler solution may be to let users select a manager 
+  using a List Box, this becomes impractical when a large number of records is 
+  involved. For example we may not want users to scroll through 100 managers in 
+  a listbox. Instead, the pop-up list can filter the records displayed by using 
+  a keyword search as a faster way to find the appropriate manager. The lookup 
+  further enhances the process by allowing the user to specify partial information 
+  when searching for a manager i.e. the managers initials, first or last name 
+  or a partial name.</p>
+<h2>Usage</h2>
+<ol>
+  <li>Click on the <em><strong>Add New </strong></em>Link to add a new department. 
+  <li>Enter a department name into the <em><strong>Department</strong></em> field. 
+  <li>Enter <em>Ken Price</em> or <em>K P</em> or <em>Ken</em> or <em>Price</em> 
+    into the <em><strong>Manager</strong></em> field and click on the <em><strong>Add</strong></em> 
+    Button. If exactly one matching user is found then the record will be inserted, 
+    otherwise an error message will be shown.
+  <li>Alternatively, click on the <em><strong>Employees List</strong></em> link 
+    to open the pop-up window where you can select from or search a list of employees. 
+    After selecting an employee, click on the <em><strong>Add</strong></em> button 
+    to save the new record.<br>
+</ol>
+
+<h2>Steps to recreate</h2>
+<h3>Page 1 (PopUpList):</h3>
+<ol>
+  <li>Create a new page and create a table with 2 columns. 
+  <li>In the left column of the table, use the <strong>Grid Builder</strong> to create the
+  Grid based on the <em>departments</em> and <em>employees</em> tables which are located in the
+  Intranet database and their two columns: <em>department_name</em> and <em>emp_name</em>. 
+  <br>On Step 2 of the Builder use the <strong>Build Query</strong> option to select 2 tables: 
+  <em>departments</em> and <em>employees</em>, delete a link between
+  <em>departments.department_id</em> and <em>employees.department_id</em> fields
+  and set the <strong>Left Join</strong> relation between <em>department_manager_id</em> and <em>emp_id</em> fields, 
+  then select the <em>department_id</em> and <em>department_name</em> fields from the <em>departments</em> table plus 
+  the <em>emp_name</em> field from the <em>employees</em> table. 
+  <br>On Step 4 of the <strong>Grid</strong> Builder select "No Sorting".
+  <li>Convert the <em>department_name</em> field to a Link, set the <strong>Href Source</strong> property to the current page 
+    and add a link parameter with the following properties: <strong>Data Source Type</strong> = <em>DataSource Column</em>, 
+	<strong>Parameter Source</strong> = <em>departments_department_id</em> 
+    and <strong>Parameter name</strong> = <em>department_id</em>. 
+  <li>Below of the Grid, add a <em><strong>Add New</strong></em> Link control and set its 
+    <strong>Href Source</strong> property to the current page and enter the 
+	<em>department_id</em> text into the <strong>Remove Parameters</strong> property. 
+
+
+  <li>In the right cell of the HTML table, use the <strong>Record Builder</strong> to create the 
+    'departments' record based on the <em>departments</em> table and its two columns: <em>department_name</em> and <em>department_manager_id</em>. 
+  <li>Enter <em>department_id</em> in the <strong>Remove Parameters</strong> property of
+    the Record form. 
+  <li>In the Record form, set the <strong>Data Type</strong> property of the <em><strong>department_manager_id</strong></em> 
+    field to <em>Text.</em>
+  <li>In the bottom row of the Record form, add the Hidden control with the name
+    <em><strong>is_change</strong>.</em> 
+  <li>Also add the <em><strong>Employees List</strong></em> Link next to the <em><strong>department_manager_id</strong></em> 
+    field. 
+  <li>Select the <em><strong>PopUpList_Window</strong></em> page in the <strong>Href 
+    Source</strong> property of the Link and set the <strong>Preserve Parameters</strong> 
+    property to <em>None</em>. 
+  <li>Click on the <strong>Format</strong> tab of the <strong>Properties</strong> 
+    window and enter <em>EmployeesList</em> in the <strong>id </strong>property. 
+  <li>Switch to HTML mode and add the <em><strong>OpenPop_UpList() </strong></em>JavaScript function as shown in the 
+    example. 
+  <li>Under the <strong>Format </strong>tab of the <strong>Properties </strong>window,
+    add the <strong>On Click </strong> event for the <strong> <em>Employee List </em></strong>link to: <font face="Courier New, Courier, mono">OpenPop_UpList();return 
+    false;</font>
+   <br> Note that the <strong>On Click </strong>event<strong> </strong>appears under the <strong>Events </strong>section of the 
+    <strong>Format </strong>tab.
+  <li>Add the Custom code to the <strong>On Change</strong> client event of the
+    <em><strong>department_manager_id </strong></em>field as shown in the example.
+
+  <li>Add the appropriate programming code in the <strong>Before Show </strong>and 
+    <strong>OnValidate </strong>events of the <em><strong>departments</strong></em> 
+    Record form as shown in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+
+<h3>Page 2 (PopUpList_Window):</h3>
+<ol>
+  <li>Use the <strong>Grid Builder</strong> to create the 'employees' Grid and Search forms based on 
+  the <em>employees</em> and <em>departments</em> tables and their three columns: 
+  <em>emp_name</em>, <em>department_name</em> and <em>title</em>.
+  <br>On Step 2 of the Builder use the <strong>Build Query</strong> option to select 2 tables: 
+  <em>employees</em> and <em>departments</em>.
+  <br>On step 3 of the <strong>Grid Builder</strong>, check the <strong>Create 
+    Search/Filter</strong> checkbox and select two fields: <em>emp_name</em> and <em>departments.department_id</em>.
+  <br>On Step 4 of the <strong>Grid</strong> Builder select "No Sorting".
+  <li>Convert the <em>s_department_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>IntranetDB</em> and select&nbsp;<em>departments</em> 
+	in the <strong>Data Source</strong> property. Select <em>department_id</em> in the <strong>Bound 
+    Column</strong> property, <em>department_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>In the <strong>Data Source</strong> property of the grid, remove a Where parameter: <span class="nobr"><em>emp_name like(%s_emp_name%)</em></span>.
+  <li>At the top of the page, add the <em><strong>Close Window </strong></em>Link 
+    control. 
+  <li>Under the <strong>Format </strong>tab of the <strong>Properties </strong>window,
+    add&nbsp; the <strong>On Click</strong> event for the link to: <span class="nobr"><font face="Courier New, Courier, mono">window.close(); 
+    </font></span>
+  <li>Switch to HTML mode and add the <em><strong>SetOpenerValue() </strong></em> 
+  JavaScript function as shown in the example.
+  <li>In the Grid form, change the <em><strong>emp_name</strong></em> Label control 
+    to Link. 
+  <li>Under the <strong>Format </strong>tab of the <strong>Properties </strong>window,
+    add the <strong>On Click</strong> event for the <em><strong>emp_name </strong></em>link 
+    to: <font face="Courier New, Courier, mono">SetOpenerValue(this);return false;</font>
+
+  <li>Add the appropriate programming code in the <strong>Before Show </strong>and 
+    <strong>Before Build Select </strong>events of the Grid as shown in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>employees, departments</em></p>
+
+<h2>Programming Notes</h2>
+<p>The Record form's <strong>Before Show</strong> event is used to lookup a manager's 
+  name based on the manager id.</p>
+<p>The Record form' <strong>On Validate</strong> event is used to find a manager 
+  based on search criteria or display an error message if no record or more than 
+  one record is found.</p>
+<p>The Grid form's <strong>Before Show</strong> event is used to hide the Navigator 
+  control is there are less than two pages of records to navigate.</p>
+<p>The Grid form's <strong>Before Build Select</strong> event is used to modify 
+  the Where clause of the executed SQL statement to include any specified search 
+  criteria. </p>
+
+</body>
+</html>

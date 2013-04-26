@@ -1,35 +1,59 @@
-<LldlCache allCatalogs="True" allSchemes="True" allColumns="True" allPrimaryKeys="True" allForeignKeys="False" allTables="True" allAliases="False" allSynonyms="True" allSystemTables="False" allSystemViews="False" allViews="True" allProcedures="False" allProcedureParameters="False">
-  <catalog allSchemes="True" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="False">
-    <schema SCHEMA_NAME="information_schema" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="cams_dev" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="True" allAliases="False" allSynonyms="True" allSystemTables="False" allSystemViews="False" allViews="True" allProcedures="False" allProcedureParameters="False" full="True">
-      <table TABLE_NAME="categorias" TABLE_TYPE="Table" DESCRIPTION="category*subcategory showing as navigator" allColumns="True" allPrimaryKeys="True" allForeignKeys="False" full="True">
-        <column COLUMN_NAME="category_id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="CCInteger" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="Category_name" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="True" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="Category_id_parent" ORDINAL_POSITION="3" DATA_TYPE="3" CCS_TYPE="CCInteger" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="True" DESCRIPTION="" full="True" />
+<LldlCache allCatalogs="True" allSchemes="True" allColumns="True" allPrimaryKeys="True" allForeignKeys="True" allTables="True" allAliases="False" allSynonyms="True" allSystemTables="False" allSystemViews="False" allViews="True" allProcedures="True" allProcedureParameters="False">
+  <catalog allSchemes="True" allColumns="True" allPrimaryKeys="True" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="False">
+    <schema SCHEMA_NAME="information_schema" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="cams_dev" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="True" allAliases="False" allSynonyms="True" allSystemTables="False" allSystemViews="False" allViews="True" allProcedures="True" allProcedureParameters="False" full="True">
+      <table TABLE_NAME="categorias" DESCRIPTION="category*subcategory showing as navigator" allColumns="True" allPrimaryKeys="True" allForeignKeys="True" full="True">
+        <column COLUMN_NAME="category_id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="Category_name" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="Category_id_parent" ORDINAL_POSITION="3" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="True" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="groupid" ORDINAL_POSITION="4" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
         <primaryKey PK_COLUMN_NAME="category_id" KEY_NAME="PRIMARY" ENABLED="True" full="True" />
       </table>
-      <table TABLE_NAME="group_init" TABLE_TYPE="Table" DESCRIPTION="begin page to init the app for the groupid of session" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" full="True">
-        <column COLUMN_NAME="id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="CCInteger" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="grupo" ORDINAL_POSITION="2" DATA_TYPE="3" CCS_TYPE="CCInteger" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="pageRedirect" ORDINAL_POSITION="3" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="200" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+      <table TABLE_NAME="group_init" DESCRIPTION="begin page to init the app for the groupid of session" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" full="True">
+        <column COLUMN_NAME="id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="grupo" ORDINAL_POSITION="2" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="pageRedirect" ORDINAL_POSITION="3" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="200" IS_NULLABLE="False" DESCRIPTION="" full="True" />
       </table>
-      <table TABLE_NAME="users" TABLE_TYPE="Table" DESCRIPTION="tabla de usuarios del sistema" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" full="True">
-        <column COLUMN_NAME="id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="CCInteger" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="prinombre" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="demasnombres" ORDINAL_POSITION="3" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="True" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="priapellido" ORDINAL_POSITION="4" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="segapellido" ORDINAL_POSITION="5" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="True" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="username" ORDINAL_POSITION="6" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="password" ORDINAL_POSITION="7" DATA_TYPE="8" CCS_TYPE="CCText" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
-        <column COLUMN_NAME="rol" ORDINAL_POSITION="8" DATA_TYPE="3" CCS_TYPE="CCInteger" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+      <table TABLE_NAME="users" DESCRIPTION="tabla de usuarios del sistema" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" full="True">
+        <column COLUMN_NAME="id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="prinombre" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="demasnombres" ORDINAL_POSITION="3" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="True" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="priapellido" ORDINAL_POSITION="4" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="segapellido" ORDINAL_POSITION="5" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="True" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="username" ORDINAL_POSITION="6" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="password" ORDINAL_POSITION="7" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="rol" ORDINAL_POSITION="8" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
       </table>
     </schema>
-    <schema SCHEMA_NAME="consolidadolocal" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="jskfhdsk" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="men19" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="men19secretaria" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="mysql" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="phpmyadmin" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
-    <schema SCHEMA_NAME="test" allColumns="False" allPrimaryKeys="False" allForeignKeys="False" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="consolidadolocal" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="jskfhdsk" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="men19" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="men19secretaria" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="mysql" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="phpmyadmin" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema SCHEMA_NAME="test" allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="True" />
+    <schema allColumns="False" allPrimaryKeys="False" allForeignKeys="True" allTables="False" allAliases="False" allSynonyms="False" allSystemTables="False" allSystemViews="False" allViews="False" allProcedures="False" allProcedureParameters="False" full="False">
+      <table TABLE_NAME="categoria_grupo" TABLE_TYPE="7" DESCRIPTION="" allColumns="True" allPrimaryKeys="True" allForeignKeys="False" full="True">
+        <column COLUMN_NAME="category_id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="Category_name" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="Category_id_parent" ORDINAL_POSITION="3" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="True" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="groupid" ORDINAL_POSITION="4" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <primaryKey PK_COLUMN_NAME="category_id" KEY_NAME="category_id" ENABLED="True" full="True" />
+      </table>
+      <table TABLE_NAME="Query1" TABLE_TYPE="7" DESCRIPTION="" allColumns="True" allPrimaryKeys="True" allForeignKeys="False" full="True">
+        <column COLUMN_NAME="category_id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" ALIAS="categorias_category_id" full="True" />
+        <column COLUMN_NAME="Category_name" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" ALIAS="categorias_Category_name" full="True" />
+        <column COLUMN_NAME="Category_id_parent" ORDINAL_POSITION="3" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="True" DESCRIPTION="" ALIAS="categorias_Category_id_parent" full="True" />
+        <column COLUMN_NAME="groupid" ORDINAL_POSITION="4" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" ALIAS="categorias_groupid" full="True" />
+        <primaryKey PK_COLUMN_NAME="category_id" KEY_NAME="category_id" ENABLED="True" full="True" />
+      </table>
+      <table TABLE_NAME="Query2" TABLE_TYPE="7" DESCRIPTION="" allColumns="True" allPrimaryKeys="True" allForeignKeys="False" full="True">
+        <column COLUMN_NAME="category_id" ORDINAL_POSITION="1" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="Category_name" ORDINAL_POSITION="2" DATA_TYPE="8" CCS_TYPE="2" NATIVE_TYPE="System.String" MAX_LENGTH="100" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="Category_id_parent" ORDINAL_POSITION="3" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="True" DESCRIPTION="" full="True" />
+        <column COLUMN_NAME="groupid" ORDINAL_POSITION="4" DATA_TYPE="3" CCS_TYPE="0" NATIVE_TYPE="System.Int32" NUMERIC_PRECISION="10" IS_NULLABLE="False" DESCRIPTION="" full="True" />
+        <primaryKey PK_COLUMN_NAME="category_id" KEY_NAME="category_id" ENABLED="True" full="True" />
+      </table>
+    </schema>
   </catalog>
 </LldlCache>

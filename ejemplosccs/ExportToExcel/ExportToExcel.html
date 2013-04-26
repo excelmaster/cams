@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Export to Excel</title>
+<!-- BEGIN Panel HiddenPanel -->
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+<!-- END Panel HiddenPanel -->
+</head>
+<body>
+{Header} 
+<h2>Export to Excel</h2>
+<!-- BEGIN Link Link1 -->
+<p><a href="{Link1_Src}">Click here to see example details</a></p>
+<!-- END Link Link1 -->
+<!-- BEGIN Link ToExcelLink -->
+<p><a href="{ToExcelLink_Src}">{ToExcelLink}</a></p>
+<!-- END Link ToExcelLink -->
+<!-- BEGIN Grid employees -->
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="HeaderLeft">&nbsp;</td> 
+          <td class="th"><strong>&nbsp;</strong> </td> 
+          <td class="HeaderRight">&nbsp;</td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Emp Name</th>
+ 
+          <th>Title</th>
+ 
+          <th>Email</th>
+ 
+          <th>Phone Home</th>
+ 
+          <th>Phone Work</th>
+ 
+          <th>Address</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{emp_name}&nbsp;</td> 
+          <td>{title}&nbsp;</td> 
+          <td>{email}&nbsp;</td> 
+          <td>{phone_home}&nbsp;</td> 
+          <td>{phone_work}&nbsp;</td> 
+          <td>{address}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="6">No records&nbsp;</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="6">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt;</a> <!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt;</a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} of {Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt;</a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;|</a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp; </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid employees -->{Footer} 
+</body>
+</html>

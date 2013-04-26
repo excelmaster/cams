@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Record Maintenance with Navigation</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header} </p>
+<h1>Record Maintenance with Navigation</h1>
+<h2>Description</h2>
+<p>This example shows how to use the editable grid component&nbsp;to maintain
+individual records while at the same time letting users navigate between
+the&nbsp;records without having to&nbsp;go back to a grid page to select another
+record.</p>
+<h2>Usage</h2>
+<p>Click on <em>First, Prev, Next</em> and <em>Last</em> , or on a record number to
+view an individual record. You can update the record information&nbsp;then click
+the “Submit” button to save the changes.</p>
+<p>To add a new record, click “Add New”, enter the data for the new record
+then&nbsp;click “Submit”. A new record will be added.</p>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Use the <strong>Editable Grid Builder</strong> to create the editable grid based on  <strong><em>employees</em></strong> 
+  table and its seven columns: <em>emp_name, emp_login, emp_password, title, 
+  group_id, department_id</em> and <em>phone_work</em>. 
+  <br>On Step 4 of the <strong>Editable Grid</strong> Builder select "No Sorting". Then select the <em>Columnar</em> in the <strong>Grid layout</strong> listbox.
+  <br>On Step 5 check the following options: <em>Allow Insert, Allow Update, Allow Delete</em> and <em>Allow Cancel</em>. 
+  <li>Set the <strong>Required</strong> property of emp_name, emp_login, emp_password and group_id Text Boxes to <em>Yes</em>. 
+  <li>Convert the <em>group_id</em> TextBox to a ListBox. For the ListBox set the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>groups</em> in the <strong>Data Source</strong> property. 
+  Select <em>group_id</em> in the <strong>Bound Column</strong> property, <em>group_name</em> in the <strong>Text Column</strong> Property and <em>Integer</em> in the <strong>Data Type</strong> property. 
+  <li>Convert the departmnet_id TextBox to a ListBox. For the ListBox set the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>departmnets</em> in the <strong>Data Source</strong> property. 
+  Select <em>department_id</em> in the <strong>Bound Column</strong> property, <em>department_name</em> in the <strong>Text Column</strong> Property and <em>Integer</em> in the <strong>Data Type</strong> property. 
+  <li>Enter <em>1</em> in the <strong>Empty Rows</strong> property to show one empty row used to
+  enter a new record at the bottom of the grid. Also enter <em>1</em> in the <strong>Records
+  Per Page</strong> property so that only one record is displayed on a page. 
+  <li>Add a hidden field next to the &#123;emp_name&#125; Text Box field. Select <em>Code
+  Expression</em> in the <strong>Source type</strong> property. Enter <em>"1"</em> in the <strong>Default Value</strong>
+  property. This field&nbsp;is used for value validation while adding a new
+  record if no fields were changed. 
+  <li>Add the "Add New" link near the Navigator. Set the <strong>Href Source</strong>&nbsp;property 
+    to the current page. Also within the <strong>Href source</strong> property, add an output&nbsp;parameter 
+    with the <strong>Source Type</strong> property set to <em>Expression</em>, the 
+    <strong>Parameter Source</strong> property set to <em>-1</em> and the <strong>Parameter 
+    Name</strong> property set to <em>emp_id</em>.
+  <li>In the <strong>Data Source</strong> property of the editable grid, add a URL 
+    Where parameter: <em>emp_id</em> equals(=) <em>emp_id</em>. 
+  <li>Set <em>emp_id</em> in the <strong>Remove Parameters</strong> property of the Editable Grid so 
+    that the 'emp_id' URL parameter is removed after the form is submitted. 
+  <li>Add the appropriate programming code in the <strong>Before Show </strong>event (and <strong>Before 
+    Select </strong>event for .NET), as is shown in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within
+  the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>employees</em></p>
+<h2>Programming Notes</h2>
+<p>The editable Grid's <strong><em>Before Show</em></strong> event was used to hide the new 
+  record rows while viewing and editing the values as well as to hide the navigator 
+  when adding a new record.</p>
+<h3>For .NET</h3>
+<p>The editable Grid's <strong><em>Before Select</em></strong> event was used to hide the 
+  new record rows while viewing and editing the values.</p>
+<p>The editable Grid's <strong><em>Before Show</em></strong> event was used to hide the navigator 
+  when adding a new record.</p>
+</body>
+</html>

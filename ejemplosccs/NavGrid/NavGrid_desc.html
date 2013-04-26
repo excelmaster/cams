@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Grid with Navigated Detail View</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Grid with Navigable Detail View</h1>
+<h2>Description</h2>
+<p>This example shows how to use&nbsp;Grid forms to traverse multiple records 
+  and view their details at the same time. In this case, there is no need to switch 
+  between a Grid and a Record form to show record details since a grid with a 
+  Navigator controls shows all the records with their details.</p>
+<h2>Usage</h2>
+<p>Click on an employee name to view detailed information, then click on <em>First, 
+  Prev, Next</em> and <em>Last</em> to view other records. Note that you can use 
+  the Sorters to rearrange the order in which the records appear. Whenever a sorting 
+  order is set, it is maintained even when you navigation to other records. </p>
+<h2>Steps to recreate</h2>
+<h3>Page 1 (NavGrid):</h3>
+<ol>
+  <li>Use the <strong>Grid Builder </strong>to create the <em>Employees</em> Grid 
+    and Search form based on the <em>employees</em> and <em>departments</em> tables and their three columns: 
+  <em>emp_name</em>, <em>title</em> and <em>department_name</em>.
+  <br>On Step 2 of the Builder use the <strong>Build Query</strong> option to select 2 tables: 
+  <em>employees</em> and <em>departments</em>.
+  <br>On step 3 of the <strong>Grid Builder</strong>, check the <strong>Create 
+    Search/Filter</strong> checkbox and select field: <em>emp_name</em>.
+  <li>In the Grid, change the <em><strong>emp_name</strong></em> field type from 
+    Label to Link. Then set the <strong>Href Source</strong> property to the second 
+    page (NavGrid_Detail) and enter <em>employeesPage</em> in the <strong>Remove 
+    Parameters </strong>property. 
+  <li>Add code to the Grid's <strong>Before Show Row </strong>event as shown in 
+    the example.
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.
+</ol>
+<h3>Page 2 (NavGrid_Detail):</h3>
+<ol>
+  <li>Use the <strong>Grid Builder</strong> to create the <em><strong>Employees</strong></em> 
+    Grid. The name of the Grid should be the same as the name of the Grid in the 
+    <em> <strong>NavGrid</strong></em> page.
+  <br>On Step 5 select the <em>Columnar</em> in the <strong>Grid layout</strong> listbox.  
+
+  <li>In the <strong>Data Source</strong> property of the Grid, add a Where parameter 
+    similar to the parameter in the <strong>Data Source </strong>property of the 
+    Grid in the <em><strong>NavGrid </strong></em>page.
+  <li>Set the <strong>Records Per Page</strong> property of the Grid to <em>1</em>.
+  <li>At the top of the Grid, add Sorters for the <em><strong>Name</strong></em>, 
+    <em> <strong>Title </strong></em>and <em><strong>Department </strong></em>fields 
+    and set their <strong>Visible</strong> property to <em>No</em>. The Sorters 
+    will not be visible but they will enable the Grid to display records based 
+    on the sort criteria specified in the <em><strong>NavGrid</strong></em> page. 
+    The <em><strong>emp_name </strong></em>link in the <em><strong>NavGrid </strong></em>page 
+    transmits any specified sort criteria over the URL when the link is clicked.
+  <li>Add a Link control below the Grid. 
+  <li>For the Link, set the <strong>Href Source</strong> property to the <em><strong>NavGrid</strong></em> 
+    page and add a <strong>Link Parameter with</strong> the following properties: 
+    <strong>Source Type</strong> = <em>URL</em>, <strong>Parameter Source</strong> 
+    = <em>empBackPage</em> and <strong>Parameter name</strong> = <em>employeesPage</em>. 
+  <li>Enter <em>empBackPage</em> in the <strong>Remove Parameters</strong> property 
+    of the Link. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>employees, departments</em></p>
+<h2>Programming Notes</h2>
+<h3>Page 1 (NavGrid)</h3>
+<p>The Grid's <strong><em>Before Show Row</em></strong> event is used to calculate the number 
+  of records up to the current page as well as the current page number and the 
+  record number. This information is appended to the URL leading to the NavGrid_Detail 
+  page.</p>
+
+</body>
+</html>

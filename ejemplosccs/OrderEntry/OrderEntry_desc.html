@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>An order entry page example implemented as master-detail</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>An order entry page example implemented as master-detail</h1>
+<h2>Description</h2>
+<p>This example shows how to create a master-detail order entry page. A grid form 
+  is used to display a list of all the orders while a record and editable grid 
+  form display detailed information about a selected order. </p>
+
+<h2>Usage</h2>
+<p>To add a new order:</p>
+<ol>
+  <li>Click on the 'Add' link at the bottom of the 'Orders' grid. 
+  <li>In the 'Add/Edit Order' record form, select the 'Customer' and enter the 
+    'Date' or click on the 'Date Picker' icon to select a date. 
+  <li>Click on the 'Add' button.
+  <li>In the 'Order Items' editable grid, click on the 'Add Item' button then 
+    select a 'Product' and enter the 'Quantity'. 
+  <li>To add another record repeat the operation above.
+  <li>After entering all the necessary information, click on the 'Submit' button 
+    to save the information.</li>
+</ol>
+<p>To edit an order:</p>
+<ol>
+  <li>Select the order by clicking on its id in the 'Orders' grid form.</li>
+</ol>
+<p>To modify the order information:</p>
+<ol>
+  <li>Modify the 'Customer' or 'Date' then click on the 'Submit' button of the 
+    'Add/Edit Order' record form. </li>
+</ol>
+<p>To modify the order items</p>
+<ol>
+  <li>Change the 'Product' or the 'Quantity' of the item.
+  <li>To add a new record click on the 'Add Item' button then enter the item information.
+  <li>After entering the information click on the 'Submit' button to save the information.</li>
+</ol>
+<p></p>
+
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Create a HTML table with two columns. 
+  <li>In the left column cell of the HTML table, use the <strong>Grid Builder</strong> to create 
+    the 'Orders' grid with three columns: <em>order_id</em>, <em>customer_name</em> 
+	and <em>order_date</em>.
+  <li>On Step 2 of the Grid Builder, click on the 'Build Query' button and select 
+    the following tables: <em> orders</em> and <em>customers</em>. Select [*] (all 
+    fields) in the <em>orders</em> table and the <em>customer_name</em> field in 
+    the <em> customers</em> table. 
+  <li>After creating the grid, change the control type of the 'order_id' control 
+    from 'Label' to 'Link'. 
+  <li>For the 'order_id' link, set the <strong>Href Source</strong> property to the current page 
+    and add a link parameter with the following properties: <strong>Data Source Type</strong> = <em>DataSource Column</em>, 
+	<strong>Parameter Source</strong> = <em>order_id</em> 
+    and <strong>Parameter name</strong> = <em>order_id</em>. 
+  <li>Add the 'Add' hyperlink to the bottom of the grid and set its <strong>Href Source</strong> 
+    property to the current page. 
+  <li> In the right column cell of the HTML table, use the <strong>Record Builder</strong> to create 
+    the 'store_orders_record' record form based on the <em>orders</em> table with the following two fields: <em>order_customer_id</em> 
+    and <em>order_date</em>. 
+  <li>Convert the <em>customer_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>IntranetDB</em>&nbsp; and select&nbsp;<em>customers</em><em> 
+    </em>in the <strong>Data Source</strong> property. Select <em>customer_id </em>in the <strong>Bound 
+    Column</strong> property, <em>customer_name</em> in the <strong>Text Column</strong> 
+    Property and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>In the right column cell of the HTML table and below the record form, use 
+    the <strong>Editable Grid</strong> Builder to create the 'store_orders_items' editable grid 
+    with four columns: <em>order_id</em>, <em>product_id</em>, <em>price</em> and <em>quantity</em>. 
+  <br>On Step 4 of the <strong>Editable Grid</strong> Builder select "No Sorting" and "No Page Navigator".
+  <li>In the <strong>Data Source</strong> property of the editable grid, add a URL 
+    Where parameter: <em>order_id</em> equals(=) <em>order_id</em>. 
+  <li>Set the <strong>Empty Rows</strong> property of the editable grid to 30. This 
+    number defines the maximum number of empty rows which could possibly appear 
+    when you click on the 'Add Item' button. 
+  <li>Change the type of the '<em>order_id</em>' control to a Hidden control.
+  <li>Change the type of the '<em>product_id</em>' control from Text Box to List 
+    Box and set its <strong>Connection</strong> property to '<em>IntranetDB</em>'. For 
+    the <strong>Data Source</strong> property select <em>products</em> then select <em>product_id</em> 
+    in the <strong>Bound Column</strong> property and <em>product_name</em> in the <strong>Text 
+    Column</strong> Property. Set the <strong>Data Type</strong> property to <em>Integer.</em>
+  <li>Add a column to the editable grid after the 'Quantity' column and add the 
+    'SumPrice' Text Box to it. 
+  <li>Add a new row above the 'No Records' row of the editable grid. 
+  <li>Add a 'Total_price' Text Box from the HTML tab of the Toolbox. 
+  <li>Under the Format tab of the Properties window, activate the <strong>disabled</strong> 
+    property of the 'Total_price' and 'SumPrice' Text Boxes.
+  <li>Add an <em>Add Item</em> button to the bottom row of the editable Grid. Set 
+    the <strong>Enable Validation</strong> property to <em>No</em> and leave the <strong>Operation</strong> 
+    property blank.
+  <li>Switch to HTML mode and locate the table row &lt;TR&gt; in the editable 
+    grid where the <em>product_id</em> ListBox appears. Within the &lt;TR&gt; 
+    tag, add the attributes <em>id=""</em> and <em>name=""</em>.
+  <li>Place the cursor within the value of the <em>id</em> attribute and add a 
+    Label control called <em>RowIDAttribute</em>. Do the same for the <em>name</em> 
+    attribute and add a Label control called <em>RowNameAttribute</em>. After 
+    the two attributes, add a <em>RowStyleAttribute </em>Label at the end of the 
+    &lt;TR&gt; tag. 
+  <li>Set the <strong>Content</strong> property of the '<em>RowStyleAttribute</em>' Label to <em>HTML</em>.
+  <li>Add a '<em>PriceArray</em>' Label control to the top of the editable Grid 
+    and set it's <strong>Content</strong> property to <em>HTML</em>. 
+  <li>Add custom code to the <strong>On Click</strong> client event of the '<em>Add Item</em>' 
+    button, the <strong>On Load</strong> client event of the editable Grid and the <strong>On 
+    Change</strong> client events of the '<em>product_id</em>' and '<em>quantity</em>' 
+    fields. 
+  <li>Switch to HTML mode and add the code for the <em>Show_Total(), disable_record()</em>
+    and <em>disable_editablegrid()</em> JavaScript functions as shown in the example.
+  <li>Add code for the <strong>Before Show</strong>, <strong>Before Delete </strong>and the <strong>After 
+    Insert </strong>events of the 'Add/Edit Order' record form as shown in the example.
+  <li>Add code for the <strong>Before Show Row </strong>and the <strong>Before Build 
+    Insert </strong>events of the '<em>Order Items</em>' editable grid as shown in the 
+    example. 
+  <li>Add code for the <strong>Before Show </strong>event of the '<em>PriceArray</em>' Label 
+    control as shown in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>customers, orders, order_items</em></p>
+
+<h2>Programming Notes</h2>
+<p>The record form's <strong>Before Show</strong> event is used to hide the editable grid 
+  if there are no orders selected.</p>
+<p>The record form's <strong>After Insert</strong> event is used to retrieve the last inserted 
+  key (order_id) after the order record is created. The retrieved value is then 
+  sent over the URL by appending it to the 'redirect' variable as a URL parameter.</p>
+<p>The record form's <strong>Before Delete</strong> event is used to delete records from 
+  the 'order_items' table whenever an order record is deleted.</p>
+
+<p>The editable grid's <strong>Before Show Row</strong> event is used to fill the 
+  <em>id</em>, <em>name </em>and <em>style </em>attributes of the &lt;TR&gt; tag 
+  depending on whether the row is empty or filled.</p>
+<p>The editable grid's <strong>Before Build Insert</strong> event is used to update the 
+  hidden 'order_id' field with the current order id.</p>
+
+<p>The <strong>Before Show</strong> event of the 'PriceArray' Label is used to create an 
+  array with the product prices that will be used to auto fill the <em>'Price'</em> 
+  Text Box.</p>
+
+
+
+</body>
+</html>

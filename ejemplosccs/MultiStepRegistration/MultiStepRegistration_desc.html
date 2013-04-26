@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Multi-Step Registration</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Multi-Step Registration</h1>
+<h2>Description</h2>
+<p>This example shows how to create a multi-page user registration and editing
+form.</p>
+<h2>Usage</h2>
+<p>To register a new user:
+<ol>
+  <li>
+    <div align="left"> On the first <em><strong>Multi-Step Registration</strong></em> 
+      page click on the <em><strong>Sign up</strong></em> Link. </div>
+ 
+  <li>Enter the information for step 1 and click <em><strong>Next &gt;&gt;</strong></em> 
+    to save the data and go to the next&nbsp;step. 
+  <li>Enter the information for step 2 and click <em><strong>Next &gt;&gt;</strong></em> 
+    to go to step 3 or <strong><em>&lt;&lt; Prev</em></strong> to return to the 
+    previous step without saving the changes. 
+  <li>Enter the information for step 3 and click <em><strong>Save </strong></em>to 
+    save the data and return to the grid or <em><strong>&lt;&lt; Prev</strong></em> 
+    to return to the previous page without saving the changes.</li>
+</ol>
+<p></p>
+<p>To modify a user's information:
+<ol>
+  <li>Select a user by clicking on the login name in the user list of the first 
+    <em><strong>Multi-Step Registration</strong></em> page. 
+  <li>Perform the same steps as when registering a new user.</li>
+</ol>
+<p></p>
+<p>Note: In this example the information is stored in the database after the first 
+  registration step. The data is not deleted if the registration is cancelled 
+  or the browser is closed.</p>
+<h2>Steps to recreate</h2>
+Create four blank pages: <em><strong>MultiStepRegistrationGrid</strong></em>, 
+<em> <strong>MultiStepRegistration1</strong></em>, <em><strong>MultiStepRegistration2</strong></em> 
+and<strong> </strong> <em> <strong>MultiStepRegistration3</strong></em>. 
+<h3>Page 1 (MultiStepRegistrationGrid):</h3>
+<ol>
+  <li>Use the <strong>Grid Builder </strong>to create the <em><strong>List of 
+    Users</strong></em> Grid  based on the <em>users</em> table.
+  <li>Change the <em><strong>user_login </strong></em>field type from Label to 
+    Link, then select <em>MultiStepRegistration1 </em>in its <strong>Href Source</strong> 
+    property. Also add a Link Parameter with the following property values: <strong>Data 
+    Source Type</strong>&nbsp;= <em>DataSource Column</em>, <strong>Parameter 
+    Source</strong> = <em>user_</em>id and <strong>Parameter Name</strong> = <em>user_</em> 
+    id. 
+  <li>Add a <em><strong>Sign up </strong></em>Link below the grid and select <strong>MultiStepRegistration1 
+    </strong>as&nbsp;the value of its <strong>Href Source</strong> property, then 
+    enter <em>user_id</em> in&nbsp;its <strong>Remove Parameters</strong> property.</li>
+ 
+</ol>
+<h3>Page 2 (MultiStepRegistration1):</h3>
+<ol>
+  <li>Use the <strong>Record Builder </strong>to create the <em><strong>users</strong></em> 
+    Record form which is based on the following fields of the <em><strong>users</strong></em> 
+    database table: <em>user_login, user_password, First_name, Last_Name</em> 
+    and <em>Email</em> .&nbsp; In Step 3 of the <strong>Record Builder, </strong>check 
+    the following options: <em>Allow Insert, Allow Update</em> and <em>Allow Cancel</em> 
+    . 
+  <li>After creating the Record form, set the <strong>Required </strong>property 
+    of all it's Text Boxes to <em>Yes</em>. 
+  <li>Select <em>Email</em> in the <strong>Input Validation</strong> property 
+    of the <em><strong>email</strong></em> Text Box.&nbsp; 
+  <li>In the <strong>Format </strong>tab of the <strong>Properties </strong>window, 
+    set the <strong>Value </strong>property of the <strong><em>Add</em></strong> 
+    and <em><strong>Submit</strong></em> buttons to <em>Next &gt;&gt;</em> . 
+  <li>Set the <strong>Return Page</strong> property of the Record form to <em><strong>MultiStepRegistration2</strong></em>.
+  <li>Set the <strong>Return Page</strong> property of the <em><strong>Cancel</strong></em> 
+    Button to <strong><em>MultiStepRegistrationGrid</em></strong>.
+  <li>Add the appropriate programming code in the Record form's <strong>After 
+    Insert </strong>event as shown in the example.</li>
+</ol>
+<h3>Page 3 (MultiStepRegistration2):</h3>
+<ol>
+  <li>Use the <strong>Record Builder </strong>to create the <em><strong>users 
+    </strong></em>Record form with all the <em>address</em> and <em>phone</em> 
+    fields.&nbsp; In Step 3 of the <strong>Record Builder, </strong>check the 
+    following options: <em>Allow Update</em> and <em>Allow Cancel</em>. 
+  <li>After generating the form, move the <em><strong>Cancel</strong></em> button 
+    to the left of <em><strong>Submit</strong></em> button. 
+  <li>In the <strong>Format </strong>tab of the <strong>Properties </strong>window, 
+    set the <strong>Value </strong>property of the <em><strong>Submit</strong></em> 
+    buttons to <em>Next &gt;&gt; </em>and the <strong>Value </strong>property 
+    of the <em><strong>Cancel</strong></em> button to <em>&lt;&lt; Prev</em>. 
+  <li>Convert the <em>state_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select&nbsp;
+	<em>states</em> in the <strong>Data Source</strong> property. Select <em>state_id</em> in the <strong>Bound 
+    Column</strong> property, <em>state_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>Convert the <em>country_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select&nbsp;
+	<em>countries</em> in the <strong>Data Source</strong> property. Select <em>country_id</em> in the <strong>Bound 
+    Column</strong> property, <em>country_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+
+  <li>Set the <strong>Return Page</strong> property of the Record form to <em><strong>MultiStepRegistration3</strong></em>.
+  <li>Set the <strong>Return Page</strong> property of the <em><strong>Cancel</strong></em> 
+    Button to <strong><em>MultiStepRegistration1</em></strong>.</li>
+</ol>
+<h3>Page 4 (MultiStepRegistration3):</h3>
+<ol>
+  <li>Use <strong>Record Builder </strong>to create the <em><strong>users</strong></em> 
+    Record form with the remaining fields from the <em><strong>users</strong></em> 
+    database table. In Step 3 of the builder, check the following options: <em>Allow 
+    Update</em> and <em>Allow Cancel</em> . 
+  <li>After generating the form, move the <em><strong>Cancel</strong></em> button 
+    to the left of <em><strong>Submit</strong></em> button. 
+  <li>In the <strong>Format </strong>tab of the <strong>Properties </strong>window, 
+    set the <strong>Value </strong>property of the <em><strong>Submit</strong></em> 
+    buttons to <em>Save </em>and the <strong>Value </strong>property of the <em><strong>Cancel</strong></em> 
+    button to <em>&lt;&lt; Prev</em>.
+
+  <li>Convert the <em>gender_id</em> TextBox to a Radio Button. For the Radio Button set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select 
+	<em>genders</em> in the <strong>Data Source</strong> property. Select <em>gender_id</em> in the <strong>Bound 
+    Column</strong> property, <em>gender_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>Convert the <em>age_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select 
+	<em>ages</em> in the <strong>Data Source</strong> property. Select <em>age_id</em> in the <strong>Bound 
+    Column</strong> property, <em>age_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>Convert the <em>language_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select 
+	<em>languages</em> in the <strong>Data Source</strong> property. Select <em>language_id</em> in the <strong>Bound 
+    Column</strong> property, <em>language_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer </em>in the <strong>Data Type</strong> property. 
+  <li>Convert the <em>education_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select 
+	<em>educations</em> in the <strong>Data Source</strong> property. Select <em>education_id</em> in the <strong>Bound 
+    Column</strong> property, <em>education_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer</em> in the <strong>Data Type</strong> property. 
+  <li>Convert the <em>income_id</em> TextBox to a ListBox. For the ListBox set 
+    the <strong>Connection</strong> property to&nbsp;<em>InternetDB</em>&nbsp; and select 
+	<em>incomes</em> in the <strong>Data Source</strong> property. Select <em>income_id</em> in the <strong>Bound 
+    Column</strong> property, <em>income_name</em> in the <strong>Text Column</strong> Property 
+    and <em>Integer</em> in the <strong>Data Type</strong> property. 
+
+  <li>Set the <strong>Return Page</strong> property of the Record form to <em><strong>MultiStepRegistrationGrid</strong></em>. 
+  <li>Set the <strong>Return Page</strong> property of the <em><strong>Cancel</strong></em> 
+    Button to <strong><em>MultiStepRegistration2</em></strong>.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Internet</em></p>
+<p>Table: <em>users</em></p>
+<h2>Programming Notes</h2>
+<p>The Record form's <strong><em>After Insert</em></strong> event is used to retrieve the 
+  last inserted key (user_id) after the user record is created. The key is then 
+  passed to the next page as a URL parameter.</p>
+<p>&nbsp;</p>
+</body>
+</html>

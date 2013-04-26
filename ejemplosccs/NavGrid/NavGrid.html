@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Grid with Navigable Detail View</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Grid with Navigable Detail View</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<!-- BEGIN Record employeesSearch -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+            <td class="th">
+              <strong>Search Employees</strong>
+ </td> 
+            <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="employeesSearchs_emp_name">Employee</label></td> 
+            <td><input maxlength="50" size="30" value="{s_emp_name}" name="{s_emp_name_Name}" id="employeesSearchs_emp_name"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button DoSearch --><input type="image" src="../Styles/EXPack/Images/en/ButtonSearch.gif" value="Search" name="{Button_Name}" alt="{res:CCS_Search}" style="border-width: 0; "><!-- END Button DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record employeesSearch --><br>
+<!-- BEGIN Grid employees -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+          <td class="th">
+            <strong>List of Employees</strong>
+ </td> 
+          <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_emp_name --><a href="{Sort_URL}"><strong>Name</strong></a><!-- END Sorter Sorter_emp_name --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_title --><a href="{Sort_URL}"><strong>Title</strong></a><!-- END Sorter Sorter_title --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_department_name --><a href="{Sort_URL}"><strong>Department</strong></a><!-- END Sorter Sorter_department_name --></th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td><a href="{emp_name_Src}">{emp_name}</a></td> 
+          <td>{title}</td> 
+          <td>{department_name}</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="6">No records&nbsp;</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td nowrap colspan="6">
+            <!-- BEGIN Navigator Navigator1 -->
+            <!-- BEGIN First_On --><a href="{First_URL}"><img src="../Styles/EXPack/Images/First.gif" border="0" alt="{First_URL}"></a> <!-- END First_On -->
+            <!-- BEGIN First_Off --><img src="../Styles/EXPack/Images/FirstOff.gif" border="0" alt="First Off"><!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img src="../Styles/EXPack/Images/Prev.gif" border="0" alt="{Prev_URL}"></a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off --><img src="../Styles/EXPack/Images/PrevOff.gif" border="0" alt="Prev Off"><!-- END Prev_Off -->&nbsp;{Page_Number}&nbsp;of&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}"><img src="../Styles/EXPack/Images/Next.gif" border="0" alt="{Next_URL}"></a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off --><img src="../Styles/EXPack/Images/NextOff.gif" border="0" alt="Next Off"><!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}"><img src="../Styles/EXPack/Images/Last.gif" border="0" alt="{Last_URL}"></a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off --><img src="../Styles/EXPack/Images/LastOff.gif" border="0" alt="Last Off"><!-- END Last_Off --><!-- END Navigator Navigator1 --></td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid employees -->{Footer}
+</body>
+</html>

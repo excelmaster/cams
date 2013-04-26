@@ -23,7 +23,7 @@ $CCConnectionSettings = array (
 );
 //End Connection Settings
 
-//Initialize Common Variables @0-C6BD5526
+//Initialize Common Variables @0-0ED99AAB
 $PHPVersion = explode(".",  phpversion());
 if (($PHPVersion[0] < 4) || ($PHPVersion[0] == 4  && $PHPVersion[1] < 1)) {
     echo "Sorry. This program requires PHP 4.1 and above to run. You may upgrade your php at <a href='http://www.php.net/downloads.php'>http://www.php.net/downloads.php</a>";
@@ -44,16 +44,16 @@ $CCSUseAmp = true;
 $CipherBox = array();
 $CipherKey = array();
 $CCSLocales = new clsLocales(RelativePath);
-$CCSLocales->AddLocale("es", Array("es", "ES", array(1, 0, ""), 2, ",", ".", array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"), array("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"), array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"), array("dom", "lun", "mar", "mié", "jue", "vie", "sáb"), array("D", "L", "M", "M", "J", "V", "S"), array("dd", "/", "mm", "/", "yyyy"), array("dddd", ", ", "dd", " de ", "mmmm", " de ", "yyyy"), array("H", ":", "nn"), array("H", ":", "nn", ":", "ss"), "", "", 1, false, "", "windows-1252", "CP1252", array(1, 7)));
-$CCSLocales->DefaultLocale = strtolower("es");
+$CCSLocales->AddLocale("en", Array("en", "US", array("Yes", "No", ""), 2, ".", ",", array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"), array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"), array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"), array("S", "M", "T", "W", "T", "F", "S"), array("m", "/", "d", "/", "yyyy"), array("dddd", ", ", "mmmm", " ", "dd", ", ", "yyyy"), array("h", ":", "nn", " ", "tt"), array("h", ":", "nn", ":", "ss", " ", "tt"), "AM", "PM", 0, false, "", "windows-1252", "CP1252", array(1, 7)));
+$CCSLocales->DefaultLocale = strtolower("en");
 $CCSLocales->Init();
 $Charset = "";
 
 if ($PHPLocale = $CCSLocales->GetFormatInfo("PHPLocale"))
     setlocale(LC_ALL, $PHPLocale);
 CCConvertDataArrays();
-$CCProjectStyle = "cams_1";
-$CCProjectDesign = "Business";
+$CCProjectStyle = "Black";
+$CCProjectDesign = "Light";
 CCSelectProjectDesign();
 //for compatibility
 $ShortWeekdays = $CCSLocales->GetFormatInfo("WeekdayShortNames");
@@ -87,7 +87,7 @@ define("ccsWeek", 11);
 define("ccsGMT", 12);
 define("ccsAppropriateYear", 13);
 $CCSDesign = "";
-define("CCS_ENCRYPTION_KEY_FOR_COOKIE", 'd66gjZXw82e1T53k');
+define("CCS_ENCRYPTION_KEY_FOR_COOKIE", '3m529Ss37996uUKH');
 define("CCS_EXPIRATION_DATE", 30 * 24 * 3600);
 define("CCS_SLIDING_EXPIRATION", false);
 
@@ -1837,7 +1837,7 @@ if (!function_exists('file_get_contents')) {
 }
 //End file_get_contents
 
-//CCSecurityRedirect @0-FDD242DA
+//CCSecurityRedirect @0-96302D42
 function CCSecurityRedirect($GroupsAccess, $URL)
 {
     global $_SERVER;
@@ -1848,24 +1848,13 @@ function CCSecurityRedirect($GroupsAccess, $URL)
         if($QueryString !== "")
             $ReturnPage .= "?" . $QueryString;
     }
-
     $ErrorType = CCSecurityAccessCheck($GroupsAccess);
-	
-	$db = new clsDBlocal_cams();
-			$grupo = CCGetGroupID();
-			$SQL = "select group_init.pageRedirect from group_init where group_init.grupo = " . $grupo; 
-			$db->query($SQL);
-			$Result = $db->next_record();
-			$ReturnPage = $Result;
-			echo $result;
-			
     if($ErrorType != "success")
     {
         if(!strlen($URL))
-            $Link = ServerURL . "Login.php";
+            $Link = ServerURL . "index.php";
         else
-            $Link = $URL;			
-			
+            $Link = $URL;
         header("Location: " . $Link . "?ret_link=" . urlencode($ReturnPage) . "&type=" . $ErrorType);
         exit;
     }
@@ -1932,13 +1921,18 @@ function CCGetUserAddr()
 }
 //End CCGetUserAddr
 
-//CCUserInGroups @0-9F7F30EA
+//CCUserInGroups @0-72661549
 function CCUserInGroups($GroupID, $GroupsAccess)
 {
     $Result = "";
     if(strlen($GroupsAccess))
     {
-        $Result = (strpos(";" . $GroupsAccess . ";", ";" . $GroupID . ";") !== false);
+        $GroupNumber = intval($GroupID);
+        while(!$Result && $GroupNumber >= 0)
+        {
+            $Result = (strpos(";" . $GroupsAccess . ";", ";" . $GroupNumber . ";") !== false);
+            $GroupNumber--;
+        }
     }
     else
     {
@@ -2035,20 +2029,20 @@ function CCHexToBytes($hexstr) {
 }
 //End CCHexToBytes
 
-//CCSetALCookie @0-5883DF22
+//CCSetALCookie @0-83FFD020
 function CCSetALCookie($login, $password) {
     $login    = CCEncryptString($login, CCS_ENCRYPTION_KEY_FOR_COOKIE);
     $password = CCEncryptString($password, CCS_ENCRYPTION_KEY_FOR_COOKIE);
     $result   = CCEncryptString($login . ":" . $password . ":" . (time() + CCS_EXPIRATION_DATE), CCS_ENCRYPTION_KEY_FOR_COOKIE);
-    CCSetCookie("cloudnoteLogin", $result, time() + CCS_EXPIRATION_DATE, "/", "", false);
+    CCSetCookie("camsLogin", $result, time() + CCS_EXPIRATION_DATE, "/", "", false);
 }
 //End CCSetALCookie
 
-//CCRefreshALCookie @0-6F8A1952
+//CCRefreshALCookie @0-EB31E6B3
 function CCRefreshALCookie($expirationDate) {
     if (CCS_SLIDING_EXPIRATION) {
         if (($expirationDate - (CCS_EXPIRATION_DATE / 2)) > time()) {
-            list($login, $password, $expDate) = CCParseALCookie("cloudnoteLogin");
+            list($login, $password, $expDate) = CCParseALCookie("camsLogin");
             CCSetALCookie($login, $password);
         }
     }
@@ -2070,10 +2064,10 @@ function CCParseALCookie($cookieName) {
 }
 //End CCParseALCookie
 
-//CCCheckAutoLoginCookies @0-ADEB7532
+//CCCheckAutoLoginCookies @0-CC8BF6B0
 function CCCheckAutoLoginCookies() {
     if (!CCGetUserLogin()) {
-        $parts = CCParseALCookie("cloudnoteLogin");
+        $parts = CCParseALCookie("camsLogin");
         if (isset($parts) && (count($parts) > 2)) {
             list($login, $password, $expirationDate) = $parts;
             if ($expirationDate > time()) {
@@ -2089,7 +2083,7 @@ function CCCheckAutoLoginCookies() {
         }
     }
     if (!CCGetUserLogin()) {
-        CCSetCookie("cloudnoteLogin", "");
+        CCSetCookie("camsLogin", "");
     }
 }
 //End CCCheckAutoLoginCookies
@@ -2122,16 +2116,5 @@ function CCLogoutUser()
 }
 //End CCLogoutUser
 
-// page custom redirection
-function redirect_page($grupo)
-{
-	$db = new clsDBlocal_cams();
-    $SQL = "select group_init.pageRedirect from group_init where group_init.grupo = " . $grupo; 
-    $db->query($SQL);
-    $Result = $db->next_record();
-	return $result;
-		
-}    
-// end page custom redirection
 
 ?>

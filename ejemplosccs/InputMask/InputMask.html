@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>InputMask</title>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include JSFunctions @1-6FA9DE6A
+</script>
+<script language="JavaScript" src="../ClientI18N.asp?file=Functions.js&amp;lang={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include JSFunctions
+
+//page_users_phone_work_OnLoad @29-84063E4C
+function page_users_phone_work_OnLoad()
+{
+    var result;
+//End page_users_phone_work_OnLoad
+
+//Validate Entry @55-350FE263
+    this.ccsRequired = true;
+    this.ccsMinLength = 14;
+    this.ccsMaxLength = 14;
+    this.ccsInputMask = "(000) 000-0000";
+    this.onkeypress = inputMasking;
+    this.ccsCaption = "Phone Work";
+//End Validate Entry
+
+//Close page_users_phone_work_OnLoad @29-BC33A33A
+    return result;
+}
+//End Close page_users_phone_work_OnLoad
+
+//page_users_user_SSN_OnLoad @30-71622431
+function page_users_user_SSN_OnLoad()
+{
+    var result;
+//End page_users_user_SSN_OnLoad
+
+//Validate Entry @54-5BFB1656
+    this.ccsRequired = true;
+    this.ccsMinLength = 11;
+    this.ccsMaxLength = 11;
+    this.ccsInputMask = "000-00-0000";
+    this.onkeypress = inputMasking;
+    this.ccsCaption = "SSN";
+//End Validate Entry
+
+//Close page_users_user_SSN_OnLoad @30-BC33A33A
+    return result;
+}
+//End Close page_users_user_SSN_OnLoad
+
+//page_users_OnSubmit @20-D75E068B
+function page_users_OnSubmit()
+{
+    var result;
+//End page_users_OnSubmit
+
+//Validate Form @56-673B0798
+    result = validate_form(this);
+//End Validate Form
+
+//Close page_users_OnSubmit @20-BC33A33A
+    return result;
+}
+//End Close page_users_OnSubmit
+
+//page_users_Button_Delete_OnClick @23-F9E77917
+function page_users_Button_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End page_users_Button_Delete_OnClick
+
+//page_users_Button_Cancel_OnClick @24-DD4DFAE9
+function page_users_Button_Cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End page_users_Button_Cancel_OnClick
+
+//bind_events @1-FCBF383B
+function bind_events() {
+    if (document.forms["users"]) check_and_bind('document.forms["users"]','onsubmit',page_users_OnSubmit);
+    if (document.forms["users"]) check_and_bind('document.forms["users"].user_SSN','onLoad',page_users_user_SSN_OnLoad);
+    if (document.forms["users"]) check_and_bind('document.forms["users"].phone_work','onLoad',page_users_phone_work_OnLoad);
+    if (document.forms["users"]) check_and_bind('document.forms["users"].Button_Delete','onclick',page_users_Button_Delete_OnClick);
+    if (document.forms["users"]) check_and_bind('document.forms["users"].Button_Cancel','onclick',page_users_Button_Cancel_OnClick);
+    forms_onload();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Data Entry with Input Mask</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<table width="100%" border="0">
+  <tr>
+    <td valign="top">
+      <!-- BEGIN Grid usersgrid -->
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top">
+            <table class="Header" cellspacing="0" cellpadding="0" border="0">
+              <tr>
+                <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                <td class="th">
+                  <strong>List of Users</strong>
+ </td> 
+                <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <th>
+                <!-- BEGIN Sorter Sorter_first_name --><a href="{Sort_URL}">First Name</a><!-- END Sorter Sorter_first_name --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sorter_last_name --><a href="{Sort_URL}">Last Name</a><!-- END Sorter Sorter_last_name --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sort_Email --><a href="{Sort_URL}">Email</a><!-- END Sorter Sort_Email --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sorter_phone_home --><a href="{Sort_URL}">Phone Work</a><!-- END Sorter Sorter_phone_home --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sort_SSN --><a href="{Sort_URL}">SSN</a><!-- END Sorter Sort_SSN --></th>
+ 
+              </tr>
+ 
+              <!-- BEGIN Row -->
+              <tr class="Row">
+                <td><a href="{first_name_Src}">{first_name}</a>&nbsp;</td> 
+                <td>{last_name}&nbsp;</td> 
+                <td>{email}&nbsp;</td> 
+                <td>{phone_work}&nbsp;</td> 
+                <td>{user_SSN}&nbsp;</td> 
+              </tr>
+ <!-- END Row -->
+              <!-- BEGIN NoRecords -->
+              <tr class="NoRecords">
+                <td colspan="5">No records&nbsp;</td> 
+              </tr>
+ <!-- END NoRecords -->
+              <tr class="Footer">
+                <td colspan="5"><a href="{Link1_Src}">Add user</a>&nbsp;&nbsp; 
+                  <!-- BEGIN Navigator Navigator -->
+                  <!-- BEGIN First_On --><a href="{First_URL}"><img src="../Styles/EXPack/Images/First.gif" border="0" alt="{First_URL}"></a> <!-- END First_On -->
+                  <!-- BEGIN First_Off --><img src="../Styles/EXPack/Images/FirstOff.gif" border="0" alt="First Off"><!-- END First_Off -->
+                  <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img src="../Styles/EXPack/Images/Prev.gif" border="0" alt="{Prev_URL}"></a> <!-- END Prev_On -->
+                  <!-- BEGIN Prev_Off --><img src="../Styles/EXPack/Images/PrevOff.gif" border="0" alt="Prev Off"><!-- END Prev_Off -->&nbsp; 
+                  <!-- BEGIN Pages -->
+                  <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                  <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of&nbsp;{Total_Pages}&nbsp; 
+                  <!-- BEGIN Next_On --><a href="{Next_URL}"><img src="../Styles/EXPack/Images/Next.gif" border="0" alt="{Next_URL}"></a> <!-- END Next_On -->
+                  <!-- BEGIN Next_Off --><img src="../Styles/EXPack/Images/NextOff.gif" border="0" alt="Next Off"><!-- END Next_Off -->
+                  <!-- BEGIN Last_On --><a href="{Last_URL}"><img src="../Styles/EXPack/Images/Last.gif" border="0" alt="{Last_URL}"></a> <!-- END Last_On -->
+                  <!-- BEGIN Last_Off --><img src="../Styles/EXPack/Images/LastOff.gif" border="0" alt="Last Off"><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp; </td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Grid usersgrid --></td> 
+    <td valign="top">
+      <!-- BEGIN Record users -->
+      <form name="{HTMLFormName}" action="{Action}" method="post">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                  <td class="th">
+                    <strong>Add/Edit Users</strong>
+ </td> 
+                  <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th" nowrap><label for="usersfirst_name">First Name&nbsp;*</label></td> 
+                  <td><input maxlength="50" size="50" value="{first_name}" name="{first_name_Name}" id="usersfirst_name">&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th" nowrap><label for="userslast_name">Last Name&nbsp;*</label></td> 
+                  <td><input maxlength="50" size="50" value="{last_name}" name="{last_name_Name}" id="userslast_name">&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="usersemail">Email&nbsp;</label></td> 
+                  <td><input maxlength="50" size="50" value="{email}" name="{email_Name}" id="usersemail">&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th" nowrap><label for="usersphone_work">Phone Work&nbsp;*</label></td> 
+                  <td><input maxlength="50" value="{phone_work}" name="{phone_work_Name}" id="usersphone_work">&nbsp;(000) 000-0000</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th" nowrap><label for="usersuser_SSN">SSN&nbsp;*</label></td> 
+                  <td><input maxlength="50" value="{user_SSN}" name="{user_SSN_Name}" id="usersuser_SSN">&nbsp;000-00-0000</td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td align="right" colspan="2">
+                    <!-- BEGIN Button Button_Insert --><input type="image" src="../Styles/EXPack/Images/en/ButtonInsert.gif" value="Add" name="{Button_Name}" alt="{res:CCS_Insert}" style="border-width: 0; "><!-- END Button Button_Insert -->
+                    <!-- BEGIN Button Button_Update --><input type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" name="{Button_Name}" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Button_Update -->
+                    <!-- BEGIN Button Button_Delete --><input type="image" src="../Styles/EXPack/Images/en/ButtonDelete.gif" value="Delete" name="{Button_Name}" alt="{res:CCS_Delete}" style="border-width: 0; "><!-- END Button Button_Delete -->
+                    <!-- BEGIN Button Button_Cancel --><input type="image" src="../Styles/EXPack/Images/en/ButtonCancel.gif" value="Cancel" name="{Button_Name}" alt="{res:CCS_Cancel}" style="border-width: 0; "><!-- END Button Button_Cancel --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record users --></td> 
+  </tr>
+</table>
+{Footer}
+</body>
+</html>

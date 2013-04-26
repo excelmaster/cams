@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Using Multi-Column Primary Key</title>
+<link rel="stylesheet" type="text/css" href="../cchelpstyle.css">
+</head>
+<body>
+<p>{Header}</p>
+<h1>Using a Multi-Column Primary Key</h1>
+<h2>Description</h2>
+<p>This example shows how to implement a sample record form based on a table
+that uses a multi-column primary key.</p>
+<h2>Usage</h2>
+<p>To assign projects to an existing employee, select a project from the list 
+  to the left then specify the project and the employee and enter a percentage 
+  allocation value. Click <em><strong>Submit</strong></em> when finished.</p>
+<p>To create a new record, click <em><strong>Add New</strong></em>, select the 
+  <em> <strong>Project </strong></em>and <em><strong>Employee</strong></em>, enter 
+  the <strong>Percentage allocation </strong>value then click the <em><strong>Add</strong></em> 
+  Button.</p>
+<h2>Steps to recreate</h2>
+<ol>
+  <li>Create a HTML table with two columns.
+  <li>In the left cell of the HTML table, use the <strong>Grid Builder </strong>to create the <em><strong>Projects 
+    </strong></em>Grid and the corresponding Search form. 
+    <br>In Step 2 of the <strong>Grid Builder</strong>, click on the <strong>Build Query </strong>button and select 
+    the following tables: <em>projects</em>, <em>employees </em>and <em>project_employees</em>. 
+    Select [*] (all fields) in the <em><strong>projects_employees</strong></em> 
+    table, the <em>project_name</em> field in the <em><strong>projects</strong></em> 
+    table and <em>emp_name</em> field in the <em><strong>employees</strong></em> 
+    table. Set the <strong>Order by</strong> property to <em>project_name</em>. 
+  <br>In step 3 of the <strong>Grid Builder</strong>,check the <strong>Create 
+    Search/Filter</strong> checkbox and select two fields: <em>project_id</em> 
+    and <em>emp_id</em>. 
+  <br>In Step 4 of the <strong>Grid</strong> Builder select <strong>No Sorting</strong>.
+  <li>In the Search form, convert the <em><strong>s_project_id</strong></em> and 
+    <em><strong>s_emp_id</strong></em> Text Boxes into List Boxes. 
+  <br>For the <em><strong>s_project_id</strong></em> List Box, set 
+    the <strong>Connection</strong> property to <em>IntranetDB</em> and select 
+    <em>projects</em> in the <strong>Data Source </strong>property, <em>project_id</em> 
+    in the <strong>Bound Column </strong>property, <em>project_name</em> in the <strong>Text Column 
+    </strong>Property and <em>integer </em>in the <strong>Data Type </strong>property. 
+   <br>For the <em><strong>s_emp_id </strong></em>List Box, set 
+    the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>employees</em> 
+    in the <strong>Data Source </strong>property, <em>emp_id</em> in the <strong>Bound 
+    Column </strong>property, <em>emp_name</em><strong> </strong>in the <strong>Text 
+    Column </strong>property and <em>integer </em>in the <strong>Data Type </strong>property. 
+  <li>In the Grid form, convert the <em><strong>project_name</strong></em> Label 
+    to a Link. Set the <strong>Href Source</strong> property of the Link to the 
+    current page and add a Link Parameter with the following properties: <strong>Data 
+    Source Type </strong>= <em>DataSource Column</em>, <strong>Parameter Source 
+    </strong>= <em>emp_id</em> and <strong>Parameter name </strong>= <em>emp_id</em>. 
+    Then add another Link Parameter with the following properties: <strong>Data 
+    Source Type </strong>= <em>DataSource Column</em>, <strong>Parameter Source 
+    </strong>= <em>project_id</em> and <strong>Parameter name </strong>= <em>project_id</em>. 
+  <li>In the bottom row of the Grid, add a <em><strong>Add New</strong></em> Link 
+    control and set it's <strong>Href Source</strong> property to the current 
+    page. 
+  <li>In the right cell of the HTML table, use the <strong>Record Builder</strong> to create a 'projects_emp_rec' 
+    Record form with the following two fields from the <em><strong>projects_employees</strong></em> 
+    database table: <em>project_id</em> and <em>Percent Allocation</em>. 
+  <br>In Step 2 of the <strong>Record</strong> Builder select <em>List Box</em> in the <strong>Control Type 
+    </strong>field for the <strong><em>project_id</em></strong> field. 
+  <br>In Step 3 of the <strong>Record Builder, </strong>check 
+    the following options: <em>Allow Insert, Allow Update, Allow Delete</em> and <em>Allow Cancel</em>.   
+  <li>In the <strong>Data Source </strong>property of the Record form, add a Where 
+    parameter with the condition: <em>project_id equals(=) project_id</em> and 
+    set the Parameter Source <strong>Type</strong> to <em>URL</em>. 
+  <li>For the <em><strong>project_id </strong></em>List Box, set 
+    the <strong>Control Source</strong> property to <em>project_id</em>, 
+    the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>projects 
+    </em>in the <strong>Data Source </strong>property, <em>project_id </em>in 
+    the <strong>Bound Column </strong>property, <em>project_name </em>in the 
+    <strong>Text Column </strong>property, <em>integer </em>in the <strong>Data Type </strong>property 
+   and <em>Yes</em> in the <strong>Required</strong> property. 
+  <li>Insert a new row into the record form (select "Insert row" from the 
+   context menu which appears for the mouse right-click) below the row with the <em>project_id</em> 
+   control. 
+  <li>In the left cell of the new row, enter the text 'Employee' then in the right cell, 
+    add a ListBox control called <em>emp_id</em>. 
+  <li>For the <strong><em>emp_id </em></strong>List Box, set 
+    the <strong>Control Source</strong> property to <em>emp_id</em>, 
+    the <strong>Connection</strong> property to <em>IntranetDB</em> and select <em>employees 
+    </em>in the <strong>Data Source </strong>property, <em>emp_id </em>in 
+    the <strong>Bound Column </strong>property, <em>emp_name</em> in the <strong>Text 
+    Column </strong>Property, <em>integer </em>in the <strong>Data Type </strong>property 
+   and <em>Yes</em> in the <strong>Required</strong> property. 
+  <li>Add a <strong>Validate Maximum Value </strong>action to the <strong>On Validate 
+    </strong>event of the <em><strong>Percent_ allocation</strong></em> 
+    Text Box. Set the <strong>Control Name </strong>property of the action to 
+    <em>Percent_allocation</em>, the <strong>Maximum Value</strong> property to 
+    <em>100 </em>and enter the following value into the <strong>Error message</strong> 
+    property: <em>The value in the 'Percent Allocation' field cannot be greater 
+    than 100</em>. 
+  <li>Add the appropriate programming code into <strong>On Validate </strong>event 
+    of the Record form as shown in the example. 
+  <li>Make cosmetic changes as needed, by modifying the text and captions within 
+    the HTML.</li>
+</ol>
+<h2>Database Tables used</h2>
+<p>Database: <em>Intranet</em></p>
+<p>Tables: <em>projects, employees, projects_employees</em></p>
+<h2>Programming Notes</h2>
+<p>The Record form's <strong>OnValidate</strong> event is used to make sure that an employee 
+  is not assigned to the same project twice.</p>
+<p>The <strong>OnValidate</strong> event of the <em><strong>Percent_allocation </strong></em>Text 
+  Box is used to ensure that the value entered in not greater than 100.</p>
+<p></p>
+
+</body>
+</html>

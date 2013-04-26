@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Editable Grid with Auto New Rows</title>
+<script language="JavaScript" type="text/javascript">
+var needCheck = true;
+function ShowNewEmptyRow(thisObj)
+{
+ var NS6 = (!document.all && document.getElementById) ? 1 : 0;
+ var IE  = (document.all) ? 1 : 0;
+ var O = typeof(opera) != "undefined";
+ var i;
+
+ var FormState = document.departments.FormState.value.split(";");
+ var AllLength = parseInt(FormState[0])+parseInt(FormState[1]);
+   if (needCheck)
+   {
+        for (i=1;i<=FormState[0];i++)
+            document.getElementById('departmentsdepartment_name'+i).onchange = null;
+        if (thisObj.onchange == null)
+            return;
+   }
+   thisObj.onchange = null;
+   
+   if (parseInt(FormState[0]) == 0 ) {
+      FormState[0] = 1;
+   }
+
+   for (i=FormState[0]; i<AllLength; i++) {
+     var objRow = document.getElementById('row'+i);
+     if (NS6 || O) {
+       if (objRow.style.display == "none") {
+           objRow.style.display = '';
+           objRow.LastAttribute == "True";
+           break;
+       }
+     } else 
+     {
+       if (objRow.style.display == "none") {
+           objRow.style.display = "block"; 
+           objRow.LastAttribute == "True";
+           break;
+       }
+     }
+   }
+}
+
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Editable Grid with Auto New Rows</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<!-- BEGIN EditableGrid departments -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+            <td class="th">
+              <strong>List of Departments</strong>
+ </td> 
+            <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Caption">
+            <th>Department</th>
+ 
+            <th>Manager</th>
+ 
+            <th>Delete</th>
+ 
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td> 
+          </tr>
+ <!-- END RowError -->
+          <tr class="Row" id="row{RowIDAttribute}" title="{RowNameAttribute}" {RowStyleAttribute}>
+            <!-- addedrow="{AddedRow}" -->
+            <td><label for="departmentsdepartment_name{departments:rowNumber}" style="display: none;">Department</label><input maxlength="50" onchange="ShowNewEmptyRow(this);" size="50" value="{department_name}" name="{department_name_Name}" id="departmentsdepartment_name{departments:rowNumber}">&nbsp;</td> 
+            <td><label for="departmentsmanager_id{departments:rowNumber}" style="display: none;">Manager</label> 
+              <select name="{manager_id_Name}" id="departmentsmanager_id{departments:rowNumber}">
+                <option value="" selected></option>
+ {manager_id_Options} 
+              </select>
+ </td> 
+            <td>
+              <!-- BEGIN Panel CheckBox_Delete_Panel --><label for="departmentsCheckBox_Delete{departments:rowNumber}" style="display: none;">Delete</label> 
+              <!-- BEGIN CheckBox CheckBox_Delete --><input type="checkbox" value="1" name="{CheckBox_Delete_Name}" id="departmentsCheckBox_Delete{departments:rowNumber}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete --><!-- END Panel CheckBox_Delete_Panel -->&nbsp;</td> 
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">No records&nbsp;</td> 
+          </tr>
+ <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="3">&nbsp; 
+              <!-- BEGIN Button Button_Submit --><input type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" name="{Button_Name}" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Button_Submit --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END EditableGrid departments -->{Footer}
+</body>
+</html>

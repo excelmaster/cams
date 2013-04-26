@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Updating Many-to-Many Relations via CheckBox List</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Updating Many-to-Many Relations via CheckBox List</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<table>
+  <tr>
+    <td valign="top">
+      <!-- BEGIN Grid employees -->
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top">
+            <table class="Header" cellspacing="0" cellpadding="0" border="0">
+              <tr>
+                <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                <td class="th">
+                  <strong>Employees</strong>
+ </td> 
+                <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <th>
+                <!-- BEGIN Sorter Sorter_department_name --><a href="{Sort_URL}">ID</a><!-- END Sorter Sorter_department_name --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sorter_emp_name --><a href="{Sort_URL}">Employees</a><!-- END Sorter Sorter_emp_name --></th>
+ 
+              </tr>
+ 
+              <!-- BEGIN Row -->
+              <tr class="Row">
+                <td>{emp_id}</td> 
+                <td><a href="{emp_name_Src}">{emp_name}</a></td> 
+              </tr>
+ <!-- END Row -->
+              <!-- BEGIN NoRecords -->
+              <tr class="NoRecords">
+                <td colspan="2">No records</td> 
+              </tr>
+ <!-- END NoRecords -->
+              <tr class="Footer">
+                <td nowrap colspan="2"><a href="{Link1_Src}">Add New</a>&nbsp; 
+                  <!-- BEGIN Navigator Navigator -->
+                  <!-- BEGIN First_On --><a href="{First_URL}"><img src="../Styles/EXPack/Images/First.gif" border="0" alt="{First_URL}"></a> <!-- END First_On -->
+                  <!-- BEGIN First_Off --><img src="../Styles/EXPack/Images/FirstOff.gif" border="0" alt="First Off"><!-- END First_Off -->
+                  <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img src="../Styles/EXPack/Images/Prev.gif" border="0" alt="{Prev_URL}"></a> <!-- END Prev_On -->
+                  <!-- BEGIN Prev_Off --><img src="../Styles/EXPack/Images/PrevOff.gif" border="0" alt="Prev Off"><!-- END Prev_Off -->&nbsp; 
+                  <!-- BEGIN Pages -->
+                  <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                  <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of&nbsp;{Total_Pages}&nbsp; 
+                  <!-- BEGIN Next_On --><a href="{Next_URL}"><img src="../Styles/EXPack/Images/Next.gif" border="0" alt="{Next_URL}"></a> <!-- END Next_On -->
+                  <!-- BEGIN Next_Off --><img src="../Styles/EXPack/Images/NextOff.gif" border="0" alt="Next Off"><!-- END Next_Off -->
+                  <!-- BEGIN Last_On --><a href="{Last_URL}"><img src="../Styles/EXPack/Images/Last.gif" border="0" alt="{Last_URL}"></a> <!-- END Last_On -->
+                  <!-- BEGIN Last_Off --><img src="../Styles/EXPack/Images/LastOff.gif" border="0" alt="Last Off"><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp; </td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Grid employees --></td> 
+    <td valign="top">
+      <!-- BEGIN Record employees_record -->
+      <form name="{HTMLFormName}" action="{Action}" method="post">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                  <td class="th">
+                    <strong>Add/Edit Employees</strong>
+ </td> 
+                  <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="employees_recordemp_name">Employee</label></td> 
+                  <td><input maxlength="50" size="50" value="{emp_name}" name="{emp_name_Name}" id="employees_recordemp_name"></td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th">Projects</td> 
+                  <td>
+                    <!-- BEGIN CheckBoxList ProjectList --><input type="checkbox" value="{Value}" name="{ProjectList_Name}" id="employees_recordProjectList{ProjectList:optionNumber}" {Check}><label for="employees_recordProjectList{ProjectList:optionNumber}">{Description}</label><br>
+                    <!-- END CheckBoxList ProjectList --></td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td align="right" colspan="2">
+                    <!-- BEGIN Button Insert1 --><input type="image" src="../Styles/EXPack/Images/en/ButtonInsert.gif" value="Add" name="{Button_Name}" alt="{res:CCS_Insert}" style="border-width: 0; "><!-- END Button Insert1 -->
+                    <!-- BEGIN Button Update1 --><input type="image" src="../Styles/EXPack/Images/en/ButtonUpdate.gif" value="Submit" name="{Button_Name}" alt="{res:CCS_Update}" style="border-width: 0; "><!-- END Button Update1 -->
+                    <!-- BEGIN Button Delete1 --><input type="image" src="../Styles/EXPack/Images/en/ButtonDelete.gif" value="Delete" name="{Button_Name}" alt="{res:CCS_Delete}" style="border-width: 0; "><!-- END Button Delete1 -->
+                    <!-- BEGIN Button Cancel --><input type="image" src="../Styles/EXPack/Images/en/ButtonCancel.gif" value="Cancel" name="{Button_Name}" alt="{res:CCS_Cancel}" style="border-width: 0; "><!-- END Button Cancel --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record employees_record --></td> 
+  </tr>
+</table>
+{Footer}
+</body>
+</html>

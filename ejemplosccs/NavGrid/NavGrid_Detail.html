@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Detail View</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} <br>
+<!-- BEGIN Grid employees -->
+<!-- BEGIN Sorter Sorter_emp_name --><a href="{Sort_URL}">Name</a><!-- END Sorter Sorter_emp_name -->
+<!-- BEGIN Sorter Sorter_title --><a href="{Sort_URL}">Title</a><!-- END Sorter Sorter_title -->
+<!-- BEGIN Sorter Sorter_department_name --><a href="{Sort_URL}">Department</a><!-- END Sorter Sorter_department_name -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+          <td class="th">
+            <strong>Employee</strong>
+ </td> 
+          <td class="HeaderRight"><img src="../Styles/EXPack/Images/Spacer.gif" border="0" alt=""></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Row -->
+        <tr>
+          <td>
+            <table>
+              <tr class="Row">
+                <th scope="row">Name</th>
+ 
+                <td>{emp_name}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Login</th>
+ 
+                <td>{emp_login}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Department</th>
+ 
+                <td>{department_name}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Title</th>
+ 
+                <td>{title}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Work phone</th>
+ 
+                <td>{phone_work}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Fax</th>
+ 
+                <td>{fax}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">E-mail</th>
+ 
+                <td>{email}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Address</th>
+ 
+                <td>{address}&nbsp;<br>
+                  {city}<br>
+                  {zip}</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Home phone</th>
+ 
+                <td>{phone_home}&nbsp;</td> 
+              </tr>
+ 
+              <tr class="Row">
+                <th scope="row">Cell phone</th>
+ 
+                <td>{phone_cell}&nbsp;</td> 
+              </tr>
+ 
+            </table>
+ </td> 
+          <td valign="top"><img src="../{picture}" alt="Employe Picture"></td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="3">No records</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td nowrap colspan="2">
+            <!-- BEGIN Navigator Navigator1 -->
+            <!-- BEGIN First_On --><a href="{First_URL}"><img src="../Styles/EXPack/Images/First.gif" border="0" alt="{First_URL}"></a> <!-- END First_On -->
+            <!-- BEGIN First_Off --><img src="../Styles/EXPack/Images/FirstOff.gif" border="0" alt="First Off"><!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img src="../Styles/EXPack/Images/Prev.gif" border="0" alt="{Prev_URL}"></a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off --><img src="../Styles/EXPack/Images/PrevOff.gif" border="0" alt="Prev Off"><!-- END Prev_Off -->&nbsp;{Page_Number}&nbsp;of&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}"><img src="../Styles/EXPack/Images/Next.gif" border="0" alt="{Next_URL}"></a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off --><img src="../Styles/EXPack/Images/NextOff.gif" border="0" alt="Next Off"><!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}"><img src="../Styles/EXPack/Images/Last.gif" border="0" alt="{Last_URL}"></a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off --><img src="../Styles/EXPack/Images/LastOff.gif" border="0" alt="Last Off"><!-- END Last_Off --><!-- END Navigator Navigator1 --></td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid employees -->
+<p><a href="{BackLink_Src}">Back to the Employee List</a></p>
+{Footer}
+</body>
+</html>

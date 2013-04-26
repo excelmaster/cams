@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Master-Detail Form for Order Entry</title>
+<script language="JavaScript" type="text/javascript">
+
+function StrToFloat(str)
+{
+    if (str.indexOf(",") != -1) {
+		str = str.replace(",",".");
+    }
+    var result = parseFloat(str);
+    if (isNaN(result)) {
+		result = 0.0;
+    }
+    return result;
+}
+
+function Show_Total()
+{
+ var TotalSum=0;
+ var Summ;
+    for(var i = 0; i < store_orders_itemsElements.length; i++){
+	  Summ = StrToFloat(store_orders_itemsElements[i][store_orders_itemspriceID].value) *
+            StrToFloat(store_orders_itemsElements[i][store_orders_itemsquantityID].value);
+      TotalSum = TotalSum + Summ;
+      if (Summ == 0) {
+        store_orders_itemsElements[i][store_orders_itemsSumPriceID].value = "";
+	  } else {
+        store_orders_itemsElements[i][store_orders_itemsSumPriceID].value = Math.round(Summ*100)/100;
+	  }
+    }
+    document.store_orders_items.Total_price.value = Math.round(TotalSum*100)/100;
+}
+
+function disable_record()
+{
+  document.store_orders_record.user_id.disabled = true;
+  document.store_orders_record.order_date.disabled = true;
+  document.store_orders_record.Button_Update.disabled = true;
+  document.store_orders_record.Button_Delete.disabled = true;
+
+} 
+
+function disable_editablegrid()
+{
+  if (document.forms["store_orders_items"]) {
+    for(var i = 0; i < store_orders_itemsElements.length; i++){
+	  store_orders_itemsElements[i][store_orders_itemsproduct_idID].disabled = true;
+	  store_orders_itemsElements[i][store_orders_itemsquantityID].disabled = true;
+	  store_orders_itemsElements[i][store_orders_itemspriceID].disabled = true;
+    }
+    document.store_orders_items.Button_Submit.disabled = true;
+  }
+} 
+
+
+//Begin CCS script
+//Include Common JSFunctions @1-5A8A9872
+</script>
+<script language="JavaScript" src="../ClientI18N.asp?file=Functions.js&amp;lang={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.asp?file=DatePicker.js&amp;lang={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-A63C9E29
+
+var store_orders_record_DatePicker1 = new Object(); 
+store_orders_record_DatePicker1.format           = "mm/dd/yyyy";
+store_orders_record_DatePicker1.style            = "Styles/EXPack/Style.css";
+store_orders_record_DatePicker1.relativePathPart = "../";
+store_orders_record_DatePicker1.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//store_orders_recorduser_id_OnChange @65-97AC1B77
+function store_orders_recorduser_id_OnChange()
+{
+    var result = true;
+//End store_orders_recorduser_id_OnChange
+
+//Custom Code @96-2A29BDB7
+
+  disable_editablegrid();
+
+//End Custom Code
+
+//Close store_orders_recorduser_id_OnChange @65-BC33A33A
+    return result;
+}
+//End Close store_orders_recorduser_id_OnChange
+
+//store_orders_recordorder_date_OnChange @66-82AFEB03
+function store_orders_recordorder_date_OnChange()
+{
+    var result = true;
+//End store_orders_recordorder_date_OnChange
+
+//Custom Code @97-2A29BDB7
+
+  disable_editablegrid();
+
+//End Custom Code
+
+//Close store_orders_recordorder_date_OnChange @66-BC33A33A
+    return result;
+}
+//End Close store_orders_recordorder_date_OnChange
+
+//store_orders_itemsproduct_id_OnChange @81-186172F9
+function store_orders_itemsproduct_id_OnChange()
+{
+    var result = true;
+//End store_orders_itemsproduct_id_OnChange
+
+//Custom Code @82-2A29BDB7
+
+var Element_Number = this.name.substring(11)-1;
+var Element_ID   = store_orders_itemsElements[Element_Number][store_orders_itemsproduct_idID].value;
+ if (parseInt(Element_ID) > 0) {
+    store_orders_itemsElements[Element_Number][store_orders_itemspriceID].value = product_price[parseInt(Element_ID)];
+ } else {
+    store_orders_itemsElements[Element_Number][store_orders_itemspriceID].value = 0;
+ }
+
+ Show_Total();
+ disable_record();
+
+//End Custom Code
+
+//Close store_orders_itemsproduct_id_OnChange @81-BC33A33A
+    return result;
+}
+//End Close store_orders_itemsproduct_id_OnChange
+
+//store_orders_itemsquantity_OnChange @84-3F98D028
+function store_orders_itemsquantity_OnChange()
+{
+    var result = true;
+//End store_orders_itemsquantity_OnChange
+
+//Custom Code @85-2A29BDB7
+
+ Show_Total();
+ disable_record();
+
+//End Custom Code
+
+//Close store_orders_itemsquantity_OnChange @84-BC33A33A
+    return result;
+}
+//End Close store_orders_itemsquantity_OnChange
+
+//store_orders_itemsAddItemBtn_OnClick @100-D747D282
+function store_orders_itemsAddItemBtn_OnClick()
+{
+    var result = true;
+//End store_orders_itemsAddItemBtn_OnClick
+
+//Custom Code @101-2A29BDB7
+
+var NS6 = (!document.all && document.getElementById) ? 1 : 0;
+var IE  = (document.all) ? 1 : 0;
+var O = typeof(opera) != "undefined";
+var FormState = document.store_orders_items.FormState.value.split(";");
+var AllLength = parseInt(FormState[0])+parseInt(FormState[1]);
+
+  if (parseInt(FormState[0]) == 0 ) {
+      FormState[0] = 1;
+  }
+
+  var i;
+  for (i=FormState[0]; i<AllLength; i++) {
+     var objRow = document.getElementById("row"+i);
+     if (NS6 || O) {
+       if (objRow.style.display == "none") {
+           objRow.style.display = '';
+           break;
+       }
+     } else {
+       if (objRow.style.display == "none") {
+           objRow.style.display = "block"; 
+           break;
+       }
+	 }
+  }
+
+  if (i >= AllLength) 
+      document.forms["store_orders_items"].AddItemBtn.disabled = true;
+
+//End Custom Code
+
+//Close store_orders_itemsAddItemBtn_OnClick @100-BC33A33A
+    return result;
+}
+//End Close store_orders_itemsAddItemBtn_OnClick
+
+//store_orders_items_OnLoad @77-DC27D9C1
+function store_orders_items_OnLoad()
+{
+    var result = true;
+//End store_orders_items_OnLoad
+
+//Custom Code @99-2A29BDB7
+  
+   if (typeof(initstore_orders_itemsElements) == "function")
+   {
+      initstore_orders_itemsElements();
+      Show_Total();
+   }
+
+//End Custom Code
+
+//Close store_orders_items_OnLoad @77-BC33A33A
+    return result;
+}
+//End Close store_orders_items_OnLoad
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @121-2A29BDB7
+    if (typeof(initstore_orders_itemsElements) == "function")
+    {
+        initstore_orders_itemsElements();
+        Show_Total();
+    }
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//store_orders_recordButton_Delete_OnClick @72-B92426D2
+function store_orders_recordButton_Delete_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End store_orders_recordButton_Delete_OnClick
+
+//bind_events @1-14D34517
+function bind_events() {
+    try { Header_bind_events(); } catch(e) {}
+    try { Footer_bind_events(); } catch(e) {}
+    addEventHandler("store_orders_recorduser_id", "change", store_orders_recorduser_id_OnChange);
+    addEventHandler("store_orders_recordorder_date", "change", store_orders_recordorder_date_OnChange);
+    addEventHandler("store_orders_itemsproduct_id", "change", store_orders_itemsproduct_id_OnChange);
+    addEventHandler("store_orders_itemsquantity", "change", store_orders_itemsquantity_OnChange);
+    addEventHandler("store_orders_itemsAddItemBtn", "click", store_orders_itemsAddItemBtn_OnClick);
+    addEventHandler("store_orders_items", "load", store_orders_items_OnLoad);
+    addEventHandler("", "load", _OnLoad);
+    addEventHandler("store_orders_recordButton_Delete", "click", store_orders_recordButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header} 
+<h2>Master-Detail Form for Order Entry</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<table>
+  <tr>
+    <td valign="top">
+      <!-- BEGIN Grid store_orders_grid -->
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top">
+            <table cellspacing="0" cellpadding="0" border="0" class="Header">
+              <tr>
+                <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                <td class="th">
+                  <strong>Orders</strong>
+ </td> 
+                <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <th>
+                <!-- BEGIN Sorter Sorter_order_id --><a href="{Sort_URL}">#</a><!-- END Sorter Sorter_order_id --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sorter_user_id --><a href="{Sort_URL}">Customer</a><!-- END Sorter Sorter_user_id --></th>
+ 
+                <th>
+                <!-- BEGIN Sorter Sorter_order_date --><a href="{Sort_URL}">Date</a><!-- END Sorter Sorter_order_date --></th>
+ 
+              </tr>
+ 
+              <!-- BEGIN Row -->
+              <tr class="Row">
+                <td><a href="{order_id_Src}">{order_id}</a></td> 
+                <td>{customer_name}</td> 
+                <td>{order_date}</td> 
+              </tr>
+ <!-- END Row -->
+              <!-- BEGIN NoRecords -->
+              <tr class="NoRecords">
+                <td colspan="3">No records</td> 
+              </tr>
+ <!-- END NoRecords -->
+              <tr class="Footer">
+                <td colspan="3"><a href="{Link1_Src}">Add</a> &nbsp; 
+                  <!-- BEGIN Navigator Navigator -->
+                  <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/EXPack/Images/First.gif" alt="First" /></a> <!-- END First_On -->
+                  <!-- BEGIN First_Off --><img border="0" src="../Styles/EXPack/Images/FirstOff.gif" alt="FirstOff" /><!-- END First_Off -->
+                  <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/EXPack/Images/Prev.gif" alt="Prev" /></a> <!-- END Prev_On -->
+                  <!-- BEGIN Prev_Off --><img border="0" src="../Styles/EXPack/Images/PrevOff.gif" alt="PrevOff" /><!-- END Prev_Off -->&nbsp; 
+                  <!-- BEGIN Pages -->
+                  <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                  <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of&nbsp;{Total_Pages}&nbsp; 
+                  <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/EXPack/Images/Next.gif" alt="Next" /></a> <!-- END Next_On -->
+                  <!-- BEGIN Next_Off --><img border="0" src="../Styles/EXPack/Images/NextOff.gif" alt="NextOff" /><!-- END Next_Off -->
+                  <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/EXPack/Images/Last.gif" alt="Last" /></a> <!-- END Last_On -->
+                  <!-- BEGIN Last_Off --><img border="0" src="../Styles/EXPack/Images/LastOff.gif" alt="LastOff" /><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp; </td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ <!-- END Grid store_orders_grid --></td> 
+    <td valign="top">
+      <!-- BEGIN Record store_orders_record -->
+      <form method="post" action="{Action}" name="{HTMLFormName}">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table cellspacing="0" cellpadding="0" border="0" class="Header">
+                <tr>
+                  <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                  <td class="th">
+                    <strong>Add/Edit Order</strong>
+ </td> 
+                  <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="store_orders_recorduser_id">Customer</label></td> 
+                  <td>
+                    <select name="{user_id_Name}" id="store_orders_recorduser_id">
+                      <option selected value="">Select Value</option>
+ {user_id_Options} 
+                    </select>
+ </td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="store_orders_recordorder_date">Date</label></td> 
+                  <td><input maxlength="10" name="{order_date_Name}" size="10" value="{order_date}" id="store_orders_recordorder_date">&nbsp; 
+                    <!-- BEGIN DatePicker DatePicker1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');"><img border="0" src="../Styles/EXPack/Images/DatePicker.gif" alt="Date picker"></a><!-- END DatePicker DatePicker1 --></td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td align="right" colspan="2">
+                    <!-- BEGIN Button Button_Insert --><input name="{Button_Name}" type="submit" value="Add"><!-- END Button Button_Insert -->
+                    <!-- BEGIN Button Button_Update --><input name="{Button_Name}" type="submit" value="Submit"><!-- END Button Button_Update -->
+                    <!-- BEGIN Button Button_Delete --><input name="{Button_Name}" type="submit" value="Delete"><!-- END Button Button_Delete --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record store_orders_record --><br>
+      <!-- BEGIN EditableGrid store_orders_items -->
+      <form action="{Action}" method="post" name="{HTMLFormName}">
+        <input name="FormState" type="hidden" value="{FormState}">{FormScript} {PriceArray} 
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top">
+              <table cellspacing="0" cellpadding="0" border="0" class="Header">
+                <tr>
+                  <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                  <td class="th">
+                    <strong>Order Items</strong>
+ </td> 
+                  <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Grid" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="5">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Caption">
+                  <th>Product</th>
+ 
+                  <th>Unit Price</th>
+ 
+                  <th>Quantity</th>
+ 
+                  <th>Price</th>
+ 
+                  <th>Delete</th>
+ 
+                </tr>
+ 
+                <!-- BEGIN Row -->
+                <!-- BEGIN RowError -->
+                <tr class="Error">
+                  <td colspan="5">{Error}</td> 
+                </tr>
+ <!-- END RowError -->
+                <tr class="Row" id="row{RowIDAttribute}"  {RowStyleAttribute}>
+                  <td><input name="{order_id_Name}" type="hidden" value="{order_id}"><!--{RowNameAttribute}--><label for="store_orders_itemsproduct_id_{store_orders_items:rowNumber}">Product</label> 
+                    <select name="{product_id_Name}" id="store_orders_itemsproduct_id_{store_orders_items:rowNumber}">
+                      <option selected value="">Select Value</option>
+ {product_id_Options} 
+                    </select>
+ </td> 
+                  <td><label for="store_orders_itemsprice_{store_orders_items:rowNumber}" style="display: none;">Unit Price</label><input maxlength="12" name="{price_Name}" size="10" value="{price}" id="store_orders_itemsprice_{store_orders_items:rowNumber}"></td> 
+                  <td><label for="store_orders_itemsquantity_{store_orders_items:rowNumber}" style="display: none;">Quantity</label><input maxlength="10" name="{quantity_Name}" size="5" value="{quantity}" id="store_orders_itemsquantity_{store_orders_items:rowNumber}"></td> 
+                  <td><label for="store_orders_itemsSumPrice_{store_orders_items:rowNumber}" style="display: none;">Price</label><input disabled name="{SumPrice_Name}" size="12" value="{SumPrice}" id="store_orders_itemsSumPrice_{store_orders_items:rowNumber}"></td> 
+                  <td>
+                    <!-- BEGIN Panel Delete1_Panel --><label for="store_orders_itemsDelete1{store_orders_items:rowNumber}" style="display: none;">Delete</label> 
+                    <!-- BEGIN CheckBox Delete1 --><input name="{Delete1_Name}" type="checkbox" value="1" id="store_orders_itemsDelete1{store_orders_items:rowNumber}" {Delete1}><!-- END CheckBox Delete1 --><!-- END Panel Delete1_Panel --></td> 
+                </tr>
+ <!-- END Row -->
+                <tr class="AltRow">
+                  <th colspan="3"><label for="store_orders_itemsTotal_price">Total</label></th>
+ 
+                  <td><input disabled name="Total_price" size="12" id="store_orders_itemsTotal_price"></td> 
+                  <td>&nbsp;</td> 
+                </tr>
+ 
+                <!-- BEGIN NoRecords -->
+                <tr class="NoRecords">
+                  <td colspan="5">No records&nbsp;</td> 
+                </tr>
+ <!-- END NoRecords -->
+                <tr class="Footer">
+                  <td style="text-align:right;" colspan="5">
+                    <label style="display: none;" for="store_orders_itemsAddItemBtn">Add Item</label>
+                    <!-- BEGIN Button AddItemBtn --><input name="{Button_Name}" type="button" value="Add Item" id="store_orders_itemsAddItemBtn"><!-- END Button AddItemBtn -->&nbsp; 
+                    <!-- BEGIN Button Button_Submit --><input name="{Button_Name}" type="submit" value="Submit"><!-- END Button Button_Submit --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END EditableGrid store_orders_items --></td> 
+  </tr>
+</table>
+{Footer}
+</body>
+</html>

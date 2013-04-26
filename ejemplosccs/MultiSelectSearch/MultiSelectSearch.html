@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Search Form with Multi-select ListBox</title>
+<link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_doctype.css">
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../Styles/EXPack/Style_ie6.css"><![endif]-->
+</head>
+<body>
+{Header}
+<h2>Search Form with Multi-select ListBox</h2>
+<p><a href="{Link1_Src}">View more information about this example</a></p>
+<!-- BEGIN Record employeesSearch -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="0" border="0" class="Header">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+            <td class="th">
+              <strong>Employee Search</strong>
+ </td> 
+            <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th" nowrap><label for="employeesSearchs_keyword">Emp Name or Title</label></td> 
+            <td class="KnockoutDataTD"><input maxlength="50" size="50" value="{s_keyword}" name="{s_keyword_Name}" id="employeesSearchs_keyword"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="employeesSearchs_project">Projects</label></td> 
+            <td>
+              <select multiple size="3" name="{s_project_Name}" id="employeesSearchs_project">
+                {s_project_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="right">
+              <!-- BEGIN Button DoSearch --><input name="{Button_Name}" type="image" src="../Styles/EXPack/Images/en/ButtonSearch.gif" value="Search" alt="{res:CCS_Search}" style="border-width: 0; "><!-- END Button DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record employeesSearch --><br>
+<!-- BEGIN Grid employees -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table cellspacing="0" cellpadding="0" border="0" class="Header">
+        <tr>
+          <td class="HeaderLeft"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+          <td class="th">
+            <strong>List of Employees</strong>
+ </td> 
+          <td class="HeaderRight"><img border="0" src="../Styles/EXPack/Images/Spacer.gif" alt="" /></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th nowrap>Emp Name</th>
+ 
+          <th nowrap>Title</th>
+ 
+          <th nowrap>Phone Work</th>
+ 
+          <th nowrap>Email</th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{emp_name}&nbsp;</td> 
+          <td>{title}&nbsp;</td> 
+          <td>{phone_work}&nbsp;</td> 
+          <td>{email}&nbsp;</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="4">No records</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td nowrap colspan="4">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/EXPack/Images/First.gif" alt="First" /></a> <!-- END First_On -->
+            <!-- BEGIN First_Off --><img border="0" src="../Styles/EXPack/Images/FirstOff.gif" alt="FirstOff" /><!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/EXPack/Images/Prev.gif" alt="Prev" /></a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off --><img border="0" src="../Styles/EXPack/Images/PrevOff.gif" alt="PrevOff" /><!-- END Prev_Off -->&nbsp; 
+            <!-- BEGIN Pages -->
+            <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+            <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/EXPack/Images/Next.gif" alt="Next" /></a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off --><img border="0" src="../Styles/EXPack/Images/NextOff.gif" alt="NextOff" /><!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/EXPack/Images/Last.gif" alt="Last" /></a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off --><img border="0" src="../Styles/EXPack/Images/LastOff.gif" alt="LastOff" /><!-- END Last_Off --><!-- END Navigator Navigator --></td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid employees -->{Footer}
+</body>
+</html>

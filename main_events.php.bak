@@ -1,0 +1,33 @@
+<?php
+//BindEvents Method @1-D40060DD
+function BindEvents()
+{
+    global $CCSEvents;
+    $CCSEvents["BeforeShow"] = "Page_BeforeShow";
+}
+//End BindEvents Method
+
+//Page_BeforeShow @1-1422ECA0
+function Page_BeforeShow(& $sender)
+{
+    $Page_BeforeShow = true;
+    $Component = & $sender;
+    $Container = & CCGetParentContainer($sender);
+    global $main; //Compatibility
+//End Page_BeforeShow
+
+//DLookup @72-B26E4251
+    global $DB;
+    global $;
+    $Page = CCGetParentPage($sender);
+    $ccs_result = CCDLookUp(, "", "", $Page->Connections[""]);
+    $ = $ccs_result;
+//End DLookup
+
+//Close Page_BeforeShow @1-4BC230CD
+    return $Page_BeforeShow;
+}
+//End Close Page_BeforeShow
+
+
+?>
