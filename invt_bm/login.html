@@ -1,0 +1,90 @@
+
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Set Focus @8-1B125561
+    if (document.forms["Login1"] && document.forms["Login1"].login)
+        try{document.forms["Login1"].login.focus();}catch(e){}
+//End Set Focus
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-B4BAE7CE
+function bind_events() {
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<title>Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<!-- BEGIN Panel contenido -->&nbsp;&nbsp; 
+<!-- BEGIN Record Login1 -->
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/Compact/Style_Components_doctype.css">
+<form id="contenidoLogin1" name="{HTMLFormName}" action="{Action}" method="post">
+  <table class="MainTable" cellspacing="0" cellpadding="0" align="center" border="0">
+    <tr>
+      <td valign="top">
+        <table class="HeaderCompact" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeftCompact"><img alt="" src="Styles/Compact/Images/Spacer.gif"></td> 
+            <td class="thCompact"><strong>Login</strong></td> 
+            <td class="HeaderRightCompact"><img alt="" src="Styles/Compact/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="RecordCompact" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="ErrorCompact">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="ControlsCompact">
+            <td class="thCompact"><label for="contenidoLogin1login">Login</label></td> 
+            <td><input id="ContentLogin1login" maxlength="100" value="{login}" name="{login_Name}" size="20"></td> 
+          </tr>
+ 
+          <tr class="ControlsCompact">
+            <td class="thCompact"><label for="contenidoLogin1password">Password</label></td> 
+            <td><input type="password" id="ContentLogin1password" maxlength="100" value="{password}" name="{password_Name}" size="20"></td> 
+          </tr>
+ 
+          <tr class="ControlsCompact">
+            <td class="thCompact" align="center" colspan="2"><input type="checkbox" id="contenidoLogin1autoLogin" value="1" name="{autoLogin_Name}" {autoLogin}><label for="ContentLogin1autoLogin">Remember me</label></td> 
+          </tr>
+ 
+          <tr class="BottomCompact">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_DoLogin --><input type="image" id="contenidoLogin1Button_DoLogin" style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" alt="Login" src="Styles/Compact/Images/en/ButtonLogin.gif" value="{page:pathToRoot}Login" name="{Button_Name}"><!-- END Button Button_DoLogin --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record Login1 --><!-- END Panel contenido -->
+<!-- BEGIN Panel pie -->&nbsp;<!-- END Panel pie -->
+<!-- BEGIN Panel Head -->
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+<!-- END Panel Head -->
+<!-- BEGIN Panel Content -->&nbsp;<!-- END Panel Content -->
